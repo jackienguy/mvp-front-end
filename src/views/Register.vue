@@ -5,8 +5,9 @@
         width="30vw"
         app
     >
-      <p>Your new career starts here</p>
+      <p>Discover new opportunities for you</p>
     </v-navigation-drawer>
+    <signinNavigation v-if="!mobileView"/>
        
     <v-main class="grey lighten-3">
       <v-container>
@@ -95,9 +96,13 @@
     import { required, maxLength, email } from 'vuelidate/lib/validators';
     import cookies from 'vue-cookies';
     import axios from 'axios';
+    import signinNavigation from "../components/signinNavigation.vue";
   
     export default {
         name: "Register",
+        components: {
+            signinNavigation
+        },
         mixins: [validationMixin],
         validations: {
             name: { required, maxLength: maxLength(10) },
@@ -109,21 +114,24 @@
                 },
             },
         },
-
-        data: () => ({ 
-            drawer: null,
-            userId: '',
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-            phoneNumber: '',
-            birthdate: '',
-            profilePicture: '',
-            loginToken: '',
-            checkbox: false,
-            checkbox2: false,
-        }),
+        data() { 
+            return {
+                 drawer: null,
+                userId: '',
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: '',
+                phoneNumber: '',
+                birthdate: '',
+                profilePicture: '',
+                loginToken: '',
+                checkbox: false,
+                checkbox2: false,
+                mobileView: false,
+                showNav: false
+            }
+        },
         computed: {
             checkboxErrors () {
                 const errors = []
