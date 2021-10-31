@@ -6,6 +6,7 @@
        <router-link to="/">Register</router-link>
        <router-link to="/profile">Profile</router-link>
        <router-link to="/signin">Signin</router-link>
+       <router-link to="/recruiter-dashboard">Recruiter-Dashboard</router-link>
     </div>
     <router-view/>
   </div>

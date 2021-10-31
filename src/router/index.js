@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
 import RecruiterProfile from '../views/RecruiterProfile.vue'
 import Signin from '../views/Signin.vue'
+import RecruiterDashboard from '../views/RecruiterDashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/recruiter-profile',
     name: 'RecruiterProfile',
     component: RecruiterProfile
+  },
+  {
+    path: '/recruiter-dashboard',
+    name: 'Recruiter Dashboard',
+    component: RecruiterDashboard
   },
 ]
 
