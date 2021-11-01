@@ -53,6 +53,7 @@
                                     open-delay="200"
                                     >
                                         <v-card
+                                        @click="goToPostJob"
                                         :elevation="hover ? 16 : 2"
                                         :class="{ 'on-hover': hover }"
                                         class="mx-auto"
@@ -124,11 +125,16 @@
             return {
                 links: [
                     'Dashboard',
-                    'Messages',
                     'Profile',
+                    'Messages',
                     'Interviews',
                 ],
             }
         },
+        methods: {
+            goToPostJob(){
+                 this.$router.push("/post-job");
+            }
+        }
     }
 </script>
