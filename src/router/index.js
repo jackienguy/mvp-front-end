@@ -6,6 +6,8 @@ import RecruiterProfile from '../views/RecruiterProfile.vue'
 import Signin from '../views/Signin.vue'
 import RecruiterDashboard from '../views/RecruiterDashboard.vue'
 import PostJob from '../views/PostJob.vue'
+import GetStarted from '../views/GetStarted.vue'
+
 
 Vue.use(VueRouter)
 
@@ -24,6 +26,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/get-started',
+    name: 'get-started',
+    component: GetStarted
   },
   {
     path: '/recruiter-profile',

@@ -19,7 +19,7 @@
             v-for="link in links"
             :key="link"
             >
-            {{ link }}
+            {{ link.title }}
             </v-tab>
         </v-tabs>
 
@@ -33,30 +33,17 @@
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                    <v-col cols="2">
+                    <v-col cols="3">
                         <v-sheet rounded="lg">
                             <v-list color="transparent">
                                 <v-list-item
-                                v-for="n in 5"
-                                :key="n"
+                                v-for="sideBarLink in sideBarLinks"
+                                :key="sideBarLink"
                                 link
                                 >
                                 <v-list-item-content>
                                     <v-list-item-title>
-                                    List Item {{ n }}
-                                    </v-list-item-title>
-                                </v-list-item-content>
-                                </v-list-item>
-
-                                <v-divider class="my-2"></v-divider>
-
-                                <v-list-item
-                                link
-                                color="grey lighten-4"
-                                >
-                                <v-list-item-content>
-                                    <v-list-item-title>
-                                    Refresh
+                                        {{ sideBarLink.title }}
                                     </v-list-item-title>
                                 </v-list-item-content>
                                 </v-list-item>
@@ -153,7 +140,7 @@
                                         
                                         <v-col
                                         cols="12"
-                                        md="4"
+                                        md="6"
                                         >
                                             <h2>Job Requisition Contact</h2>
                                             <v-text-field
@@ -188,7 +175,7 @@
                                         </v-col>
                                     </v-row>
                                    
-                                    <v-btn> Submit </v-btn>
+                                    <v-btn class="ma-3"> Submit </v-btn>
                                   
                                 </v-container>
                             </v-form>
@@ -204,10 +191,17 @@
     export default {
         data(){ 
             return {
-                links: ['Dashboard', 'Profile', 'Messages', 'Interviews'],
-                valid: false,
-                firstname: '',
-                lastname: '',
+                links: [
+                    {title:'Dashboard', to: '/recruiter-dashboard'}, 
+                    {title:'Profile', to: '/recruiter-profile'}, 
+                    {title:'Messages', to: '/recruiter-messages'}, 
+                    {title:'Interviews', to: '/interviews'}
+                ],
+                sideBarLinks: [
+                    {title:'Post Job', to: '/#'}, 
+                    {title:'View Job Requisitions', to: '/job-requisition'}, 
+                    {title:'View Candidates', to: '/view-candidate'}
+                ],
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => v.length <= 10 || 'Name must be less than 10 characters',
@@ -221,10 +215,6 @@
                 status2: ['Permanent', 'Temporary', 'Wage'],
             }
         },
-        methods: {
-            goToPostJob(){
-                 this.$router.push("/post-job");
-            }
-        }
+    
     }
 </script>
