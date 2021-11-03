@@ -104,7 +104,7 @@ import cookies from 'vue-cookies';
         methods: {
             updateRecruiterProfile(){
                  axios.request({
-                    url:"",
+                    url:"http://127.0.0.1:5000/api/user",
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
@@ -119,7 +119,7 @@ import cookies from 'vue-cookies';
                  }).then((response)=>{
                     cookies.get('loginToken'),
                     console.log(response);
-                    this.$router.push("/recruiter-profile")
+                    this.$router.push("/recruiter-dashboard")
                  }).catch((err)=>{
                      console.error(err);
                  })

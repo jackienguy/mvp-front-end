@@ -108,8 +108,12 @@
                     }
                 }).then((response)=> {
                     console.log(response);
-                    cookies.set('loginToken', response.data.loginToken);
-                    this.$router.push("/home");
+                    cookies.set('loginToken', response.data.login_token);
+                    if (response.data.role == 'recruiter') {
+                        this.$router.push("/recruiter-dashboard");
+                    } else {
+                        this.$router.push("/user-dashboard")
+                    }
                 }).catch((err)=>{
                     console.error(err);
                 })

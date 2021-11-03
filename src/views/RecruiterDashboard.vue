@@ -16,12 +16,13 @@
             color="grey darken-1"
         >
             <v-tab
-            v-for="link in links"
-            :key="link"
+            v-for="(link, i) in links"
+            :key="i"
+            :to="link.to"
             >
-            {{ link }}
+            {{ link.title }}
             </v-tab>
-        </v-tabs>
+        </v-tabs>    
 
         <v-avatar
             class="hidden-sm-and-down"
@@ -41,7 +42,9 @@
                     min-height="70vh"
                     rounded="lg"
                     >
-                    <!--  -->
+                    <!-- Input profile info -->
+                        <recruiterProfileInfo/>
+                      
                         <v-container class="grey lighten-5">
                             <v-row no-gutters>
                                 <v-col
@@ -75,6 +78,7 @@
                                     open-delay="200"
                                     >
                                         <v-card
+                                        @click="goToJobRequisitionPage"
                                         :elevation="hover ? 16 : 2"
                                         :class="{ 'on-hover': hover }"
                                         class="mx-auto"
@@ -120,20 +124,27 @@
 </template>
 
 <script>
+import recruiterProfileInfo from '../components/recruiterProfileInfo.vue';
+
     export default {
+        components: {
+            recruiterProfileInfo
+        },
         data(){ 
             return {
-                links: [
-                    'Dashboard',
-                    'Profile',
-                    'Messages',
-                    'Interviews',
+               links: [
+                    {title:'Dashboard', to: '/recruiter-dashboard'},  
+                    {title:'Messages', to: '/recruiter-messages'}, 
+                    {title:'Interviews', to: '/interviews'}
                 ],
             }
         },
         methods: {
             goToPostJob(){
-                 this.$router.push("/post-job");
+                this.$router.push("/post-job");
+            },
+            goToJobRequisitionPage(){
+                this.$router.push("/job-requisition");
             }
         }
     }

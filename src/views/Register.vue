@@ -7,8 +7,7 @@
     >
       <p>Discover new opportunities for you</p>
     </v-navigation-drawer>
-    <signinNavigation v-if="!mobileView"/>
-       
+  
     <v-main class="grey lighten-3">
       <v-container>
           <v-col>
@@ -29,22 +28,16 @@
                   >
                     <v-card-text>
                         <v-text-field
-                            v-model="firstname"
-                            :error-messages="nameErrors"
+                            v-model="firstName"
                             :counter="20"
                             label="First Name"
                             required
-                            @input="$v.name.$touch()"
-                            @blur="$v.name.$touch()"
                         ></v-text-field>
                         <v-text-field
-                            v-model="lastname"
-                            :error-messages="nameErrors"
+                            v-model="lastName"
                             :counter="20"
                             label="Last Name"
                             required
-                            @input="$v.name.$touch()"
-                            @blur="$v.name.$touch()"
                         ></v-text-field>
                         <v-text-field
                             v-model="email"
@@ -61,22 +54,11 @@
                             :counter="30"
                             required
                         ></v-text-field>
-                        <v-checkbox
-                            v-model="checkbox"
-                            :error-messages="checkboxErrors"
-                            label="Job Seeker"
+                        <p>I am a Job Seeker or Recruiter *</p>
+                        <v-text-field
+                            v-model="role"
                             required
-                            @change="$v.checkbox.$touch()"
-                            @blur="$v.checkbox.$touch()"
-                        ></v-checkbox>
-                        <v-checkbox
-                            v-model="checkbox2"
-                            :error-messages="checkboxErrors"
-                            label="Recruiter"
-                            required
-                            @change="$v.checkbox.$touch()"
-                            @blur="$v.checkbox.$touch()"
-                        ></v-checkbox>
+                        ></v-text-field>
 
                         <v-btn class="mr-4" @click="submitSignup">Create Account</v-btn>
                         <v-btn id="cancelBtn" class="mr-4" @click="clear">Clear</v-btn>
@@ -96,13 +78,9 @@
     import { required, maxLength, email } from 'vuelidate/lib/validators';
     import cookies from 'vue-cookies';
     import axios from 'axios';
-    import signinNavigation from "../components/signinNavigation.vue";
   
     export default {
         name: "Register",
-        components: {
-            signinNavigation
-        },
         mixins: [validationMixin],
         validations: {
             name: { required, maxLength: maxLength(10) },
@@ -116,36 +94,19 @@
         },
         data() { 
             return {
-                 drawer: null,
+                drawer: null,
                 userId: '',
                 firstName: '',
                 lastName: '',
                 email: '',
                 password: '',
-                phoneNumber: '',
-                birthdate: '',
-                profilePicture: '',
                 loginToken: '',
-                checkbox: false,
-                checkbox2: false,
+                role: '',
                 mobileView: false,
-                showNav: false
+                showNav: false,
             }
         },
         computed: {
-            checkboxErrors () {
-                const errors = []
-                if (!this.$v.checkbox.$dirty) return errors
-                !this.$v.checkbox.checked && errors.push('You must select one to continue!')
-                return errors
-            },
-            nameErrors () {
-                const errors = []
-                if (!this.$v.name.$dirty) return errors
-                !this.$v.name.maxLength && errors.push('First name must be at most 20 characters long')
-                !this.$v.name.required && errors.push('First name is required.')
-                return errors
-            },
             emailErrors () {
                 const errors = []
                 if (!this.$v.email.$dirty) return errors
@@ -167,24 +128,27 @@
                         lastName: this.lastName,
                         email: this.email,
                         password: this.password,
-                        phoneNumber: this.phoneNumber,
-                        birthdate: this.birthdate,
-                        profilePicture: this.profilePicture
+                        role: this.role
                     }
                 }).then((response)=> {
                     console.log(response);
-                    cookies.set('loginToken', response.data.loginToken);
-                    this.$router.push("/home");
+                    cookies.set('loginToken', response.data.login_token);
+                    if (response.data.role == 'recruiter') {
+                        this.$router.push("/get-started");
+                    } else {
+                        this.$router.push("/user-dashboard")
+                    }
                 }).catch((err)=>{
                     console.error(err);
                 })
             },
             clear () {
                 this.$v.$reset()
-                this.name = ''
+                this.firstName = ''
+                this.lastName = ''
                 this.email = ''
-                this.select = null
-                this.checkbox = false
+                this.password = ''
+                this.role = ''
             },
         }
     }

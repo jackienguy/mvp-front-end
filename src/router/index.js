@@ -2,12 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
-import RecruiterProfile from '../views/RecruiterProfile.vue'
 import Signin from '../views/Signin.vue'
 import RecruiterDashboard from '../views/RecruiterDashboard.vue'
 import PostJob from '../views/PostJob.vue'
 import GetStarted from '../views/GetStarted.vue'
-
+import UserDashboard from '../views/UserDashboard.vue'
+import JobRequisition from '../views/JobRequisition.vue'
 
 Vue.use(VueRouter)
 
@@ -33,11 +33,6 @@ const routes = [
     component: GetStarted
   },
   {
-    path: '/recruiter-profile',
-    name: 'RecruiterProfile',
-    component: RecruiterProfile
-  },
-  {
     path: '/recruiter-dashboard',
     name: 'recruiter-dashboard',
     component: RecruiterDashboard
@@ -46,6 +41,16 @@ const routes = [
     path: '/post-job',
     name: 'post-job',
     component: PostJob
+  },
+  {
+    path: '/job-requisition',
+    name: 'job-requisition',
+    component: JobRequisition
+  },
+  {
+    path: '/user-dashboard',
+    name: 'user-dashboard',
+    component: UserDashboard
   },
 ]
 

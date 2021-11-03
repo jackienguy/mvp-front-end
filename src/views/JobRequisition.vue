@@ -16,8 +16,9 @@
             color="grey darken-1"
         >
             <v-tab
-            v-for="link in links"
-            :key="link"
+            v-for="(link, i) in links"
+            :key="i"
+            :to="link.to"
             >
             {{ link.title }}
             </v-tab>
@@ -37,8 +38,9 @@
                         <v-sheet rounded="lg">
                             <v-list color="transparent">
                                 <v-list-item
-                                v-for="sideBarLink in sideBarLinks"
-                                :key="sideBarLink"
+                                v-for="(sideBarLink, i) in sideBarLinks"
+                                :key="i"
+                                :to="sideBarLink.to"
                                 link
                                 >
                                 <v-list-item-content>
@@ -56,65 +58,13 @@
                         min-height="70vh"
                         rounded="lg"
                         >
-                            <v-car >
-                                <v-toolbar
-                                rounded="lg"
-                                >
-                                <v-icon>mdi-account</v-icon>
-                                <v-toolbar-title class="font-weight-light">
-                                    Recruiter Profile
-                                </v-toolbar-title>
-                                <v-spacer></v-spacer>
-                                <v-btn
-                                    fab
-                                    small
-                                    @click="isEditing = !isEditing"
-                                >
-                                    <v-icon v-if="isEditing">
-                                    mdi-close
-                                    </v-icon>
-                                    <v-icon v-else>
-                                    mdi-pencil
-                                    </v-icon>
-                                </v-btn>
-                                </v-toolbar>
-                                <v-card-text>
-                                <v-text-field
-                                    :disabled="!isEditing"
-                                    color="white"
-                                    label="Name"
-                                ></v-text-field>
-                                <v-autocomplete
-                                    :disabled="!isEditing"
-                                    :items="states"
-                                    :filter="customFilter"
-                                    color="white"
-                                    item-text="name"
-                                    label="State"
-                                ></v-autocomplete>
-                                </v-card-text>
-                                <v-divider></v-divider>
-                                <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn
-                                    :disabled="!isEditing"
-                                    color="success"
-                                    @click="save"
-                                >
-                                    Save
-                                </v-btn>
-                                </v-card-actions>
-                                <v-snackbar
-                                v-model="hasSaved"
-                                :timeout="2000"
-                                absolute
-                                bottom
-                                left
-                                >
-                                Your profile has been updated
-                                </v-snackbar>
-                            </v-car>
-
+                            <!-- Input job requisition board -->
+                            <v-data-table
+                                :headers="headers"
+                                :items-per-page="5"
+                                class="elevation-1"
+                            ></v-data-table>
+                                                        
                         </v-sheet>
                     </v-col>      
                 </v-row>
@@ -124,7 +74,10 @@
 </template>
 
 <script>
+
+
     export default {
+       
         data(){ 
             return {
                 // Top nav
@@ -136,7 +89,7 @@
                 ],
                 // Side nav
                 sideBarLinks: [
-                    {title:'Post Job', to: '/#'}, 
+                    {title:'Post Job', to: '/post-job'}, 
                     {title:'View Job Requisitions', to: '/job-requisition'}, 
                     {title:'View Candidates', to: '/view-candidate'}
                 ],
@@ -153,6 +106,19 @@
                     v => !!v || 'E-mail is required',
                     v => /.+@.+/.test(v) || 'E-mail must be valid',
                 ],
+                // for job requisition table
+                headers: [
+                    {
+                        text: 'Job Title',
+                        align: 'start',
+                        sortable: false,
+                        value: 'name',
+                    },
+                    { text: 'Job ID', value: 'Job ID' },
+                    { text: 'Number of Applicants', value: 'number of applicants' },
+                    { text: 'Closing Date', value: 'date' },
+                    { text: 'Status', value: 'status' },
+                    ],
             }
         },
         methods: {
