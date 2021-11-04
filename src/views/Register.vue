@@ -54,11 +54,14 @@
                             :counter="30"
                             required
                         ></v-text-field>
-                        <p>I am a Job Seeker or Recruiter *</p>
-                        <v-text-field
-                            v-model="role"
+                        <p>I am a: *</p>
+                        <v-select
+                            :v-model="role"
+                            :items="roles"
+                            label="-- select --"
+                            solo
                             required
-                        ></v-text-field>
+                        ></v-select>
 
                         <v-btn class="mr-4" @click="submitSignup">Create Account</v-btn>
                         <v-btn id="cancelBtn" class="mr-4" @click="clear">Clear</v-btn>
@@ -86,11 +89,6 @@
             name: { required, maxLength: maxLength(10) },
             email: { required, email },
             select: { required },
-            checkbox: {
-                checked (val) {
-                return val
-                },
-            },
         },
         data() { 
             return {
@@ -104,6 +102,7 @@
                 role: '',
                 mobileView: false,
                 showNav: false,
+                roles: ['job seeker', 'recruiter']
             }
         },
         computed: {
@@ -132,7 +131,7 @@
                     }
                 }).then((response)=> {
                     console.log(response);
-                    cookies.set('loginToken', response.data.login_token);
+                    cookies.set('loginToken', response.data.loginToken);
                     if (response.data.role == 'recruiter') {
                         this.$router.push("/get-started");
                     } else {

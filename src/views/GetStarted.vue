@@ -59,6 +59,15 @@
                                                 clearable
                                                 required
                                             ></v-text-field>
+                                            <p>Your phone number *</p>
+                                            <v-text-field
+                                                v-model="phoneNumber"
+                                                :rules="requiredRule"
+                                                solo
+                                                label="(xxx)-xxx-xxxx"
+                                                clearable
+                                                required
+                                            ></v-text-field>
                                            <p>Link to your company's website</p>
                                             <v-text-field
                                                 v-model="companyWebsite"
@@ -96,6 +105,7 @@ import cookies from 'vue-cookies';
                 location: '',
                 companyWebsite: '',
                 workingTitle: '',
+                phoneNumber: '',
                 requiredRule: [
                     v => !!v || 'This field is required',
                 ]
@@ -110,7 +120,7 @@ import cookies from 'vue-cookies';
                         "Content-Type": "application/json"
                      },
                      data: {
-                        loginToken: cookies.get ('loginToken'),
+                        loginToken: cookies.get ('login_token'),
                         organizationName: this.organizationName,
                         location: this.location,
                         companyWebsite: this.companyWebsite,

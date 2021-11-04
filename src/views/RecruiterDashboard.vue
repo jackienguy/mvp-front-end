@@ -1,50 +1,45 @@
 <template>
-  <v-app id="inspire">
-    <v-app-bar
-        app
-        color="white"
-        flat
-        >
-        <v-avatar
-            :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
-            size="32"
-        ></v-avatar>
-
-        <v-tabs
-            centered
-            class="ml-n9"
-            color="grey darken-1"
-        >
-            <v-tab
-            v-for="(link, i) in links"
-            :key="i"
-            :to="link.to"
+    <v-app id="inspire">
+        <v-app-bar
+            app
+            color="white"
+            flat
             >
-            {{ link.title }}
-            </v-tab>
-        </v-tabs>    
-
-        <v-avatar
-            class="hidden-sm-and-down"
-            color="grey darken-1 shrink"
-            size="32"
-        ></v-avatar>
-    </v-app-bar>
+            <v-tabs
+                centered
+                class="ml-n9"
+                color="grey darken-1"
+            >
+                <v-tab
+                v-for="(link, i) in links"
+                :key="i"
+                :to="link.to"
+                >
+                {{ link.title }}
+                </v-tab>
+            </v-tabs>    
+        </v-app-bar>
 
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                <v-col
-                    cols="12"
-                    sm="12"
-                >
-                    <v-sheet
+                    <v-col cols="3">
+                        <v-sheet 
+                        rounded="lg"
+                        height="70vh"
+                        >
+                            <ProfileInfo/>
+                            <ProfileCard/>
+                        </v-sheet>
+                    </v-col>
+
+                    <v-col>
+                            <v-sheet
                     min-height="70vh"
                     rounded="lg"
                     >
-                    <!-- Input profile info -->
-                        <recruiterProfileInfo/>
-                      
+                    
+                        
                         <v-container class="grey lighten-5">
                             <v-row no-gutters>
                                 <v-col
@@ -64,12 +59,12 @@
                                         max-width="350"
                                         >
                                         <v-card-text class="font-weight-medium mt-12 text-center text-subtitle-1">
-                                         <p>Post Job</p>
+                                            <p>Post Job</p>
                                         </v-card-text>
                                         </v-card>
                                     </v-hover>
                                 </v-col>
-                                 <v-col
+                                    <v-col
                                 cols="12"
                                 sm="4"
                                 >
@@ -86,12 +81,12 @@
                                         max-width="350"
                                         >
                                         <v-card-text class="font-weight-medium mt-12 text-center text-subtitle-1">
-                                         <p>View Job Requisitions</p>
+                                            <p>View Job Requisitions</p>
                                         </v-card-text>
                                         </v-card>
                                     </v-hover>
                                 </v-col>
-                                 <v-col
+                                    <v-col
                                 cols="12"
                                 sm="4"
                                 >
@@ -107,7 +102,7 @@
                                         max-width="350"
                                         >
                                         <v-card-text class="font-weight-medium mt-12 text-center text-subtitle-1">
-                                         <p>View Candidates</p>
+                                            <p>View Candidates</p>
                                         </v-card-text>
                                         </v-card>
                                     </v-hover>
@@ -116,7 +111,7 @@
                         </v-container>
 
                     </v-sheet>
-                </v-col>
+                    </v-col>      
                 </v-row>
             </v-container>
         </v-main>
@@ -124,15 +119,17 @@
 </template>
 
 <script>
-import recruiterProfileInfo from '../components/recruiterProfileInfo.vue';
+import ProfileInfo from '../components/ProfileInfo.vue';
+import ProfileCard from '../components/ProfileCard.vue';
 
     export default {
         components: {
-            recruiterProfileInfo
+            ProfileInfo,
+            ProfileCard
         },
         data(){ 
             return {
-               links: [
+                links: [
                     {title:'Dashboard', to: '/recruiter-dashboard'},  
                     {title:'Messages', to: '/recruiter-messages'}, 
                     {title:'Interviews', to: '/interviews'}

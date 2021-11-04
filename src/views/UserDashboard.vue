@@ -34,53 +34,40 @@
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                <v-col
-                    cols="12"
-                    sm="12"
-                >
-                    <v-sheet
-                    min-height="70vh"
-                    rounded="lg"
-                    >
-
-                     <v-container>
-                            <v-list-item link>
-                            <v-list-item-content>
-                            <v-list-item-title class="text-h6">
-                                <h3>Hi, User Name{{firstName}} {{lastName}}</h3>  
-                            </v-list-item-title>
-                            </v-list-item-content>
-                           
-                      
-
-                            <v-responsive max-width="400">
-                                <v-text-field
-                                class="ma-8"
-                                dense
-                                flat
-                                hide-details
-                                rounded
-                                solo-inverted
-                                label="Search Job"
-                                ></v-text-field>
-                            </v-responsive>
-                             </v-list-item>
-                    </v-container>
-                    <!--  -->
-                        <v-container class="grey lighten-5">
-                          <h3>Featured Jobs</h3>
-                           <v-card
-                                class="mx-auto"
-                                max-width="50vw"
-                                height="30vh"
-                            >
-                                <v-card-text>
-                                  v-for="[workingTitle, location, company] in ad"
-                                  :key="post"
-                                  ad
-                                <div>Word of the Day</div>
-                                <p class="text-h4 text--primary">
-                                    {{workingTitle}}
+                    <v-col cols="3">
+                        <v-sheet 
+                        rounded="lg"
+                        height="70vh"
+                        >
+                            <ProfileInfo/>
+                            <ProfileCard/>
+                        </v-sheet>
+                    </v-col>
+                    <v-col>
+                        <v-sheet
+                        min-height="70vh"
+                        rounded="lg"
+                        >
+                        <v-responsive max-width="400">
+                            <v-text-field
+                            class="ma-8"
+                            dense
+                            flat
+                            hide-details
+                            rounded
+                            solo-inverted
+                            label="Search Job"
+                            ></v-text-field>
+                        </v-responsive>
+                        <h3>Featured Jobs</h3>
+                        <v-card
+                            class="mx-auto"
+                            max-width="50vw"
+                            height="30vh"
+                        >
+                            <v-card-text>
+                                <p class="text-h5 text--primary">
+                                    Placeholder for working title
                                 </p>
                                 <p>{{location}}</p>
                                 <div class="text--primary">
@@ -98,33 +85,31 @@
                                 </v-card-actions>
 
                                 <v-expand-transition>
-                                <v-card
-                                    v-if="reveal"
-                                    class="transition-fast-in-fast-out v-card--reveal"
-                                    height="800"
-                                >
-                                    <v-card-text class="pb-0">
-                                    <p class="text-h4 text--primary">
-                                        Origin
-                                    </p>
-                                    <p>late 16th century (as a noun denoting a place where alms were distributed): from medieval Latin eleemosynarius, from late Latin eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’ </p>
-                                    </v-card-text>
-                                    <v-card-actions class="pt-0">
-                                    <v-btn
-                                        text
-                                        color="teal accent-4"
-                                        @click="reveal = false"
+                                    <v-card
+                                        v-if="reveal"
+                                        class="transition-fast-in-fast-out v-card--reveal"
+                                        height="800"
                                     >
-                                        Close
-                                    </v-btn>
-                                    </v-card-actions>
-                                </v-card>
+                                        <v-card-text class="pb-0">
+                                        <p class="text-h4 text--primary">
+                                            Origin
+                                        </p>
+                                        <p>late 16th century (as a noun denoting a place where alms were distributed): from medieval Latin eleemosynarius, from late Latin eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’ </p>
+                                        </v-card-text>
+                                        <v-card-actions class="pt-0">
+                                        <v-btn
+                                            text
+                                            color="teal accent-4"
+                                            @click="reveal = false"
+                                        >
+                                            Close
+                                        </v-btn>
+                                        </v-card-actions>
+                                    </v-card>
                                 </v-expand-transition>
                             </v-card>
-                        </v-container>
-
-                    </v-sheet>
-                </v-col>
+                        </v-sheet>   
+                    </v-col> 
                 </v-row>
             </v-container>
         </v-main>
@@ -132,7 +117,14 @@
 </template>
 
 <script>
+import ProfileInfo from '../components/ProfileInfo.vue';
+import ProfileCard from '../components/ProfileCard.vue';
+
     export default {
+        components: {
+            ProfileInfo,
+            ProfileCard
+        },
         data(){ 
             return {
                links: [

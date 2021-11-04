@@ -1,33 +1,32 @@
 <template>
     <div>
-        <recruiterProfileBody 
-        v-for="recruiter in users"
-        :key="recruiter.userId"
-        :userId="recruiter.userId"
-        :email="recruiter.email"
-        :firstName="recruiter.firstName"
-        :lastName="recruiter.lastName"
-        :phoneNumber="recruiter.phoneNumber"
-        :organizationName="recruiter.organizationName"
-        :location="recruiter.location"
-        :workingTitle="recruiter.workingTitle"
-        :companyWebsite="recruiter.companyWebsite"
+        <ProfileCard 
+        v-for="user in users"
+        :key="user.userId"
+        :userId="user.userId"
+        :email="user.email"
+        :firstName="user.firstName"
+        :lastName="user.lastName"
+        :organizationName="user.organizationName"
+        :location="user.location"
+        :workingTitle="user.workingTitle"
+        :phoneNumber="user.phoneNumber"
         />
     </div>
 </template>
 
 <script>
-import recruiterProfileBody from './recruiterProfileBody.vue';
+import ProfileCard from './ProfileCard.vue';
 import axios from 'axios'
 
     export default {
-        name: "recruiterProfileInfo",
+        name: "ProfileInfo",
         components: { 
-            recruiterProfileBody 
+            ProfileCard 
         },
         data() {
             return {
-                users: []
+                users: [] 
             }
         },
         mounted() {
@@ -39,8 +38,8 @@ import axios from 'axios'
                     url: "http://127.0.0.1:5000/api/user",
                     methods: "GET",
                     params: {
-                        userId: 9
-                    },
+                        userId: this.userId
+                    }
                 }).then((response)=>{
                     console.log(response);
                 }).catch((err)=>{

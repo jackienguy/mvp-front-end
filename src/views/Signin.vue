@@ -108,7 +108,7 @@
                     }
                 }).then((response)=> {
                     console.log(response);
-                    cookies.set('loginToken', response.data.login_token);
+                    cookies.set('loginToken', response.data.loginToken);
                     if (response.data.role == 'recruiter') {
                         this.$router.push("/recruiter-dashboard");
                     } else {

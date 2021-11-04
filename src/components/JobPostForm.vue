@@ -59,6 +59,14 @@
                             clearable
                             required
                         ></v-text-field>
+                        <p>Salary Range</p>
+                        <v-text-field
+                            v-model="salaryRange"
+                            solo
+                            label="i.e $40,000 - $50,000 annually"
+                            clearable
+                            required
+                        ></v-text-field>
                         <p>Closing Date *</p>
                         <v-text-field
                             v-model="closingDate"
@@ -139,7 +147,7 @@
                     </v-col>
                 </v-row>
                 
-                <v-btn class="ma-3"> Submit </v-btn>
+                <v-btn @click="submitJobPost" class="ma-3"> Submit </v-btn>
                 
             </v-container>
         </v-form>
@@ -159,6 +167,7 @@
                 ftStatus: '',
                 permStatus: '',
                 duration: '',
+                salaryRange: '',
                 about: '',
                 responsibilities: '',
                 qualifications: '',

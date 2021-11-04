@@ -1,32 +1,49 @@
 <template>
     <div>
-         <v-container>
-            <v-list-item link>
+         <v-avatar
+                :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
+                size="32"
+        ></v-avatar>
+        <v-avatar
+            class="hidden-sm-and-down"
+            color="grey darken-1 shrink"
+            size="65"
+        ></v-avatar>
+
+        <v-list-item link>
             <v-list-item-content>
-            <v-list-item-title class="text-h6">
-                <h3>Hi, Jane Doe{{firstName}} {{lastName}}</h3>  
-            </v-list-item-title>
-            <v-list-item-subtitle>Recruiter{{workingTitle}}</v-list-item-subtitle>
-            <v-list-item-subtitle>Company 123{{organizationName}}</v-list-item-subtitle>
-            <v-list-item-subtitle>Company 123{{location}}</v-list-item-subtitle>
+                <v-list-item-title class="text-h7">
+                    Placeholder for name{{firstName}} {{lastName}} 
+                </v-list-item-title>
+                    <v-list-item-subtitle>Placeholder for workting title{{workingTitle}}</v-list-item-subtitle>
+                    <v-list-item-subtitle>Placeholder for company name{{organizationName}}</v-list-item-subtitle>
+                    <v-list-item-subtitle>Placeholder for location{{location}}</v-list-item-subtitle>
+
+                <v-spacer></v-spacer>
+                <v-spacer></v-spacer>
+
+                <v-list-item-title class="text-h7">
+                    Contact 
+                </v-list-item-title>
+                    <v-list-item-subtitle>Email: {{email}}</v-list-item-subtitle>
+                    <v-list-item-subtitle>Phone: {{phoneNumber}}</v-list-item-subtitle>
             </v-list-item-content>
-            </v-list-item>
-        </v-container>
+        </v-list-item>
     </div>
 </template>
 
 <script>
     export default {
-        name: "recruiterProfileBody",
+        name: "ProfileCard",
         props: {
             userId: Number,
-            email: String,
             firstName: String,
             lastName: String,
             organizationName: String,
             location: String,
             workingTitle: String,
-            companyWebsite: String
+            email: String,
+            phoneNumber: String
         },
         data() {
             return {
