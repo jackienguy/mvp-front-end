@@ -8,6 +8,7 @@ import PostJob from '../views/PostJob.vue'
 import GetStarted from '../views/GetStarted.vue'
 import UserDashboard from '../views/UserDashboard.vue'
 import JobRequisition from '../views/JobRequisition.vue'
+import JobPosting from '../views/JobPosting.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const routes = [
     path: '/post-job',
     name: 'post-job',
     component: PostJob
+  },
+  {
+    path: '/job-posting',
+    name: 'jobs-posting',
+    component: JobPosting
   },
   {
     path: '/job-requisition',

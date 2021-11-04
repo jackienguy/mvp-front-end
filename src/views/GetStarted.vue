@@ -120,7 +120,7 @@ import cookies from 'vue-cookies';
                         "Content-Type": "application/json"
                      },
                      data: {
-                        loginToken: cookies.get ('login_token'),
+                        loginToken: cookies.get ('loginToken'),
                         organizationName: this.organizationName,
                         location: this.location,
                         companyWebsite: this.companyWebsite,

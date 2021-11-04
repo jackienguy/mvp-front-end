@@ -18,6 +18,7 @@
 <script>
 import ProfileCard from './ProfileCard.vue';
 import axios from 'axios'
+import cookies from 'vue-cookies'
 
     export default {
         name: "ProfileInfo",
@@ -38,10 +39,11 @@ import axios from 'axios'
                     url: "http://127.0.0.1:5000/api/user",
                     methods: "GET",
                     params: {
-                        userId: this.userId
+                        userId: cookies.get('userId')
                     }
                 }).then((response)=>{
                     console.log(response);
+                    this.users = response.data[0]
                 }).catch((err)=>{
                     console.error(err);
                 })

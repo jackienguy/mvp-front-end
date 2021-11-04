@@ -5,11 +5,6 @@
         color="white"
         flat
         >
-        <v-avatar
-            :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
-            size="32"
-        ></v-avatar>
-
         <v-tabs
             centered
             class="ml-n9"
@@ -69,9 +64,9 @@
                                 <p class="text-h5 text--primary">
                                     Placeholder for working title
                                 </p>
-                                <p>{{location}}</p>
+                                <p>Placeholder for location</p>
                                 <div class="text--primary">
-                                    {{company}}
+                                    Placeholder for company
                                 </div>
                                 </v-card-text>
                                 <v-card-actions>

@@ -55,13 +55,11 @@
                             required
                         ></v-text-field>
                         <p>I am a: *</p>
-                        <v-select
-                            :v-model="role"
-                            :items="roles"
-                            label="-- select --"
-                            solo
+                         <v-text-field
+                            v-model="role"
+                            label="enter job seeker or recruiter"
                             required
-                        ></v-select>
+                        ></v-text-field>
 
                         <v-btn class="mr-4" @click="submitSignup">Create Account</v-btn>
                         <v-btn id="cancelBtn" class="mr-4" @click="clear">Clear</v-btn>
@@ -132,6 +130,7 @@
                 }).then((response)=> {
                     console.log(response);
                     cookies.set('loginToken', response.data.loginToken);
+                    cookies.set('userId', response.data.userId);
                     if (response.data.role == 'recruiter') {
                         this.$router.push("/get-started");
                     } else {
