@@ -58,9 +58,9 @@
                     </v-icon>
                 </v-btn>
             </v-list-item-title>
-            <v-list-item-title class="text-h7"> Bachelors of Commerce{{certificateName}} at Fake University{{institutionName}}, Edmonton, AB{{location}} </v-list-item-title>
-            <v-list-item-subtitle>Major: Accounting {{major}} </v-list-item-subtitle>
-            <v-list-item-subtitle>Jan 2020 {{completionDate}} </v-list-item-subtitle>
+            <v-list-item-title class="text-h7"> {{certificateName}} at {{institutionName}}, {{location}} </v-list-item-title>
+            <v-list-item-subtitle>Major: {{major}} </v-list-item-subtitle>
+            <v-list-item-subtitle>Completed: {{completionDate}} </v-list-item-subtitle>
         </div>
     </div>
 </template>

@@ -40,13 +40,7 @@
                         >
 
                             <v-card-text>
-                                <p class="text-h5 text--primary">
-                                    Placeholder for working title
-                                </p>
-                                <p>Placeholder for location</p>
-                                <div class="text--primary">
-                                    Placeholder for company
-                                </div>
+                                    <jobsInfo/>
                                 </v-card-text>
                                 <v-card-actions>
                                 <v-btn
@@ -93,12 +87,14 @@
 <script>
 import ProfileInfo from '../components/ProfileInfo.vue';
 import UserTopNav from '../components/UserTopNav.vue';
+import JobsInfo from '../components/JobsInfo.vue'
 
 
     export default {
         components: {
             ProfileInfo,
-            UserTopNav
+            UserTopNav,
+            JobsInfo
         },
         data(){ 
             return {

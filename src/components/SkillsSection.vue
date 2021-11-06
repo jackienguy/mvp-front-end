@@ -34,7 +34,7 @@
                     </v-icon>
                 </v-btn>
             </v-list-item-title>
-            <v-list-item-title class="text-h7"> MS Suite{{skillType}} - Advanced{{proficiencyLevel}}</v-list-item-title>
+            <v-list-item-title class="text-h7"> {{skillType}} - {{proficiencyLevel}}</v-list-item-title>
         </div>
     </div>
 </template>

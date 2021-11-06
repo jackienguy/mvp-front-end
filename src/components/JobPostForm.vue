@@ -200,7 +200,7 @@ import cookies from "vue-cookies"
                     },
                     data: {
                         loginToken: cookies.get('loginToken'),
-                        recruiterId: cookies.get('userId'),
+                        recruiterId: cookies.set('recruiterId'),
                         organizationName: this.organizationName,
                         workingTitle:this.workingTitle,
                         location: this.location,

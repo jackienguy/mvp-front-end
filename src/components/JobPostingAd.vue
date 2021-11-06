@@ -42,6 +42,7 @@
         name: "JobPostingAd",
         props: {
             jobId: Number,
+            recruiterId: Number,
             workingTitle: String,
             organizationName: String,
             location: String,

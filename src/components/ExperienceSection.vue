@@ -58,9 +58,9 @@
                     </v-icon>
                 </v-btn>
             </v-list-item-title>
-            <v-list-item-title class="text-h7"> HRBP{{workingTitle}} at Company123{{companyName}}, Edmonton, AB{{workLocation}} </v-list-item-title>
-            <v-list-item-subtitle>Jan 2020 {{startDate}} - Now{{endDate}} </v-list-item-subtitle>
-            <v-list-item-subtitle>Description {{description}} </v-list-item-subtitle>
+            <v-list-item-title class="text-h7"> {{workingTitle}} at {{companyName}}, {{workLocation}} </v-list-item-title>
+            <v-list-item-subtitle> {{startDate}} - {{endDate}} </v-list-item-subtitle>
+            <v-list-item-subtitle> {{description}} </v-list-item-subtitle>
         </div>
     </div>
 </template>

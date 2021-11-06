@@ -4,6 +4,7 @@
         v-for="post in postings"
         :key="post.jobId"
         :jobId="post.jobId"
+        :recruiterId="post.recruiterId"
         :workingTitle="post.workingTitle"
         :organizationName="post.organizationName"
         :location="post.location"
@@ -27,6 +28,7 @@
 import JobPostingAd from "./JobPostingAd.vue";
 import axios from "axios";
 
+
     export default {
         name: "JobsInfo",
         components: {
@@ -46,7 +48,7 @@ import axios from "axios";
                     url: "http://127.0.0.1:5000/api/jobs",
                     methods: "GET",
                     params: {
-                        jobId: this.postings.jobId
+                        recruiterId: 22
                     }
                 }).then((response)=>{
                     console.log(response);
