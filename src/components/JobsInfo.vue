@@ -25,6 +25,7 @@
 
 <script>
 import JobPostingAd from "./JobPostingAd.vue";
+import axios from "axios";
 
     export default {
         name: "JobsInfo",
@@ -34,6 +35,25 @@ import JobPostingAd from "./JobPostingAd.vue";
         data() {
             return {
                 postings: []
+            }
+        },
+        mounted() {
+            this.getJobsInfo()
+        },
+        methods: {
+            getJobsInfo() {
+                axios.request ({
+                    url: "http://127.0.0.1:5000/api/jobs",
+                    methods: "GET",
+                    params: {
+                        jobId: this.postings.jobId
+                    }
+                }).then((response)=>{
+                    console.log(response);
+                    this.postings = response.data
+                }).catch((err)=>{
+                    console.error(err);
+                })
             }
         }
     }

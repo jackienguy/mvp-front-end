@@ -9,6 +9,8 @@ import GetStarted from '../views/GetStarted.vue'
 import UserDashboard from '../views/UserDashboard.vue'
 import JobRequisition from '../views/JobRequisition.vue'
 import JobPosting from '../views/JobPosting.vue'
+import UserProfile from '../views/UserProfile.vue'
+
 
 Vue.use(VueRouter)
 
@@ -57,6 +59,11 @@ const routes = [
     path: '/user-dashboard',
     name: 'user-dashboard',
     component: UserDashboard
+  },
+  {
+    path: '/user-profile',
+    name: 'user-profile',
+    component: UserProfile
   },
 ]
 

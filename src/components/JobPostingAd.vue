@@ -31,7 +31,8 @@
                         <p> {{ recruiterEmail }} </p>
                         <p> {{ recruiterPhoneNumber }} </p>
                 </div>
-            </v-card-text>   
+            </v-card-text> 
+            <v-btn @click="apply" class="ma-5"> Apply </v-btn>  
         </v-card>
     </div>
 </template>
@@ -56,7 +57,13 @@
             recruiterTitle: String,
             recruiterEmail: String,
             recruiterPhoneNumber: String
-        }  
+        },
+        methods: {
+            apply() {
+                this.$router.push('/application')
+            }
+            
+        }
     }
 </script>
 

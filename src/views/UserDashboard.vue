@@ -1,30 +1,7 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar
-        app
-        color="white"
-        flat
-        >
-        <v-tabs
-            centered
-            class="ml-n9"
-            color="grey darken-1"
-        >
-            <v-tab
-            v-for="(link, i) in links"
-            :key="i"
-            :to="link.to"
-            >
-            {{ link.title }}
-            </v-tab>
-        </v-tabs>
-
-        <v-avatar
-            class="hidden-sm-and-down"
-            color="grey darken-1 shrink"
-            size="32"
-        ></v-avatar>
-    </v-app-bar>
+      <!-- import user top nav component -->
+      <UserTopNav/>
 
         <v-main class="grey lighten-3">
             <v-container>
@@ -34,8 +11,8 @@
                         rounded="lg"
                         height="70vh"
                         >
+                            <!-- import user profile info -->
                             <ProfileInfo/>
-                            <ProfileCard/>
                         </v-sheet>
                     </v-col>
                     <v-col>
@@ -54,12 +31,14 @@
                             label="Search Job"
                             ></v-text-field>
                         </v-responsive>
+                        <v-divider></v-divider>
                         <h3>Featured Jobs</h3>
                         <v-card
                             class="mx-auto"
                             max-width="50vw"
                             height="30vh"
                         >
+
                             <v-card-text>
                                 <p class="text-h5 text--primary">
                                     Placeholder for working title
@@ -113,12 +92,13 @@
 
 <script>
 import ProfileInfo from '../components/ProfileInfo.vue';
-import ProfileCard from '../components/ProfileCard.vue';
+import UserTopNav from '../components/UserTopNav.vue';
+
 
     export default {
         components: {
             ProfileInfo,
-            ProfileCard
+            UserTopNav
         },
         data(){ 
             return {

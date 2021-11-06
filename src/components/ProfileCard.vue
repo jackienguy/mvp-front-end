@@ -1,34 +1,42 @@
 <template>
     <div>
-         <v-avatar
-                :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
-                size="32"
-        ></v-avatar>
-        <v-avatar
-            class="hidden-sm-and-down"
-            color="grey darken-1 shrink"
-            size="65"
-        ></v-avatar>
+        <v-row justify="center">
+            <v-avatar
+                class="ma-7"
+                color="indigo"
+                size="65"
+            >
+                    <v-icon dark>
+                        mdi-account-circle
+                    </v-icon>
+            </v-avatar>
+        </v-row>
+
+        <v-divider></v-divider>
+        
+        <v-list-item link>
+            <v-list-item-content class="text-center">
+                <v-list-item-title class="text-h7">
+                   <b>{{firstName}} {{lastName}} </b> 
+                </v-list-item-title>
+                    <v-list-item-subtitle>{{workingTitle}}</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
+            </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
 
         <v-list-item link>
-            <v-list-item-content>
-                <v-list-item-title class="text-h7">
-                    Placeholder for name{{firstName}} {{lastName}} 
-                </v-list-item-title>
-                    <v-list-item-subtitle>Placeholder for workting title{{workingTitle}}</v-list-item-subtitle>
-                    <v-list-item-subtitle>Placeholder for company name{{organizationName}}</v-list-item-subtitle>
-                    <v-list-item-subtitle>Placeholder for location{{location}}</v-list-item-subtitle>
-
-                <v-spacer></v-spacer>
-                <v-spacer></v-spacer>
-
+            <v-list-item-content class="text-center">
                 <v-list-item-title class="text-h7">
                     Contact 
                 </v-list-item-title>
                     <v-list-item-subtitle>Email: {{email}}</v-list-item-subtitle>
                     <v-list-item-subtitle>Phone: {{phoneNumber}}</v-list-item-subtitle>
-            </v-list-item-content>
+          </v-list-item-content>
         </v-list-item>
+            
     </div>
 </template>
 

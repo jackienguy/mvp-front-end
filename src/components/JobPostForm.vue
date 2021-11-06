@@ -1,6 +1,6 @@
 <template>
     <div>
-         <v-form 
+        <v-form 
         class="pl-16 pt-8"
         v-model="valid"
         >
@@ -36,21 +36,21 @@
                             required
                         ></v-text-field>
                         <p>Full Time or Part Time *</p>
-                        <v-select
-                            :v-model="ftStatus"
-                            :items="status1"
-                            label="-- select --"
+                        <v-text-field
+                            v-model="ftStatus"
                             solo
+                            label="full time or part time"
+                            clearable
                             required
-                        ></v-select>
+                        ></v-text-field>
                         <p>Permanent or Temporary *</p>
-                        <v-select
-                            :v-model="permStatus"
-                            :items="status2"
-                            label="-- select --"
+                       <v-text-field
+                            v-model="permStatus"
                             solo
+                            label="permanent or temporary"
+                            clearable
                             required
-                        ></v-select>
+                        ></v-text-field>
                         <p>Duration for Temporary Positions (i.e. up to 6 months)</p>
                         <v-text-field
                             v-model="duration"
@@ -155,10 +155,12 @@
 </template>
 
 <script>
+import axios from "axios";
+import cookies from "vue-cookies"
+
     export default {
         data(){ 
             return {
-                valid: false,
                 jobId: '',
                 recruiterId: '',
                 organizationName: '',
@@ -176,6 +178,7 @@
                 recruiterEmail: '',
                 recruiterPhoneNumber: '',
                 recruiterTitle: '',
+                valid: false,
                 requiredRules: [
                     v => !!v || 'This field is required',
                 ],
@@ -187,6 +190,41 @@
                 status2: ['Permanent', 'Temporary'],
             }
         },
+        methods: {
+            submitJobPost() {
+                axios.request ({
+                    url: "http://127.0.0.1:5000/api/jobs",
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: {
+                        loginToken: cookies.get('loginToken'),
+                        recruiterId: cookies.get('userId'),
+                        organizationName: this.organizationName,
+                        workingTitle:this.workingTitle,
+                        location: this.location,
+                        ftStatus: this.ftStatus,
+                        permStatus: this.permStatus,
+                        duration: this.duration,
+                        salaryRange: this.salaryRange,
+                        about: this.about,
+                        responsibilities: this.responsibilities,
+                        qualifications: this.qualifications,
+                        closingDate: this.closingDate,
+                        recruiterName: this.recruiterName,
+                        recruiterEmail: this.recruiterEmail,
+                        recruiterPhoneNumber: this.recruiterPhoneNumber,
+                        recruiterTitle: this.recruiterTitle,
+                    }
+                }).then((response)=>{
+                    console.log(response);
+                    this.$router.push('/job-posting');
+                }).catch((err)=>{
+                    console.error(err);
+                })
+            }
+        }
     }
 </script>
 

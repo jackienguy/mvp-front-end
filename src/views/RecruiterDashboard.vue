@@ -1,25 +1,6 @@
 <template>
     <v-app id="inspire">
-        <v-app-bar
-            app
-            color="white"
-            flat
-            >
-            <v-tabs
-                centered
-                class="ml-n9"
-                color="grey darken-1"
-            >
-                <v-tab
-                v-for="(link, i) in links"
-                :key="i"
-                :to="link.to"
-                >
-                {{ link.title }}
-                </v-tab>
-            </v-tabs>    
-        </v-app-bar>
-
+       <RecruiterTopNav/>
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
@@ -29,7 +10,6 @@
                         height="70vh"
                         >
                             <ProfileInfo/>
-                            <ProfileCard/>
                         </v-sheet>
                     </v-col>
 
@@ -120,21 +100,12 @@
 
 <script>
 import ProfileInfo from '../components/ProfileInfo.vue';
-import ProfileCard from '../components/ProfileCard.vue';
+import RecruiterTopNav from '../components/RecrutierTopNav.vue'
 
     export default {
         components: {
             ProfileInfo,
-            ProfileCard
-        },
-        data(){ 
-            return {
-                links: [
-                    {title:'Dashboard', to: '/recruiter-dashboard'},  
-                    {title:'Messages', to: '/recruiter-messages'}, 
-                    {title:'Interviews', to: '/interviews'}
-                ],
-            }
+            RecruiterTopNav
         },
         methods: {
             goToPostJob(){

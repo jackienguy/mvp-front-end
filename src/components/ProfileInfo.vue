@@ -1,8 +1,6 @@
 <template>
     <div>
         <ProfileCard 
-        v-for="user in users"
-        :key="user.userId"
         :userId="user.userId"
         :email="user.email"
         :firstName="user.firstName"
@@ -23,11 +21,11 @@ import cookies from 'vue-cookies'
     export default {
         name: "ProfileInfo",
         components: { 
-            ProfileCard 
+            ProfileCard,
         },
         data() {
             return {
-                users: [] 
+                user: [] 
             }
         },
         mounted() {
@@ -43,7 +41,7 @@ import cookies from 'vue-cookies'
                     }
                 }).then((response)=>{
                     console.log(response);
-                    this.users = response.data[0]
+                    this.user = response.data
                 }).catch((err)=>{
                     console.error(err);
                 })
