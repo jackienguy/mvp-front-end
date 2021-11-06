@@ -25,6 +25,8 @@
             <ExperienceSection/>
             <!-- Education Section -->
             <EducationSection/>
+            <!-- Skills Section -->
+            <SkillsSection/>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
@@ -51,12 +53,14 @@
 
 <script>
 import EducationSection from '../components/EducationSection.vue';
-import ExperienceSection from '../components/ExperienceSection.vue'
+import ExperienceSection from '../components/ExperienceSection.vue';
+import SkillsSection from '../components/SkillsSection.vue';
 
   export default {
     components: {
         EducationSection,
-        ExperienceSection
+        ExperienceSection,
+        SkillsSection
     },
     data () {
       return {

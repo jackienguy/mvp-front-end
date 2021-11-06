@@ -3,33 +3,9 @@
             <div v-if="isEditing">
             <v-text-field
                 :disabled="!isEditing"
-                v-model="workingTitle"
+                v-model="skillType"
                 color="white"
-                label="Working Title"
-            ></v-text-field>
-                <v-text-field
-                :disabled="!isEditing"
-                v-model="companyName"
-                color="white"
-                label="Company Name"
-            ></v-text-field>
-            <v-text-field
-                :disabled="!isEditing"
-                v-model="location"
-                color="white"
-                label="City, State/Province"
-            ></v-text-field>
-            <v-text-field
-                :disabled="!isEditing"
-                v-model="startDate"
-                color="white"
-                label="Start Date"
-            ></v-text-field>
-            <v-text-field
-                :disabled="!isEditing"
-                v-model="endDate"
-                color="white"
-                label="End Date"
+                label="Skill"
             ></v-text-field>
                 <v-text-field
                 :disabled="!isEditing"
@@ -37,10 +13,16 @@
                 color="white"
                 label="Description"
             ></v-text-field>
+            <v-text-field
+                :disabled="!isEditing"
+                v-model="proficiencyLevel"
+                color="white"
+                label="Proficiency Level (Basic, Intermediate, or Advanced)"
+            ></v-text-field>
         </div>
         <div v-else class="pa-5">
             <v-list-item-title class="text-h6 mb-5 mt-5">
-                <b>Expereince</b>        
+                <b>Skills</b>        
                 <v-btn
                 class="ml-4"
                 fab
@@ -55,8 +37,7 @@
                     </v-icon>
                 </v-btn>
             </v-list-item-title>
-            <v-list-item-title class="text-h7"> HRBP{{workintTitle}} at Company123{{companyName}}, Edmonton, AB{{location}} </v-list-item-title>
-            <v-list-item-subtitle>Jan 2020 {{startDate}} - Now{{endDate}} </v-list-item-subtitle>
+            <v-list-item-title class="text-h7"> MS Suite{{skillType}} - Advanced{{proficiencyLevel}}</v-list-item-title>
             <v-list-item-subtitle>Description {{description}} </v-list-item-subtitle>
         </div>
     </div>
@@ -64,7 +45,7 @@
 
 <script>
   export default {
-    name: "ExperienceSection",
+    name: "SkillsSection",
     props: {
         hasSaved: Boolean,
         isEditing: Boolean,
