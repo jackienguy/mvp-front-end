@@ -1,39 +1,42 @@
 <template>
     <div>
-            <div v-if="isEditing">
+        <div v-if="isEditing" class="pa-12">
+            <v-list-item-title class="text-h6 mb-5 mt-5">
+                <b>Experience</b> 
+            </v-list-item-title> 
             <v-text-field
                 :disabled="!isEditing"
-                v-model="workingTitle"
+                v-model="editedWorkingTitle"
                 color="white"
                 label="Working Title"
             ></v-text-field>
                 <v-text-field
                 :disabled="!isEditing"
-                v-model="companyName"
+                v-model="editedCompanyName"
                 color="white"
                 label="Company Name"
             ></v-text-field>
             <v-text-field
                 :disabled="!isEditing"
-                v-model="location"
+                v-model="editedWorkLocation"
                 color="white"
                 label="City, State/Province"
             ></v-text-field>
             <v-text-field
                 :disabled="!isEditing"
-                v-model="startDate"
+                v-model="editedStartDate"
                 color="white"
                 label="Start Date"
             ></v-text-field>
             <v-text-field
                 :disabled="!isEditing"
-                v-model="endDate"
+                v-model="editedEndDate"
                 color="white"
                 label="End Date"
             ></v-text-field>
                 <v-text-field
                 :disabled="!isEditing"
-                v-model="description"
+                v-model="editedDescription"
                 color="white"
                 label="Description"
             ></v-text-field>
@@ -55,7 +58,7 @@
                     </v-icon>
                 </v-btn>
             </v-list-item-title>
-            <v-list-item-title class="text-h7"> HRBP{{workintTitle}} at Company123{{companyName}}, Edmonton, AB{{location}} </v-list-item-title>
+            <v-list-item-title class="text-h7"> HRBP{{workingTitle}} at Company123{{companyName}}, Edmonton, AB{{workLocation}} </v-list-item-title>
             <v-list-item-subtitle>Jan 2020 {{startDate}} - Now{{endDate}} </v-list-item-subtitle>
             <v-list-item-subtitle>Description {{description}} </v-list-item-subtitle>
         </div>
@@ -69,6 +72,22 @@
         hasSaved: Boolean,
         isEditing: Boolean,
         model: Boolean,
+        workingTitle: String,
+        companyName: String,
+        workLocation: String,
+        startDate: String,
+        endDate: String,
+        description: String,
+    },
+    data() {
+        return {
+            editedWorkingTitle: "",
+            editedCompanyName: "",
+            editedWorkLocation: "",
+            editedStartDate: "",
+            editedEndDate: "",
+            editedDescription: ""
+        }
     }
   }
 </script>

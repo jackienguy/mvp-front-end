@@ -134,7 +134,7 @@
                     if (response.data.role == 'recruiter') {
                         this.$router.push("/get-started");
                     } else {
-                        this.$router.push("/user-dashboard")
+                        this.$router.push("/user-get-started")
                     }
                 }).catch((err)=>{
                     console.error(err);

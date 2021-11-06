@@ -10,6 +10,8 @@
         :workingTitle="user.workingTitle"
         :phoneNumber="user.phoneNumber"
         />
+
+       
     </div>
 </template>
 
@@ -21,7 +23,7 @@ import cookies from 'vue-cookies'
     export default {
         name: "ProfileInfo",
         components: { 
-            ProfileCard,
+            ProfileCard
         },
         data() {
             return {
@@ -29,10 +31,10 @@ import cookies from 'vue-cookies'
             }
         },
         mounted() {
-            this.getRecruiterData()
+            this.getProfileData()
         },
         methods: {
-            getRecruiterData() {
+            getProfileData() {
                 axios.request ({
                     url: "http://127.0.0.1:5000/api/user",
                     methods: "GET",

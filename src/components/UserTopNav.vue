@@ -1,8 +1,8 @@
 <template>
     <div>
-         <v-app-bar
+        <v-app-bar
         app
-        color="white"
+        color="teal lighten-3"
         flat
         >
         <v-tabs
@@ -31,7 +31,7 @@
                     {title:'Dashboard', to: '/user-dashboard'}, 
                     {title:'Profile', to: '/user-profile'}, 
                     {title:'Messages', to: '/recruiter-messages'}, 
-                    {title:'Borwse Jobs', to: '/jobs-board'}
+                    {title:'Browse Jobs', to: '/jobs-board'}
                 ],
             }
         }

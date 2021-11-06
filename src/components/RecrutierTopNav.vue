@@ -2,7 +2,7 @@
     <div>
         <v-app-bar
             app
-            color="white"
+            color="teal lighten-3"
             flat
             >
             <v-tabs

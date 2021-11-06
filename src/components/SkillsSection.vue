@@ -1,21 +1,18 @@
 <template>
     <div>
-            <div v-if="isEditing">
+        <div v-if="isEditing" class="pa-12">
+            <v-list-item-title class="text-h6 mb-5 mt-5">
+                <b>Skills</b> 
+            </v-list-item-title> 
             <v-text-field
                 :disabled="!isEditing"
-                v-model="skillType"
+                v-model="editedSkillType"
                 color="white"
                 label="Skill"
             ></v-text-field>
-                <v-text-field
-                :disabled="!isEditing"
-                v-model="description"
-                color="white"
-                label="Description"
-            ></v-text-field>
             <v-text-field
                 :disabled="!isEditing"
-                v-model="proficiencyLevel"
+                v-model="editedProficiencyLevel"
                 color="white"
                 label="Proficiency Level (Basic, Intermediate, or Advanced)"
             ></v-text-field>
@@ -38,7 +35,6 @@
                 </v-btn>
             </v-list-item-title>
             <v-list-item-title class="text-h7"> MS Suite{{skillType}} - Advanced{{proficiencyLevel}}</v-list-item-title>
-            <v-list-item-subtitle>Description {{description}} </v-list-item-subtitle>
         </div>
     </div>
 </template>
@@ -50,6 +46,14 @@
         hasSaved: Boolean,
         isEditing: Boolean,
         model: Boolean,
+        skillType: String,
+        proficiencyLevel: String,
+    },
+    data() {
+        return {
+            editedSkillType: "",
+            editedProficiencyLevel: "",
+        }
     }
   }
 </script>

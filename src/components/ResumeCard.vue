@@ -4,7 +4,7 @@
     >
         <v-toolbar
         flat
-        color="purple"
+        color="yellow lighten-4"
         >
         <v-icon>mdi-account</v-icon>
         <v-toolbar-title class="font-weight-light">
@@ -12,21 +12,10 @@
         </v-toolbar-title>
         </v-toolbar>
         <v-card-text>
-            <div class="pa-5">
-                <v-list-item-title class="text-h6 mb-5">
-                   <b>Personal Details</b> 
-                </v-list-item-title>
-                <v-list-item-title class="text-h7"> Joe Wong{{firstName}} {{lastName}} </v-list-item-title>
-                <v-list-item-subtitle> email{{email}}</v-list-item-subtitle>
-                <v-list-item-subtitle> phone{{phoneNumber}}</v-list-item-subtitle>
-            </div>
-            <v-divider></v-divider>
-            <!-- Experience Section -->
-            <ExperienceSection/>
-            <!-- Education Section -->
-            <EducationSection/>
-            <!-- Skills Section -->
-            <SkillsSection/>
+           
+            <!-- input resume info -->
+            <ResumeInfo/>
+
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
@@ -52,15 +41,11 @@
 </template>
 
 <script>
-import EducationSection from '../components/EducationSection.vue';
-import ExperienceSection from '../components/ExperienceSection.vue';
-import SkillsSection from '../components/SkillsSection.vue';
+import ResumeInfo from '../components/ResumeInfo.vue';
 
   export default {
     components: {
-        EducationSection,
-        ExperienceSection,
-        SkillsSection
+       ResumeInfo
     },
     data () {
       return {
@@ -69,14 +54,13 @@ import SkillsSection from '../components/SkillsSection.vue';
         model: null,
       }
     },
-
     methods: {
       save () {
         this.isEditing = !this.isEditing
         this.hasSaved = true
-      },
-    },
-  }
+      } 
+    }
+}
 </script>
 
 <style lang="scss" scoped>

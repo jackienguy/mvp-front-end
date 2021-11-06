@@ -1,39 +1,42 @@
 <template>
     <div>
-        <div v-if="isEditing">
+        <div v-if="isEditing" class="pa-12">
+            <v-list-item-title class="text-h6 mb-5 mt-5">
+                <b>Education</b> 
+            </v-list-item-title> 
             <v-text-field
                 :disabled="!isEditing"
-                v-model="certificateName"
+                v-model="editedCertificateName"
                 color="white"
                 label="Educational credential *"
             ></v-text-field>
                 <v-text-field
                 :disabled="!isEditing"
-                v-model="major"
+                v-model="editedMajor"
                 color="white"
                 label="major"
             ></v-text-field>
             <v-text-field
                 :disabled="!isEditing"
-                v-model="location"
+                v-model="editedLocation"
                 color="white"
                 label="City, State/Province *"
             ></v-text-field>
             <v-text-field
                 :disabled="!isEditing"
-                v-model="institutionName"
+                v-model="editedInstitutionName"
                 color="white"
                 label="Institution Name *"
             ></v-text-field>
             <v-text-field
                 :disabled="!isEditing"
-                v-model="completionDate"
+                v-model="editedCompletionDate"
                 color="white"
                 label="Completion Date *"
             ></v-text-field>
                 <v-text-field
                 :disabled="!isEditing"
-                v-model="other"
+                v-model="editedOther"
                 color="white"
                 label="Other credentials"
             ></v-text-field>
@@ -69,6 +72,22 @@
         hasSaved: Boolean,
         isEditing: Boolean,
         model: Boolean,
+        certificateName: String,
+        major:  String,
+        location:  String,
+        institutionName:  String,
+        completionDate:  String,
+        other:  String,
+    }, 
+    data() {
+        return {
+            editedCertificateName: '',
+            editedMajor: '',
+            editedLocation: '',
+            editedInstitutionName: '',
+            editedCompletionDate: '',
+            editedOther: ''
+        }
     }
   }
 
