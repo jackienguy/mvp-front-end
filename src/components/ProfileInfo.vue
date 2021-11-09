@@ -10,8 +10,6 @@
         :workingTitle="user.workingTitle"
         :phoneNumber="user.phoneNumber"
         />
-
-       
     </div>
 </template>
 

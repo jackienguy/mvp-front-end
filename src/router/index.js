@@ -11,6 +11,7 @@ import JobRequisition from '../views/JobRequisition.vue'
 import JobPosting from '../views/JobPosting.vue'
 import UserProfile from '../views/UserProfile.vue'
 import UserGetStarted from '../views/UserGetStarted.vue'
+import Application from '../views/Application.vue'
 
 
 Vue.use(VueRouter)
@@ -70,6 +71,11 @@ const routes = [
     path: '/user-get-started',
     name: 'user-get-started',
     component: UserGetStarted
+  },
+  {
+    path: '/application',
+    name: 'application',
+    component: Application
   },
 ]
 

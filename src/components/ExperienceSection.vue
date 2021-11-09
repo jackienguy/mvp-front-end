@@ -6,7 +6,7 @@
             </v-list-item-title> 
             <v-text-field
                 :disabled="!isEditing"
-                v-model="editedWorkingTitle"
+                v-model="editedtitle"
                 color="white"
                 label="Working Title"
             ></v-text-field>
@@ -72,7 +72,7 @@
                     </v-icon>
                 </v-btn>
             </v-list-item-title>
-            <v-list-item-title class="text-h7"> {{workingTitle}} at {{companyName}}, {{workLocation}} </v-list-item-title>
+            <v-list-item-title class="text-h7"> {{title}} at {{companyName}}, {{workLocation}} </v-list-item-title>
             <v-list-item-subtitle> {{startDate}} - {{endDate}} </v-list-item-subtitle>
             <v-list-item-subtitle> {{description}} </v-list-item-subtitle>
         </div>
@@ -89,7 +89,7 @@ import axios from 'axios';
         isEditing: Boolean,
         hasSaved: Boolean,
         model: Boolean,
-        workingTitle: String,
+        title: String,
         companyName: String,
         workLocation: String,
         startDate: String,
@@ -118,7 +118,7 @@ import axios from 'axios';
             },
             data: {
                 loginToken: cookies.get('loginToken'),
-                editedWorkingTitle: this.editedWorkingTitle,
+                editedtitle: this.editedtitle,
                 editedCompanyName: this.editedCompanyName,
                 editedWorkLocation: this.editedWorkLocation,
                 editedStartDate: this.editedStartDate,
@@ -128,7 +128,7 @@ import axios from 'axios';
         }).then((response)=>{
             cookies.get('loginToken'),
             console.log(response);
-            this.$emit('saveUpdateToExperience', this.editedWorkingTitle, this.editedCompanyName, this.editedWorkLocation, this.editedStartDate, this.editedEndDate, this.editedDescription);
+            this.$emit('saveUpdateToExperience', this.editedtitle, this.editedCompanyName, this.editedWorkLocation, this.editedStartDate, this.editedEndDate, this.editedDescription);
         }).catch((err)=>{
             console.error(err.response);
         })

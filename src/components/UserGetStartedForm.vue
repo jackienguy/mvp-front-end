@@ -299,7 +299,7 @@ import cookies from 'vue-cookies';
                 },
                 data: {
                     loginToken: cookies.get('loginToken'),
-                    companynName: this.companyName,
+                    companyName: this.companyName,
                     workLocation: this.workLocation,
                     startDate: this.startDate,
                     endDate: this.endDate,

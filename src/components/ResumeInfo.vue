@@ -11,7 +11,7 @@
          <!-- Experience Section -->
         <ExperienceSection
         :userId="experience.userId"
-        :workingTitle="experience.workingTitle"
+        :title="experience.title"
         :companyName="experience.companyName"
         :workLocation="experience.workLocation"
         :startDate="experience.startDate"
@@ -26,7 +26,7 @@
         :userId="education.userId"
         :certificateName="education.certificateName"
         :major="education.major"
-        :location="education.location"
+        :institutionLocation="education.institutionLocation"
         :institutionName="education.institutionName"
         :completionDate="education.completionDate"
         :other="education.other"
@@ -68,10 +68,12 @@ import cookies from 'vue-cookies';
     },
    mounted() {
         this.getProfileData(),
-        this.getUpdatedExperienceInfo()
+        this.getExperienceInfo(),
+        this.getEduInfo(),
+        this.getSkillsInfo()
     },
     methods: {
-        getUpdatedExperienceInfo() {
+        getExperienceInfo() {
             axios.request ({
                 url: "http://127.0.0.1:5000/api/user/experience",
                 methods: "GET",
@@ -81,6 +83,34 @@ import cookies from 'vue-cookies';
             }).then((response)=>{
                 console.log(response);
                 this.experience = response.data
+            }).catch((err)=>{
+                console.error(err);
+            })
+        },
+        getEduInfo() {
+            axios.request ({
+                url: "http://127.0.0.1:5000/api/user/education",
+                methods: "GET",
+                params: {
+                    userId: cookies.get('userId')
+                }
+            }).then((response)=>{
+                console.log(response);
+                this.education = response.data
+            }).catch((err)=>{
+                console.error(err);
+            })
+        },
+        getSkillsInfo() {
+            axios.request ({
+                url: "http://127.0.0.1:5000/api/user/skills",
+                methods: "GET",
+                params: {
+                    userId: cookies.get('userId')
+                }
+            }).then((response)=>{
+                console.log(response);
+                this.skills = response.data
             }).catch((err)=>{
                 console.error(err);
             })

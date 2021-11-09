@@ -23,6 +23,22 @@
                     <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
                     <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
             </v-list-item-content>
+
+            <v-btn
+            class="ml-4"
+            fab
+            outlined
+            small
+            color="teal lighten-3"
+            @click="isEditing = !isEditing"
+            >
+                <v-icon v-if="isEditing" dark>
+                mdi-close
+                </v-icon>
+                <v-icon v-else>
+                mdi-pencil
+                </v-icon>
+            </v-btn>
         </v-list-item>
 
         <v-divider></v-divider>

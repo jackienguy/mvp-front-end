@@ -18,7 +18,7 @@
             ></v-text-field>
             <v-text-field
                 :disabled="!isEditing"
-                v-model="editedLocation"
+                v-model="editedInstitutionLocation"
                 color="white"
                 label="City, State/Province *"
             ></v-text-field>
@@ -80,7 +80,7 @@
                     </v-icon>
                 </v-btn>
             </v-list-item-title>
-            <v-list-item-title class="text-h7"> {{certificateName}} at {{institutionName}}, {{location}} </v-list-item-title>
+            <v-list-item-title class="text-h7"> {{certificateName}} at {{institutionName}}, {{institutionLocation}} </v-list-item-title>
             <v-list-item-subtitle>Major: {{major}} </v-list-item-subtitle>
             <v-list-item-subtitle>Completed: {{completionDate}} </v-list-item-subtitle>
         </div>
@@ -96,7 +96,7 @@
         model: Boolean,
         certificateName: String,
         major:  String,
-        location:  String,
+        institutionLocation:  String,
         institutionName:  String,
         completionDate:  String,
         other:  String,
@@ -105,7 +105,7 @@
         return {
             editedCertificateName: '',
             editedMajor: '',
-            editedLocation: '',
+            editedInstitutionLocation: '',
             editedInstitutionName: '',
             editedCompletionDate: '',
             editedOther: ''
