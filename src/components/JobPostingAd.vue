@@ -1,9 +1,9 @@
 <template>
     <div>
         <v-card
-        class="mx-auto pa-8 mb-5"
+        class="mx-auto pa-8 mb-5 overflow-auto"
         max-width="50vw"
-        height="100vh"
+        height="70vh"
         >
             <v-card-text>
                 <p class="text-h5 text--primary"> {{ workingTitle }}</p>

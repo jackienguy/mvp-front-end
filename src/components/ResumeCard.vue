@@ -17,26 +17,6 @@
             <ResumeInfo/>
 
         </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn
-            :disabled="!isEditing"
-            color="success"
-            @click="save"
-        >
-            Save
-        </v-btn>
-        </v-card-actions>
-        <v-snackbar
-        v-model="hasSaved"
-        :timeout="2000"
-        absolute
-        bottom
-        left
-        >
-        Your profile has been updated
-        </v-snackbar>
     </v-card>
 </template>
 
@@ -48,18 +28,11 @@ import ResumeInfo from '../components/ResumeInfo.vue';
        ResumeInfo
     },
     data () {
-      return {
-        hasSaved: false,
+      return { 
         isEditing: null,
         model: null,
       }
     },
-    methods: {
-      save () {
-        this.isEditing = !this.isEditing
-        this.hasSaved = true
-      } 
-    }
 }
 </script>
 

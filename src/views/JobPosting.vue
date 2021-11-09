@@ -30,9 +30,9 @@
                         rounded="lg"
                         class="pt-10"
                         >
+                           
                         <!-- Job post input form -->
                             <JobsInfo/>
-                            <JobPostingAd/>
                            
                         </v-sheet>
                     </v-col>      
@@ -44,24 +44,16 @@
 
 <script>
 import JobsInfo from '../components/JobsInfo.vue';
-import JobPostingAd from '../components/JobPostingAd.vue';
 import RecrutierTopNav from '../components/RecrutierTopNav.vue';
 
 
       export default {
         components: {
             JobsInfo,
-            JobPostingAd,
             RecrutierTopNav
         },
         data(){ 
             return {
-                // Top nav
-                links: [
-                    {title:'Dashboard', to: '/recruiter-dashboard'},  
-                    {title:'Messages', to: '/recruiter-messages'}, 
-                    {title:'Interviews', to: '/interviews'}
-                ],
                 // Side nav
                 sideBarLinks: [
                     {title:'Post Job', to: '/post-job'}, 

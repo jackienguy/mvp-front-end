@@ -1,19 +1,47 @@
 <template>
-  
-    <!-- Job post input form -->
-        <v-form 
-        class="pl-16 pt-8"
-        v-model="valid"
+    <div>
+        <v-col
+        class="pa-8 d-flex justify-center"
+        cols="12"
+        md="12"
         >
-            <v-container>
-                <v-row>
-                    
-                    <v-col
-                    cols="12"
-                    md="12"
-                    >
-                        <h2>Welcome to OPP as a job seeker! Let's get you set up</h2>
-                    </v-col>
+            <h2>Welcome to OPP as a job seeker! Let's get you set up</h2>
+        </v-col>
+
+        <v-stepper class="mx-auto" v-model="e1" width="60vw" height="90vh">
+            <v-stepper-header>
+            <v-stepper-step
+                :complete="e1 > 1 "
+                step="1"
+            >
+                Experience
+            </v-stepper-step>
+
+            <v-divider></v-divider>
+
+            <v-stepper-step
+                :complete="e1 > 2"
+                step="2"
+            >
+                Education
+            </v-stepper-step>
+
+            <v-divider></v-divider>
+
+            <v-stepper-step step="3">
+                Skills
+            </v-stepper-step>
+            </v-stepper-header>
+
+            <v-stepper-items >
+            <v-stepper-content step="1">
+                <v-card
+                class="mb-12 pa-12 overflow-auto"
+                color="grey lighten-1"
+                height="60vh"
+                >
+                    <!-- Experience section -->
+                    <v-row> 
                         <v-col
                         cols="12"
                         md="12"
@@ -21,6 +49,7 @@
                         
                             <h2>Experience</h2>
                         </v-col>
+
                         <v-col
                         cols="12"
                         md="6"
@@ -76,14 +105,36 @@
                                 required
                             ></v-text-field>
                         </v-col>
+                    </v-row>
+                </v-card>
 
-                    <!-- Education info -->
+                <v-btn
+                color="primary"
+                @click="e1 = 2; submitExperience()"
+                >
+                Continue
+                </v-btn>
+
+                <v-btn text>
+                Cancel
+                </v-btn>
+            </v-stepper-content>
+
+            <v-stepper-content step="2">
+                <v-card
+                class="mb-12 pa-12 overflow-auto"
+                color="grey lighten-1"
+                height="60vh"
+                >
+                    <!--input for education -->
+                    <v-row>
                         <v-col
                         cols="12"
                         md="12"
                         >
                             <h2>Education</h2>
                         </v-col>
+
                         <v-col
                         cols="12"
                         md="6"
@@ -135,14 +186,39 @@
                                 clearable
                             ></v-text-field>
                         </v-col>
+                    </v-row>
+                </v-card>
 
-                    <!--Skills info  -->
+                <v-btn
+                color="primary"
+                @click="e1 = 3; submitEducation()"
+                >
+                Continue
+                </v-btn>
+
+                <v-btn 
+                @click="e1 = 1" 
+                text
+                >
+                Go Back
+                </v-btn>
+            </v-stepper-content>
+
+            <v-stepper-content step="3">
+               <v-card
+                class="mb-12 pa-12 overflow-auto"
+                color="grey lighten-1"
+                height="60vh"
+                >
+                    <!-- input for skills -->
+                    <v-row>
                         <v-col
                         cols="12"
                         md="12"
                         >
                             <h2>Skills</h2>
                         </v-col>
+                        
                         <v-col
                         cols="12"
                         md="6"
@@ -161,84 +237,126 @@
                                 clearable
                             ></v-text-field>
                         </v-col>
-                </v-row>
-                
-                <v-btn class="ma-3" @click="submitResumeInfo"> Submit </v-btn>
-                
-            </v-container>
-        </v-form>
-   
+                    </v-row>
+                </v-card>
+
+                <v-btn
+                color="primary"
+                @click="submitSkills()"
+                >
+                Continue
+                </v-btn>
+
+                 <v-btn 
+                @click="e1 = 2" 
+                text
+                >
+                Go Back
+                </v-btn>
+            </v-stepper-content>
+            </v-stepper-items>
+        </v-stepper>
+    </div>
 </template>
 
 <script>
 import axios from 'axios';
 import cookies from 'vue-cookies';
 
-    export default {
-        name: "UserGetStartedForm",
-        data(){ 
-            return {
-                valid: false,
-                requiredRule: [
+  export default {
+    data () {
+        return {
+            e1: 1,
+            requiredRule: [
                 v => !!v || 'This field is required',
             ],
-                userId: '',
-                loginToken: '',
-                // Info on experience 
-                companyName: '',
-                workLocation: '',
-                startDate: '',
-                endDate: '',
-                workingTitle: '',
-                phoneNumber: '',
-                description:'',
-                // Info on education
-                certificateName: '',
-                major:  '',
-                location:  '',
-                institutionName:  '',
-                completionDate:  '',
-                other:  '',
-                // Info on skills
-                skillType: '',
-                proficiencyLevel: '',
-            }
-        },
-         methods: {
-            submitResumeInfo(){
-                 axios.request({
-                    url:"http://127.0.0.1:5000/api/resume",
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                     },
-                     data: {
-                        loginToken: cookies.get ('loginToken'),
-                        companynName: this.companyName,
-                        workLocation: this.workLocation,
-                        startDate: this.startDate,
-                        endDate: this.endDate,
-                        workingTitle: this.workingTitle,
-                        description: this.description,
-                        certificateName: this.certificateName,
-                        major: this.major,
-                        location:  this.location,
-                        institutionName: this.institutionName,
-                        completionDate: this.completionDate,
-                        other: this.other,
-                        skillType: this. skillType,
-                        proficiencyLevel: this.proficiencyLevel,
-                        
-                     },
-                 }).then((response)=>{
-                    cookies.get('loginToken'),
-                    console.log(response);
-                    this.$router.push("/user-profile")
-                 }).catch((err)=>{
-                     console.error(err);
-                 })
-            }
+            // Experience 
+            companyName: '',
+            workLocation: '',
+            startDate: '',
+            endDate: '',
+            workingTitle: '',
+            description: '',
+            // education
+            certificateName: '',
+            major: '',
+            location: '',
+            institutionName: '',
+            completionDate: '',
+            other: '',
+            // skills
+            skillType: '',
+            proficiencyLevel: '',
         }
-       
+    },
+    methods: {
+        submitExperience() {
+            axios.request ({
+                url: "http://127.0.0.1:5000/api/user/experience",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: {
+                    loginToken: cookies.get('loginToken'),
+                    companynName: this.companyName,
+                    workLocation: this.workLocation,
+                    startDate: this.startDate,
+                    endDate: this.endDate,
+                    workingTitle: this.workingTitle,
+                    description: this.description,
+                }
+            }).then((response)=>{
+                cookies.get('loginToken'),
+                console.log(response);
+            }).catch((err)=>{
+                console.error(err);
+            })
+        },
+        submitEducation() {
+            axios.request ({
+                url: "http://127.0.0.1:5000/api/user/education",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: {
+                    loginToken: cookies.get('loginToken'),
+                    certificateName: this.certificateName,
+                    major: this.major,
+                    location: this.location,
+                    institutionName: this.institutionName,
+                    completionDate: this.completionDate,
+                    other: this.other,
+                }
+            }).then((response)=>{
+                cookies.get('loginToken'),
+                console.log(response);
+            }).catch((err)=>{
+                console.error(err);
+            })
+        },
+         submitSkills() {
+            axios.request ({
+                url: "http://127.0.0.1:5000/api/user/skills",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: {
+                    loginToken: cookies.get('loginToken'),
+                    skillType: this.skillType,
+                    proficiencyLevel: this.proficiencyLevel
+                }
+            }).then((response)=>{
+                cookies.get('loginToken'),
+                console.log(response);
+                this.$router.push("/user-dashboard")
+            }).catch((err)=>{
+                console.error(err);
+            })
+        }
     }
+  }
 </script>
+

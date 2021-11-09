@@ -40,17 +40,31 @@
                 color="white"
                 label="Description"
             ></v-text-field>
+
+            <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+                :disabled="!isEditing"
+                color="success"
+                @click="saveUpdateToExperience"
+            >
+                Save
+            </v-btn>
+            </v-card-actions>
         </div>
+
         <div v-else class="pa-5">
             <v-list-item-title class="text-h6 mb-5 mt-5">
                 <b>Expereince</b>        
                 <v-btn
                 class="ml-4"
                 fab
+                outlined
                 small
+                color="teal lighten-3"
                 @click="isEditing = !isEditing"
                 >
-                    <v-icon v-if="isEditing">
+                    <v-icon v-if="isEditing" dark>
                     mdi-close
                     </v-icon>
                     <v-icon v-else>
@@ -66,11 +80,14 @@
 </template>
 
 <script>
+import cookies from 'vue-cookies';
+import axios from 'axios';
+
   export default {
     name: "ExperienceSection",
     props: {
-        hasSaved: Boolean,
         isEditing: Boolean,
+        hasSaved: Boolean,
         model: Boolean,
         workingTitle: String,
         companyName: String,
@@ -88,6 +105,34 @@
             editedEndDate: "",
             editedDescription: ""
         }
+    },
+      methods: {
+      saveUpdateToExperience() {
+        this.isEditing = !this.isEditing
+        this.hasSaved = true
+        axios.request({
+            url: "http://127.0.0.1:5000/api/users/experience",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: {
+                loginToken: cookies.get('loginToken'),
+                editedWorkingTitle: this.editedWorkingTitle,
+                editedCompanyName: this.editedCompanyName,
+                editedWorkLocation: this.editedWorkLocation,
+                editedStartDate: this.editedStartDate,
+                editedEndDate: this.editedEndDate,
+                editedDescription: this.editedDescription
+            }
+        }).then((response)=>{
+            cookies.get('loginToken'),
+            console.log(response);
+            this.$emit('saveUpdateToExperience', this.editedWorkingTitle, this.editedCompanyName, this.editedWorkLocation, this.editedStartDate, this.editedEndDate, this.editedDescription);
+        }).catch((err)=>{
+            console.error(err.response);
+        })
+      } 
     }
   }
 </script>

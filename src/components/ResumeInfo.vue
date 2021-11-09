@@ -10,33 +10,33 @@
         />
          <!-- Experience Section -->
         <ExperienceSection
-        :userId="resume.userId"
-        :workingTitle="resume.workingTitle"
-        :companyName="resume.companyName"
-        :location="resume.location"
-        :startDate="resume.startDate"
-        :endDate="resume.endDate"
-        :description="resume.description"
+        :userId="experience.userId"
+        :workingTitle="experience.workingTitle"
+        :companyName="experience.companyName"
+        :workLocation="experience.workLocation"
+        :startDate="experience.startDate"
+        :endDate="experience.endDate"
+        :description="experience.description"
+        @saveUpdateToExperience="getUpdatedExperienceInfo"
         />
         
 
         <!-- Education Section -->
         <EducationSection
-        :userId="resume.userId"
-        :certificateName="resume.certificateName"
-        :major="resume.major"
-        :location="resume.location"
-        :institutionName="resume.institutionName"
-        :completionDate="resume.completionDate"
-        :other="resume.other"
+        :userId="education.userId"
+        :certificateName="education.certificateName"
+        :major="education.major"
+        :location="education.location"
+        :institutionName="education.institutionName"
+        :completionDate="education.completionDate"
+        :other="education.other"
         
         />
         <!-- Skills Section -->
         <SkillsSection
-        :userId="resume.userId"
-        :skillType="resume.skillType"
-        :description="resume.description"
-        :proficiencyLevel="resume.proficiencyLevel"
+        :userId="skills.userId"
+        :skillType="skills.skillType"
+        :proficiencyLevel="skills.proficiencyLevel"
         />
 
     </div>
@@ -60,25 +60,27 @@ import cookies from 'vue-cookies';
     },
     data() {
         return {
-            resume: [],
+            experience: [],
+            skills: [],
+            education: [],
             user: []
         }
     },
    mounted() {
-        this.getResumeInfo(),
-        this.getProfileData()  
+        this.getProfileData(),
+        this.getUpdatedExperienceInfo()
     },
     methods: {
-        getResumeInfo() {
+        getUpdatedExperienceInfo() {
             axios.request ({
-                url: "http://127.0.0.1:5000/api/resume",
+                url: "http://127.0.0.1:5000/api/user/experience",
                 methods: "GET",
                 params: {
                     userId: cookies.get('userId')
                 }
             }).then((response)=>{
                 console.log(response);
-                this.resume = response.data
+                this.experience = response.data
             }).catch((err)=>{
                 console.error(err);
             })
