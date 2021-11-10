@@ -1,7 +1,7 @@
 <template>
     <div>
         <JobReqTable
-         v-for="job in jobReqs"
+        v-for="job in jobReqs"
         :key="job.recruiterId"
         :jobTitle="job.jobTitle"
         :jobId="job.jobId"
@@ -15,12 +15,12 @@
 <script>
 import axios from 'axios';
 import cookies from 'vue-cookies';
-import JobReqTable from '../components/JobReqTable.vue'
+
 
     export default {
         name: "JobReqData",
         components: {
-            JobReqTable,
+           
         },
         data(){
             return {

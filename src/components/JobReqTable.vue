@@ -1,58 +1,73 @@
 <template>
-    <div>
-        <v-card
-            class="mx-auto"
-            max-width="344"
-        >
-            <v-card-title>
-                {{jobTitle}}
-            </v-card-title>
-
-            <v-card-subtitle>
-                Job ID: {{jobId}}
-            </v-card-subtitle>
-
-            <v-card-actions>
-                <v-spacer></v-spacer>
-
-                <v-btn
-                    icon
-                    @click="show = !show"
-                >
-                    <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-                </v-btn>
-            </v-card-actions>
-
-            <v-expand-transition>
-            <div v-show="show">
-                <v-divider></v-divider>
-
-                <v-card-text>
-                    <p>Number of Applicants: {{numApplicants}}</p>
-                    <p>Closing Date: {{closingDate}}</p>
-                    <p>Status: {{status}} </p>
-                </v-card-text>
-            </div>
-            </v-expand-transition>
-        </v-card>
-    </div>
+  <v-card>
+    <v-card-title>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+    </v-card-title>
+    <v-data-table
+      :headers="headers"
+      :items="jobReqs"
+      :search="search"
+    ></v-data-table>
+  </v-card>
 </template>
 
 <script>
+import axios from 'axios';
+import cookies from 'vue-cookies';
+
     export default {
         name: "JobReqTable",
-        singleExpand: false,
-        props: {
-            jobTitle: String,
-            recruiterId: Number,
-            jobId: Number,
-            numApplicants: Number,
-            closingDate: String,
-            status: String 
-        },
         data() {
             return {
-                show: false,
+                search: '',
+                headers: [
+                {
+                    text: 'Job Title',
+                    align: 'start',
+                    filterable: false,
+                    value: 'jobTitle',
+                },
+                { text: 'Job ID', value: 'jobId' },
+                { text: 'Number of Applicants', value: 'numApplicants' },
+                { text: 'Closing Date', value: 'closingDate' },
+                { text: 'Status', value: 'status' },
+                ],
+                jobReqs: [
+                    {jobTitle: ''},
+                    {recruiterId: ''},
+                    {jobId: ''},
+                    {numApplicants: ''},
+                    {closingDate: ''},
+                   { status: ''} 
+                ]
+            }
+        },
+         mounted() {
+            this.getJobReqData()
+        },
+        methods: {
+            getJobReqData() {
+                axios.request ({
+                    url: "http://127.0.0.1:5000/api/jobs",
+                    methods: "GET",
+                    params: {
+                        recruiterId: cookies.get('userId')
+                    }
+                }).then((response)=>{
+                    console.log(response);
+                    this.jobReqs = response.data
+                }).catch((err)=>{
+                    console.error(err);
+                })
+            },
+            goToPostJob(){
+                 this.$router.push("/post-job");
             }
         }
     }

@@ -29,8 +29,20 @@
                         min-height="70vh"
                         rounded="lg"
                         >
-                            <!-- Input job requisition board -->
-                                <JobReqData/>      
+
+                           
+                                <b-tabs content-class="mt-3" fill>
+                                    <b-tab title="Job Requisition Data" active>
+                                        <JobReqTable/>   
+                                    </b-tab>
+                                    <b-tab title="View Job Posts"><p>I'm the second tab</p>
+                                    </b-tab>
+                                    <b-tab title="View Candidates">
+                                        <CandidatesTable/>
+                                    </b-tab>
+                                    <b-tab title="Disabled" disabled><p>I'm a disabled tab!</p></b-tab>
+                                </b-tabs>
+                           
                         </v-sheet>
                     </v-col>      
                 </v-row>
@@ -41,12 +53,14 @@
 
 <script>
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
-import JobReqData from '../components/JobReqData.vue';
+import JobReqTable from '../components/JobReqTable.vue';
+import CandidatesTable from '../components/CandidatesTable.vue';
 
     export default {
         components: {
             RecruiterTopNav,
-            JobReqData,
+            JobReqTable,
+            CandidatesTable
         },
         data(){ 
             return {
