@@ -16,8 +16,15 @@
                         </v-sheet>
                     </v-col>
                     <v-col>
-                       <!-- import application form  -->
-                       <JobApplicationForm/>
+                        <v-sheet 
+                        class="pa-12"
+                        rounded="lg"
+                        width="60vw"
+                        height="100vh"
+                        >
+                            <!-- import application form  -->
+                            <JobApplicationForm/>
+                         </v-sheet>
                     </v-col> 
                 </v-row>
             </v-container>

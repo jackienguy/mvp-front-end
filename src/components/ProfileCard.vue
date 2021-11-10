@@ -2,14 +2,31 @@
     <div>
         <v-row justify="center">
             <v-avatar
-                class="ma-7"
+                class="mt-10 ml-10 mr-10 mb-5"
                 color="indigo"
-                size="65"
+                size="70"
             >
                     <v-icon dark>
                         mdi-account-circle
                     </v-icon>
             </v-avatar>
+
+             <v-btn
+            class="mb-6 pa-4"
+            outlined
+            rounded
+            small
+            color="cyan"
+            @click="isEditing = !isEditing"
+            >
+            Edit Profile
+                <v-icon v-if="isEditing" dark>
+                mdi-close
+                </v-icon>
+                <v-icon v-else>
+                mdi-pencil
+                </v-icon>
+            </v-btn>
         </v-row>
 
         <v-divider></v-divider>
@@ -23,22 +40,6 @@
                     <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
                     <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
             </v-list-item-content>
-
-            <v-btn
-            class="ml-4"
-            fab
-            outlined
-            small
-            color="teal lighten-3"
-            @click="isEditing = !isEditing"
-            >
-                <v-icon v-if="isEditing" dark>
-                mdi-close
-                </v-icon>
-                <v-icon v-else>
-                mdi-pencil
-                </v-icon>
-            </v-btn>
         </v-list-item>
 
         <v-divider></v-divider>
@@ -52,11 +53,25 @@
                     <v-list-item-subtitle>Phone: {{phoneNumber}}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-            
+        <v-row class="justify-center">
+            <v-btn
+            class="ma-6 pa-4"
+            outlined
+            rounded
+            small
+            color="cyan"
+            @click="logout()"
+            >
+            Log Out
+            </v-btn>
+        </v-row>
     </div>
 </template>
 
 <script>
+import cookies from 'vue-cookies';
+import axios from 'axios';
+
     export default {
         name: "ProfileCard",
         props: {
@@ -80,6 +95,23 @@
             save () {
                 this.isEditing = !this.isEditing
                 this.hasSaved = true
+            },
+            logout() {
+                axios.request ({
+                    url: "http://127.0.0.1:5000/api/signin",
+                    method: "DELETE",
+                    data: {
+                        loginToken: cookies.get('loginToken')
+                    }
+                }).then((response)=>{
+                    cookies.remove('loginToken')
+                    console.log(response);
+                    this.$route.push('/')
+                }).catch((err)=>{
+                    console.error(err);
+                })
+                
+                
             }
         },
     }

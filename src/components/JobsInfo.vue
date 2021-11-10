@@ -5,9 +5,9 @@
         :key="post.jobId"
         :jobId="post.jobId"
         :recruiterId="post.recruiterId"
-        :workingTitle="post.workingTitle"
-        :organizationName="post.organizationName"
-        :location="post.location"
+        :jobTitle="post.jobTitle"
+        :orgName="post.orgName"
+        :jobLocation="post.jobLocation"
         :ftStatus="post.ftStatus"
         :permStatus="post.permStatus"
         :duration="post.duration"
@@ -27,6 +27,7 @@
 <script>
 import JobPostingAd from "./JobPostingAd.vue";
 import axios from "axios";
+import cookies from "vue-cookies";
 
 
     export default {
@@ -48,7 +49,7 @@ import axios from "axios";
                     url: "http://127.0.0.1:5000/api/jobs",
                     methods: "GET",
                     params: {
-                        recruiterId: 22
+                        recruiterId: cookies.get("userId")
                     }
                 }).then((response)=>{
                     console.log(response);

@@ -75,6 +75,7 @@
                                     open-delay="200"
                                     >
                                         <v-card
+                                        @click="goToViewCandidates"
                                         :elevation="hover ? 16 : 2"
                                         :class="{ 'on-hover': hover }"
                                         class="mx-auto"
@@ -113,6 +114,9 @@ import RecruiterTopNav from '../components/RecrutierTopNav.vue'
             },
             goToJobRequisitionPage(){
                 this.$router.push("/job-requisition");
+            },
+            goToViewCandidates(){
+                this.$router.push("/view-candidates");
             }
         }
     }

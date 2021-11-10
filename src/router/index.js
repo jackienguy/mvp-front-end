@@ -12,6 +12,7 @@ import JobPosting from '../views/JobPosting.vue'
 import UserProfile from '../views/UserProfile.vue'
 import UserGetStarted from '../views/UserGetStarted.vue'
 import Application from '../views/Application.vue'
+import ViewCandidates from '../views/ViewCandidates.vue'
 
 
 Vue.use(VueRouter)
@@ -56,6 +57,11 @@ const routes = [
     path: '/job-requisition',
     name: 'job-requisition',
     component: JobRequisition
+  },
+  {
+    path: '/view-candidates',
+    name: 'view-candidates',
+    component: ViewCandidates
   },
   {
     path: '/user-dashboard',

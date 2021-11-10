@@ -6,10 +6,10 @@
         height="70vh"
         >
             <v-card-text>
-                <p class="text-h5 text--primary"> {{ workingTitle }}</p>
+                <p class="text-h5 text--primary"> {{ jobTitle }}</p>
                 <div class="text--primary">
-                    <p> {{ organizationName }} </p>
-                    <p> {{ location }} </p>
+                    <p> {{ orgName }} </p>
+                    <p> {{ jobLocation }} </p>
                     <p> {{ ftStatus }} </p>
                     <p> {{ permStatus }} </p>
                     <p> {{ duration }} </p>
@@ -32,20 +32,42 @@
                         <p> {{ recruiterPhoneNumber }} </p>
                 </div>
             </v-card-text> 
-            <v-btn @click="apply" class="ma-5"> Apply </v-btn>  
+            <v-btn @click="overlay = !overlay" class="ma-5"> 
+                Apply 
+            </v-btn>  
+            <v-overlay
+            :z-index="zIndex"
+            :value="overlay"
+            >
+                <JobApplicationForm
+                :jobId="jobId"
+                />
+            <v-btn
+                class="white--text"
+                color="teal"
+                @click="overlay = false"
+            >
+                Cancel
+            </v-btn>
+            </v-overlay>
         </v-card>
     </div>
 </template>
 
 <script>
+import JobApplicationForm from '../components/JobApplicationForm.vue'
+
     export default {
         name: "JobPostingAd",
+        components: {
+            JobApplicationForm,
+        },  
         props: {
             jobId: Number,
             recruiterId: Number,
-            workingTitle: String,
-            organizationName: String,
-            location: String,
+            jobTitle: String,
+            orgName: String,
+            jobLocation: String,
             ftStatus: String,
             permStatus: String,
             duration: String,
@@ -59,11 +81,12 @@
             recruiterEmail: String,
             recruiterPhoneNumber: String
         },
-        methods: {
-            apply() {
-                this.$router.push('/application')
+        data () {
+            return {
+                overlay: false,
+                zIndex: 5,
+                application: []
             }
-            
         }
     }
 </script>

@@ -17,7 +17,7 @@
         :startDate="experience.startDate"
         :endDate="experience.endDate"
         :description="experience.description"
-        @saveUpdateToExperience="getUpdatedExperienceInfo"
+        @saveUpdateToExperience="getExperienceInfo"
         />
         
 
@@ -30,7 +30,6 @@
         :institutionName="education.institutionName"
         :completionDate="education.completionDate"
         :other="education.other"
-        
         />
         <!-- Skills Section -->
         <SkillsSection
@@ -73,6 +72,20 @@ import cookies from 'vue-cookies';
         this.getSkillsInfo()
     },
     methods: {
+        getProfileData() {
+            axios.request ({
+                url: "http://127.0.0.1:5000/api/user",
+                methods: "GET",
+                params: {
+                    userId: cookies.get('userId')
+                }
+            }).then((response)=>{
+                console.log(response);
+                this.user = response.data
+            }).catch((err)=>{
+                console.error(err);
+            })
+        },
         getExperienceInfo() {
             axios.request ({
                 url: "http://127.0.0.1:5000/api/user/experience",
@@ -115,20 +128,6 @@ import cookies from 'vue-cookies';
                 console.error(err);
             })
         },
-        getProfileData() {
-            axios.request ({
-                url: "http://127.0.0.1:5000/api/user",
-                methods: "GET",
-                params: {
-                    userId: cookies.get('userId')
-                }
-            }).then((response)=>{
-                console.log(response);
-                this.user = response.data
-            }).catch((err)=>{
-                console.error(err);
-            })
-        }
     }
 }
 </script>

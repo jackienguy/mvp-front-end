@@ -29,22 +29,8 @@
                         min-height="70vh"
                         rounded="lg"
                         >
-                            <v-data-table
-                            :headers="headers"
-                            :items-per-page="5"
-                            class="elevation-1" 
-                            >
                             <!-- Input job requisition board -->
-                                <JobReqData
-                                v-for="job in jobReqs"
-                                :key="job.recruiterId"
-                                :workingTitle="job.workingTitle"
-                                :jobId="job.jobId"
-                                :numApplicants="job.numApplicants"
-                                :closingDate="job.closingDate"
-                                :status="job.status"
-                                />
-                            </v-data-table>                   
+                                <JobReqData/>      
                         </v-sheet>
                     </v-col>      
                 </v-row>
@@ -56,7 +42,6 @@
 <script>
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
 import JobReqData from '../components/JobReqData.vue';
-import axios from 'axios';
 
     export default {
         components: {
@@ -76,7 +61,7 @@ import axios from 'axios';
                 sideBarLinks: [
                     {title:'Post Job', to: '/post-job'}, 
                     {title:'View Job Requisitions', to: '/job-requisition'}, 
-                    {title:'View Candidates', to: '/view-candidate'}
+                    {title:'View Candidates', to: '/view-candidates'}
                 ],
                 // Profile card
                 hasSaved: false,
@@ -91,42 +76,9 @@ import axios from 'axios';
                     v => !!v || 'E-mail is required',
                     v => /.+@.+/.test(v) || 'E-mail must be valid',
                 ],
-                headers: [
-                {
-                    text: 'Job Title',
-                    align: 'start',
-                    sortable: false,
-                    value: 'name',
-                },
-                    { text: 'Job ID', value: 'jobId' },
-                    { text: 'Number of Applicants', value: 'numApplicants' },
-                    { text: 'Closing Date', value: 'closingDate' },
-                    { text: 'Status', value: 'status' },
-                ],
-                jobReqs: []
+               
+                // returning requisition data
             }
-        },
-        mounted() {
-            this.getJobReqInfo()
-        },
-        methods: {
-            getJobReqInfo() {
-                axios.request ({
-                    url: "http://127.0.0.1:5000/api/jobs",
-                    methods: "GET",
-                    params: {
-                        recruiterId: 22
-                    }
-                }).then((response)=>{
-                    console.log(response);
-                    this.jobReqs = response.data
-                }).catch((err)=>{
-                    console.error(err);
-                })
-            },
-            goToPostJob(){
-                 this.$router.push("/post-job");
-            }
-        }          
+        }        
     }
 </script>

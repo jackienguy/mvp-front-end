@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
-    <RecrutierTopNav/>
-
+      <!-- Import top nav component -->
+      <RecruiterTopNav/> 
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
@@ -26,13 +26,11 @@
 
                     <v-col>
                         <v-sheet
-                        height="100vh"
+                        min-height="70vh"
                         rounded="lg"
-                        class="pt-10"
                         >
-                           
                         <!-- Job post input form -->
-                            <JobsInfo/>
+                            <CandidatesTable/>
                            
                         </v-sheet>
                     </v-col>      
@@ -43,18 +41,17 @@
 </template>
 
 <script>
-import JobsInfo from '../components/JobsInfo.vue';
-import RecrutierTopNav from '../components/RecrutierTopNav.vue';
-
+import RecruiterTopNav from '../components/RecrutierTopNav.vue';
+import CandidatesTable from '../components/CandidatesTable.vue';
 
       export default {
         components: {
-            JobsInfo,
-            RecrutierTopNav
+            RecruiterTopNav,
+            CandidatesTable
         },
         data(){ 
             return {
-                // Side nav
+                //Side nav
                 sideBarLinks: [
                     {title:'Post Job', to: '/post-job'}, 
                     {title:'View Job Requisitions', to: '/job-requisition'}, 

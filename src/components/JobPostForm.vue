@@ -13,23 +13,21 @@
                         <h2>Job Information</h2>
                         <p>Working Title *</p>
                         <v-text-field
-                            v-model="workingTitle"
+                            v-model="jobTitle"
                             solo
-                            label="title"
                             clearable
                             required
                         ></v-text-field>
                         <p>Company Name *</p>
                         <v-text-field
-                            v-model="organizationName"
+                            v-model="orgName"
                             solo
-                            label="name"
                             clearable
                             required
                         ></v-text-field>
                         <p>Location *</p>
                         <v-text-field
-                            v-model="location"
+                            v-model="jobLocation"
                             solo
                             label="city, province/state"
                             clearable
@@ -163,9 +161,9 @@ import cookies from "vue-cookies"
             return {
                 jobId: '',
                 recruiterId: '',
-                organizationName: '',
-                workingTitle:'',
-                location: '',
+                orgName: '',
+                jobTitle:'',
+                jobLocation: '',
                 ftStatus: '',
                 permStatus: '',
                 duration: '',
@@ -200,10 +198,10 @@ import cookies from "vue-cookies"
                     },
                     data: {
                         loginToken: cookies.get('loginToken'),
-                        recruiterId: cookies.set('recruiterId'),
-                        organizationName: this.organizationName,
-                        workingTitle:this.workingTitle,
-                        location: this.location,
+                        recruiterId: cookies.get('userId'),
+                        orgName: this.orgName,
+                        jobTitle:this.jobTitle,
+                        jobLocation: this.jobLocation,
                         ftStatus: this.ftStatus,
                         permStatus: this.permStatus,
                         duration: this.duration,

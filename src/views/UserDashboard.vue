@@ -62,12 +62,6 @@ import JobsInfo from '../components/JobsInfo.vue'
                     {title:'Messages', to: '/recruiter-messages'}, 
                     {title:'Borwse Jobs', to: '/jobs-board'}
                 ],
-                featureJobs: [
-                  ['Web Developer', 'Edmonton', 'Awesome Company'],
-                  ['Web Designer', 'Edmonton', 'ABC'],
-                  ['Security Analyst', 'Calgary', 'Security World'],
-                ],
-                reveal: false,
             }
         },
         methods: {
