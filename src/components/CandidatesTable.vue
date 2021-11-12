@@ -1,51 +1,74 @@
 <template>
-  <div>
-    <b-table :items="items" :fields="fields" striped responsive="sm">
-      <template #cell(show_resume)="row">
-        <b-button size="sm" @click="row.toggleDetails" class="mr-2">
-          {{ row.detailsShowing ? 'Hide' : 'Show'}} Details
-        </b-button>
-
-      </template>
-
-      <template #row-details="row">
-        <b-card>
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Age:</b></b-col>
-            <b-col>{{ row.item.age }}</b-col>
-          </b-row>
-
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Is Active:</b></b-col>
-            <b-col>{{ row.item.isActive }}</b-col>
-          </b-row>
-
-          <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-        </b-card>
-      </template>
-    </b-table>
-  </div>
+  <v-container>
+        <v-row>
+            <v-col
+                v-for="n in 24"
+                :key="n"
+                cols="4"
+            >
+                <v-card
+                class="mx-auto"
+                max-width="344"
+                >
+                    <v-card-text
+                    >
+                        <p class="text-h4 text--primary">
+                            {{ jobTitle }}
+                        </p>
+                        <p>{{ jobId }}</p>
+                    </v-card-text>
+                    <v-card-actions>
+                   <v-btn
+                        class="mb-6 pa-4"
+                        outlined
+                        rounded
+                        small
+                        color="cyan"
+                        @click="reveal = true"
+                    >
+                        View Candidates
+                    </v-btn>
+                    </v-card-actions>
+                </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        fields: ['first_name', 'last_name', 'show_resume'],
-        items: [
-          { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-          { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          {
-            isActive: false,
-            age: 89,
-            first_name: 'Geneva',
-            last_name: 'Wilson',
-            _showDetails: true
-          },
-          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
-      }
-    }
+import axios from "axios";
+import cookies from "vue-cookies";
+
+    export default {
+        name: "CandidatesTable.vue",
+        data () {
+            return {
+                reqCards: [
+                    {jobId: this.jobId, jobTitle: this.jobTitle}
+                ]
+                
+            }
+        },
+        mounted() {
+            this.getJobsInfo()
+        },
+        methods: {
+            getJobsInfo() {
+                axios.request ({
+                    url: "http://127.0.0.1:5000/api/jobs",
+                    methods: "GET",
+                    params: {
+                        recruiterId: cookies.get("userId")
+                    }
+                }).then((response)=>{
+                    console.log(response);
+                    this.jobId = response.data.jobId;
+                    this.jobTitle = response.data.jobTitle
+                }).catch((err)=>{
+                    console.error(err);
+                })
+            }
+        }
   }
 </script>
 
@@ -53,3 +76,7 @@
 <style lang="scss" scoped>
 
 </style>
+
+
+
+

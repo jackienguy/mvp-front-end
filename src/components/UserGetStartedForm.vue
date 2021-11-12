@@ -73,7 +73,7 @@
                             ></v-text-field>
                             <p>Your working title with your company *</p>
                             <v-text-field
-                                v-model="workingTitle"
+                                v-model="title"
                                 :rules="requiredRule"
                                 solo
                                 label="title"
@@ -151,12 +151,11 @@
                             <v-text-field
                                 v-model="major"
                                 solo
-                                label="title"
                                 clearable
                             ></v-text-field>
                             <p>Location *</p>
                             <v-text-field
-                                v-model="location"
+                                v-model="institutionLocation"
                                 solo
                                 :rules="requiredRule"
                                 label="city, province/state"
@@ -275,12 +274,12 @@ import cookies from 'vue-cookies';
             workLocation: '',
             startDate: '',
             endDate: '',
-            workingTitle: '',
+            title: '',
             description: '',
             // education
             certificateName: '',
             major: '',
-            location: '',
+            institutionLocation: '',
             institutionName: '',
             completionDate: '',
             other: '',
@@ -303,7 +302,7 @@ import cookies from 'vue-cookies';
                     workLocation: this.workLocation,
                     startDate: this.startDate,
                     endDate: this.endDate,
-                    workingTitle: this.workingTitle,
+                    title: this.title,
                     description: this.description,
                 }
             }).then((response)=>{
@@ -324,7 +323,7 @@ import cookies from 'vue-cookies';
                     loginToken: cookies.get('loginToken'),
                     certificateName: this.certificateName,
                     major: this.major,
-                    location: this.location,
+                    institutionLocation: this.institutionLocation,
                     institutionName: this.institutionName,
                     completionDate: this.completionDate,
                     other: this.other,

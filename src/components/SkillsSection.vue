@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="isEditing" class="pa-12">
+        <!-- <div v-if="isEditing" class="pa-12">
             <v-list-item-title class="text-h6 mb-5 mt-5">
                 <b>Skills</b> 
             </v-list-item-title> 
@@ -36,25 +36,43 @@
             >
             Your profile has been updated
             </v-snackbar>
-        </div>
-        <div v-else class="pa-5">
+        </div> -->
+        <div  class="pa-5">
             <v-list-item-title class="text-h6 mb-5 mt-5">
-                <b>Skills</b>        
-                <v-btn
+                <b>Skills</b>    
+
+                <v-btn 
                 class="ml-4"
                 fab
                 outlined
                 small
                 color="teal lighten-3"
-                @click="isEditing = !isEditing"
+                @click="overlay = !overlay"
                 >
-                    <v-icon v-if="isEditing" dark>
-                    mdi-close
+                    <v-icon>
+                        mdi-pencil
                     </v-icon>
-                    <v-icon v-else>
-                    mdi-pencil
-                    </v-icon>
+                
                 </v-btn>
+                <v-overlay
+                :z-index="zIndex"
+                :value="overlay"
+                >
+                   <EditSkills
+                        :hasSaved="editSkills.hasSaved"
+                        :model="editSkills.model"
+                        :skillType="editSkills.skillType"
+                        :proficiencyLevel="editSkills.proficiencyLevel"
+                        :isEditing="editSkills.isEditing"
+                   />
+                <v-btn
+                    class="white--text"
+                    color="teal"
+                    @click="overlay = false"
+                >
+                    Cancel
+                </v-btn>
+                </v-overlay>
             </v-list-item-title>
             <v-list-item-title class="text-h7"> {{skillType}} - {{proficiencyLevel}}</v-list-item-title>
         </div>
@@ -62,8 +80,13 @@
 </template>
 
 <script>
+import EditSkills from './EditSkills.vue';
+
   export default {
     name: "SkillsSection",
+    components: {
+        EditSkills,
+    },
     props: {
         hasSaved: Boolean,
         isEditing: Boolean,
@@ -73,11 +96,17 @@
     },
     data() {
         return {
-            editedSkillType: "",
-            editedProficiencyLevel: "",
+            editSkills: [],
+            // for overlay
+            overlay: false,
+            zIndex: 5,
+            
+            }
         }
-    }
-  }
+ }
+        
+    
+  
 </script>
 
 <style lang="scss" scoped>

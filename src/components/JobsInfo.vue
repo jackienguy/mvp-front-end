@@ -33,11 +33,11 @@ import cookies from "vue-cookies";
     export default {
         name: "JobsInfo",
         components: {
-            JobPostingAd,
+            JobPostingAd
         },
         data() {
             return {
-                postings: []
+                postings: [],
             }
         },
         mounted() {

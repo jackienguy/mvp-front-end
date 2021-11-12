@@ -1,20 +1,15 @@
 <template>
-  <v-card>
-    <v-card-title>
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
-      ></v-text-field>
-    </v-card-title>
-    <v-data-table
-      :headers="headers"
-      :items="jobReqs"
-      :search="search"
-    ></v-data-table>
-  </v-card>
+    <v-sheet
+    min-height="70vh"
+    rounded="lg"
+    >
+        <v-data-table
+            class="mt-12"
+            :headers="headers"
+            :items="jobReqs"
+        >
+        </v-data-table>
+    </v-sheet>
 </template>
 
 <script>
@@ -22,18 +17,17 @@ import axios from 'axios';
 import cookies from 'vue-cookies';
 
     export default {
-        name: "JobReqTable",
+        name: "CandidatesTable",
         data() {
             return {
-                search: '',
                 headers: [
                 {
-                    text: 'Job Title',
+                    text: 'Job ID',
                     align: 'start',
-                    filterable: false,
-                    value: 'jobTitle',
+                    sortable: false,
+                    value: 'jobId',
                 },
-                { text: 'Job ID', value: 'jobId' },
+                { text: 'Job Title', value: 'jobTitle' },
                 { text: 'Number of Applicants', value: 'numApplicants' },
                 { text: 'Closing Date', value: 'closingDate' },
                 { text: 'Status', value: 'status' },
@@ -44,7 +38,7 @@ import cookies from 'vue-cookies';
                     {jobId: ''},
                     {numApplicants: ''},
                     {closingDate: ''},
-                   { status: ''} 
+                    {status: ''} 
                 ]
             }
         },

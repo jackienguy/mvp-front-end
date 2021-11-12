@@ -217,7 +217,7 @@ import cookies from "vue-cookies"
                     }
                 }).then((response)=>{
                     console.log(response);
-                    this.$router.push('/job-posting');
+                    this.$router.push('/job-requisition');
                 }).catch((err)=>{
                     console.error(err);
                 })

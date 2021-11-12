@@ -8,7 +8,6 @@ import PostJob from '../views/PostJob.vue'
 import GetStarted from '../views/GetStarted.vue'
 import UserDashboard from '../views/UserDashboard.vue'
 import JobRequisition from '../views/JobRequisition.vue'
-import JobPosting from '../views/JobPosting.vue'
 import UserProfile from '../views/UserProfile.vue'
 import UserGetStarted from '../views/UserGetStarted.vue'
 import Application from '../views/Application.vue'
@@ -47,11 +46,6 @@ const routes = [
     path: '/post-job',
     name: 'post-job',
     component: PostJob
-  },
-  {
-    path: '/job-posting',
-    name: 'jobs-posting',
-    component: JobPosting
   },
   {
     path: '/job-requisition',

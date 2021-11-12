@@ -35,12 +35,13 @@
                                     <b-tab title="Job Requisition Data" active>
                                         <JobReqTable/>   
                                     </b-tab>
-                                    <b-tab title="View Job Posts"><p>I'm the second tab</p>
+                                    <b-tab title="View Job Posts">
+                                        <JobsInfo/>
                                     </b-tab>
                                     <b-tab title="View Candidates">
                                         <CandidatesTable/>
                                     </b-tab>
-                                    <b-tab title="Disabled" disabled><p>I'm a disabled tab!</p></b-tab>
+                                    <b-tab></b-tab>
                                 </b-tabs>
                            
                         </v-sheet>
@@ -55,12 +56,14 @@
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
 import JobReqTable from '../components/JobReqTable.vue';
 import CandidatesTable from '../components/CandidatesTable.vue';
+import JobsInfo from '../components/JobsInfo.vue';
 
     export default {
         components: {
             RecruiterTopNav,
             JobReqTable,
-            CandidatesTable
+            CandidatesTable,
+            JobsInfo
         },
         data(){ 
             return {

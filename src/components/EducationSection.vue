@@ -91,7 +91,7 @@
   export default {
     name: "EducationSection",
     props: {
-        hasSaved: Boolean,
+        // hasSaved: Boolean,
         isEditing: Boolean,
         model: Boolean,
         certificateName: String,

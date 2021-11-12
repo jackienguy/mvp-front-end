@@ -29,7 +29,7 @@
                         min-height="70vh"
                         rounded="lg"
                         >
-                        <!-- Job post input form -->
+                    
                             <CandidatesTable/>
                            
                         </v-sheet>
