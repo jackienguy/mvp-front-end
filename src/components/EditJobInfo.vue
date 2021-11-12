@@ -36,23 +36,23 @@ import cookies from "vue-cookies";
         },
         data() {
             return {
-                postings: [],
+                editPost: [],
             }
         },
         mounted() {
             this.getJobsInfo()
         },
         methods: {
-            getJobsInfo() {
+            editPost() {
                 axios.request ({
                     url: "http://127.0.0.1:5000/api/jobs",
-                    methods: "GET",
+                    methods: "PATCH",
                     params: {
-                        recruiterId: cookies.get("userId")
+                        loginToken: cookies.get("loginToken")
                     }
                 }).then((response)=>{
                     console.log(response);
-                    this.postings = response.data
+                    this.editPost = response.data
                 }).catch((err)=>{
                     console.error(err);
                 })

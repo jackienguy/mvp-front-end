@@ -1,6 +1,6 @@
 <template>
     <div>
-        <CandidatesTable 
+        <JobReqTable 
         v-for="card in reqCards"
         :key="card.jobId"
         :jobId="card.jobId"
@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import CandidatesTable from './CandidatesTable.vue';
+import JobReqTable from './JobReqTable.vue';
 import axios from 'axios';
 import cookies from 'vue-cookies';
 
     export default {
         name:"ReqCard",
         components: {
-            CandidatesTable,
+            JobReqTable,
         },
         data() {
             return {

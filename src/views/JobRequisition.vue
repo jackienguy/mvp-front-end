@@ -33,13 +33,13 @@
                            
                                 <b-tabs content-class="mt-3" fill>
                                     <b-tab title="Job Requisition Data" active>
-                                        <JobReqTable/>   
+                                         <ReqCard/>
                                     </b-tab>
                                     <b-tab title="View Job Posts">
                                         <JobsInfo/>
                                     </b-tab>
                                     <b-tab title="View Candidates">
-                                        <ReqCard/>
+                                        <CandidatesTable/>
                                     </b-tab>
                                     <b-tab></b-tab>
                                 </b-tabs>
@@ -54,15 +54,15 @@
 
 <script>
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
-import JobReqTable from '../components/JobReqTable.vue';
+import CandidatesTable from '../components/CandidatesTable.vue';
 import ReqCard from '../components/ReqCard.vue';
 import JobsInfo from '../components/JobsInfo.vue';
 
     export default {
         components: {
             RecruiterTopNav,
-            JobReqTable,
             ReqCard,
+            CandidatesTable,
             JobsInfo
         },
         data(){ 

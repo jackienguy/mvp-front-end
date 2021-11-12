@@ -1,72 +1,108 @@
 <template>
-    <v-sheet
-    min-height="70vh"
-    rounded="lg"
-    >
-        <v-data-table
-            class="mt-12"
-            :headers="headers"
-            :items="jobReqs"
-        >
-        </v-data-table>
-    </v-sheet>
+  <v-container>
+        <v-row>
+            <v-col
+                cols="5"
+            >
+                <v-card 
+                class="mx-auto"
+                width="380"
+                >
+                    <v-card-text
+                    >
+                        <p class="text-h6 text--primary">
+                            {{ jobTitle }}
+                        </p>
+                        <p>Job ID:{{ jobId }}</p>
+                        <p>Number of Applicants:{{ numApplicants }}</p>
+                        <p>Closing Date: {{ closingDate }}</p>
+                    </v-card-text>
+                    <v-card-actions>
+                          <div>
+                            <v-btn
+                            class="mb-6 mr-4 pa-4"
+                            outlined
+                            rounded
+                            small
+                            color="cyan"
+                            @click="overlay = !overlay"
+                            >
+                                View Job Post
+                            </v-btn>
+                            
+                            <v-overlay
+                            :z-index="zIndex"
+                            :value="overlay"
+                            >   
+                             <v-card
+                            class="mx-auto pa-8 mb-5 overflow-auto"
+                            max-width="40vw"
+                            height="60vh"
+                            color="white"
+                            >
+                                <JobsInfo/>
+                            </v-card>
+                    
+                                <v-btn
+                                    class="white--text"
+                                    color="teal"
+                                    @click="overlay = false"
+                                >
+                                    Close
+                                </v-btn>
+                            </v-overlay>
+                        </div>
+
+                        <div>
+                             <v-btn
+                                class="mb-6 mr-4 pa-4"
+                                outlined
+                                rounded
+                                small
+                                color="cyan"
+                            >
+                            View Candidates
+                            </v-btn>
+                        </div>
+                    
+                      
+    
+                    </v-card-actions>
+                </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
 </template>
 
 <script>
-import axios from 'axios';
-import cookies from 'vue-cookies';
+import JobsInfo from './JobsInfo.vue';
+
 
     export default {
-        name: "CandidatesTable",
+        name: "CandidatesTable.vue",
+        components: {
+            JobsInfo
+        },
+        props: {
+            jobId: Number,
+            jobTitle: String,
+            closingDate: String,
+            numApplicants: String
+        },
         data() {
             return {
-                headers: [
-                {
-                    text: 'Job ID',
-                    align: 'start',
-                    sortable: false,
-                    value: 'jobId',
-                },
-                { text: 'Job Title', value: 'jobTitle' },
-                { text: 'Number of Applicants', value: 'numApplicants' },
-                { text: 'Closing Date', value: 'closingDate' },
-                { text: 'Status', value: 'status' },
-                ],
-                jobReqs: [
-                    {jobTitle: ''},
-                    {recruiterId: ''},
-                    {jobId: ''},
-                    {numApplicants: ''},
-                    {closingDate: ''},
-                    {status: ''} 
-                ]
-            }
-        },
-         mounted() {
-            this.getJobReqData()
-        },
-        methods: {
-            getJobReqData() {
-                axios.request ({
-                    url: "http://127.0.0.1:5000/api/jobs",
-                    methods: "GET",
-                    params: {
-                        recruiterId: cookies.get('userId')
-                    }
-                }).then((response)=>{
-                    console.log(response);
-                    this.jobReqs = response.data
-                }).catch((err)=>{
-                    console.error(err);
-                })
-            },
-            goToPostJob(){
-                 this.$router.push("/post-job");
+                overlay: false,
+                zIndex: 5,
             }
         }
-    }
+  }
 </script>
+
 
 <style lang="scss" scoped>
 
 </style>
+
+
+
+
