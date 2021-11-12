@@ -39,7 +39,7 @@
                                         <JobsInfo/>
                                     </b-tab>
                                     <b-tab title="View Candidates">
-                                        <CandidatesTable/>
+                                        <ReqCard/>
                                     </b-tab>
                                     <b-tab></b-tab>
                                 </b-tabs>
@@ -55,14 +55,14 @@
 <script>
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
 import JobReqTable from '../components/JobReqTable.vue';
-import CandidatesTable from '../components/CandidatesTable.vue';
+import ReqCard from '../components/ReqCard.vue';
 import JobsInfo from '../components/JobsInfo.vue';
 
     export default {
         components: {
             RecruiterTopNav,
             JobReqTable,
-            CandidatesTable,
+            ReqCard,
             JobsInfo
         },
         data(){ 

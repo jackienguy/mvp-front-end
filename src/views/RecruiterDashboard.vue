@@ -7,7 +7,7 @@
                     <v-col cols="3">
                         <v-sheet 
                         rounded="lg"
-                        height="70vh"
+                        height="80vh"
                         >
                             <ProfileInfo/>
                         </v-sheet>
@@ -15,9 +15,10 @@
 
                     <v-col>
                             <v-sheet
-                    min-height="70vh"
-                    rounded="lg"
-                    >
+                            min-height="80vh"
+                            max-width="60vw"
+                            rounded="lg"
+                            >
                     
                         
                         <v-container class="grey lighten-5">
@@ -25,6 +26,7 @@
                                 <v-col
                                 cols="12"
                                 sm="4"
+                                class="mr-0"
                                 >
                                     <v-hover
                                     v-slot="{ hover }"
@@ -36,7 +38,7 @@
                                         :class="{ 'on-hover': hover }"
                                         class="mx-auto"
                                         height="200"
-                                        max-width="350"
+                                        max-width="200"
                                         >
                                         <v-card-text class="font-weight-medium mt-12 text-center text-subtitle-1">
                                             <p>Post Job</p>
@@ -58,7 +60,7 @@
                                         :class="{ 'on-hover': hover }"
                                         class="mx-auto"
                                         height="200"
-                                        max-width="350"
+                                          max-width="200"
                                         >
                                         <v-card-text class="font-weight-medium mt-12 text-center text-subtitle-1">
                                             <p>View Job Requisitions</p>
@@ -80,7 +82,7 @@
                                         :class="{ 'on-hover': hover }"
                                         class="mx-auto"
                                         height="200"
-                                        max-width="350"
+                                          max-width="200"
                                         >
                                         <v-card-text class="font-weight-medium mt-12 text-center text-subtitle-1">
                                             <p>View Candidates</p>

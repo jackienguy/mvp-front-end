@@ -2,32 +2,70 @@
   <v-container>
         <v-row>
             <v-col
-                v-for="n in 24"
-                :key="n"
-                cols="4"
+                cols="5"
             >
-                <v-card
+                <v-card 
                 class="mx-auto"
-                max-width="344"
+                width="380"
                 >
                     <v-card-text
                     >
-                        <p class="text-h4 text--primary">
+                        <p class="text-h6 text--primary">
                             {{ jobTitle }}
                         </p>
-                        <p>{{ jobId }}</p>
+                        <p>Job ID:{{ jobId }}</p>
+                        <p>Number of Applicants:{{ numApplicants }}</p>
+                        <p>Closing Date: {{ closingDate }}</p>
                     </v-card-text>
                     <v-card-actions>
-                   <v-btn
-                        class="mb-6 pa-4"
-                        outlined
-                        rounded
-                        small
-                        color="cyan"
-                        @click="reveal = true"
-                    >
-                        View Candidates
-                    </v-btn>
+                        <div>
+                            <v-btn
+                            class="mb-6 mr-4 pa-4"
+                            outlined
+                            rounded
+                            small
+                            color="cyan"
+                            @click="reveal = true"
+                            >
+                                View Candidates
+                            </v-btn>
+                        </div>
+                    
+                        <div>
+                            <v-btn
+                            class="mb-6 pa-4"
+                            outlined
+                            rounded
+                            small
+                            color="cyan"
+                            @click="overlay = !overlay"
+                            >
+                                View Job Post
+                            </v-btn>
+                            
+                            <v-overlay
+                            :z-index="zIndex"
+                            :value="overlay"
+                            >   
+                             <v-card
+                            class="mx-auto pa-8 mb-5 overflow-auto"
+                            max-width="40vw"
+                            height="50vh"
+                            color="white"
+                            >
+                                <JobInfo/>
+                            </v-card>
+                    
+                                <v-btn
+                                    class="white--text"
+                                    color="teal"
+                                    @click="overlay = false"
+                                >
+                                    Close
+                                </v-btn>
+                            </v-overlay>
+                        </div>
+    
                     </v-card-actions>
                 </v-card>
           </v-col>
@@ -36,37 +74,23 @@
 </template>
 
 <script>
-import axios from "axios";
-import cookies from "vue-cookies";
+import JobInfo from './JobsInfo.vue';
 
     export default {
         name: "CandidatesTable.vue",
-        data () {
+        components: {
+            JobInfo,
+        },
+        props: {
+            jobId: Number,
+            jobTitle: String,
+            closingDate: String,
+            numApplicants: String
+        },
+        data() {
             return {
-                reqCards: [
-                    {jobId: this.jobId, jobTitle: this.jobTitle}
-                ]
-                
-            }
-        },
-        mounted() {
-            this.getJobsInfo()
-        },
-        methods: {
-            getJobsInfo() {
-                axios.request ({
-                    url: "http://127.0.0.1:5000/api/jobs",
-                    methods: "GET",
-                    params: {
-                        recruiterId: cookies.get("userId")
-                    }
-                }).then((response)=>{
-                    console.log(response);
-                    this.jobId = response.data.jobId;
-                    this.jobTitle = response.data.jobTitle
-                }).catch((err)=>{
-                    console.error(err);
-                })
+                overlay: false,
+                zIndex: 5,
             }
         }
   }

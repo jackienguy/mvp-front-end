@@ -1,10 +1,5 @@
 <template>
     <div>
-        <v-card
-        class="mx-auto pa-8 mb-5 overflow-auto"
-        max-width="50vw"
-        height="70vh"
-        >
             <v-card-text>
                 <p class="text-h5 text--primary"> {{ jobTitle }}</p>
                 <div class="text--primary">
@@ -50,7 +45,6 @@
                 Cancel
             </v-btn>
             </v-overlay>
-        </v-card>
     </div>
 </template>
 
