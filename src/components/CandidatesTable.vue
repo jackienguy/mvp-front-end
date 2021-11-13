@@ -1,11 +1,11 @@
 <template>
   <div>
-       <v-card
+    <v-card
     class="mx-auto"
     max-width="100vw"
   >
-    <v-card-title class="white--text orange darken-4">
-      User Directory
+    <v-card-title class="black--text">
+      {{ jobTitle }} Job ID: {{ jobId }}
 
       <v-spacer></v-spacer>
    </v-card-title>
@@ -30,7 +30,7 @@
 
             <v-list-item-content>
               <v-list-item-title>
-                User Database Record <strong>ID {{ item }}</strong>
+                {{firstName}} {{lastName}} 
               </v-list-item-title>
             </v-list-item-content>
 
@@ -75,6 +75,13 @@
 
 <script>
   export default {
+    name: "CandidatesTable",
+    props: {
+        jobId: Number,
+        firstName: String,
+        lastName: String,
+        jobTitle: String
+    },
     data: () => ({
         benched: 0,
         overlay: false,
@@ -85,8 +92,8 @@
         return Array.from({ length: this.length }, (k, v) => v + 1)
       },
       length () {
-        return 100
-      },
-    },
+        return 2
+      }
+    }
   }
 </script>

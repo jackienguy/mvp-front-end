@@ -4,6 +4,7 @@
         v-model="drawer"
         width="30vw"
         app
+        color="teal lighten-3"
     >
       <p>Your new career starts here</p>
     </v-navigation-drawer>
@@ -17,7 +18,7 @@
               width="40vw"
               rounded="lg"
             >
-            <v-toolbar>
+            <v-toolbar  color="teal lighten-3">
               <v-toolbar-title>Sign</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -44,6 +45,13 @@
                         ></v-text-field>
                     
                         <v-btn class="mr-4" @click="signin">Sign In</v-btn>
+
+                        <v-divider class="mt-10"></v-divider>
+                        <div class="mt-8">
+                            <p>Don't have an account? 
+                                <v-btn class="ml-3" @click="goToRegister()">Register Here</v-btn> 
+                            </p>
+                        </div>
                       </v-card-text>
                   </v-col>
               </v-row> 
@@ -118,7 +126,9 @@
                 }).catch((err)=>{
                     console.error(err);
                 })
-            },
+            },goToRegister() {
+                this.$router.push('/')
+            }
         }
     }
 </script>

@@ -4,6 +4,7 @@
         v-model="drawer"
         width="30vw"
         app
+        color="teal lighten-3"
     >
       <p>Discover new opportunities for you</p>
     </v-navigation-drawer>
@@ -17,7 +18,7 @@
               width="40vw"
               rounded="lg"
             >
-            <v-toolbar>
+            <v-toolbar color="teal lighten-3">
               <v-toolbar-title>Register</v-toolbar-title>
             </v-toolbar>
             <v-card-text>

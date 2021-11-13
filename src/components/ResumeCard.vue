@@ -1,6 +1,9 @@
 <template>
     <v-card
-        class="overflow-hidden"
+        class="overflow-auto"
+        width="50vw"
+        height="100vh"
+        rounded="lg"
     >
         <v-toolbar
         flat

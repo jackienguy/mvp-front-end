@@ -12,7 +12,7 @@ import UserProfile from '../views/UserProfile.vue'
 import UserGetStarted from '../views/UserGetStarted.vue'
 import Application from '../views/Application.vue'
 import ViewCandidates from '../views/ViewCandidates.vue'
-
+import EditResume from '../views/EditResume.vue'
 
 Vue.use(VueRouter)
 
@@ -76,6 +76,11 @@ const routes = [
     path: '/application',
     name: 'application',
     component: Application
+  },
+  {
+    path: '/edit-resume',
+    name: 'edit-resume',
+    component: EditResume
   },
 ]
 

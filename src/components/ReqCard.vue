@@ -40,6 +40,7 @@ import cookies from 'vue-cookies';
                 }).then((response)=>{
                     console.log(response);
                     this.reqCards = response.data
+                    cookies.set('jobId', response.data.jobId) 
                 }).catch((err)=>{
                     console.error(err);
                 })

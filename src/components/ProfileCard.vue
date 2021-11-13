@@ -13,19 +13,14 @@
 
              <v-btn
             class="mb-6 pa-4"
+            width="10vw"
             outlined
             rounded
             small
             color="cyan"
-            @click="isEditing = !isEditing"
+            @click="editUserInfo()"
             >
             Edit Profile
-                <v-icon v-if="isEditing" dark>
-                mdi-close
-                </v-icon>
-                <v-icon v-else>
-                mdi-pencil
-                </v-icon>
             </v-btn>
         </v-row>
 
@@ -56,6 +51,7 @@
         <v-row class="justify-center">
             <v-btn
             class="ma-6 pa-4"
+            width="10vw"
             outlined
             rounded
             small
@@ -106,12 +102,10 @@ import axios from 'axios';
                 }).then((response)=>{
                     cookies.remove('loginToken')
                     console.log(response);
-                    this.$route.push('/')
+                    this.$router.push('/Signin')
                 }).catch((err)=>{
                     console.error(err);
-                })
-                
-                
+                })  
             }
         },
     }

@@ -30,7 +30,7 @@
                         rounded="lg"
                         >
                     
-                            <CandidatesTable/>
+                            <CandidatesList/>
                            
                         </v-sheet>
                     </v-col>      
@@ -42,12 +42,12 @@
 
 <script>
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
-import CandidatesTable from '../components/CandidatesTable.vue';
+import CandidatesList from '../components/CandidatesList.vue';
 
       export default {
         components: {
             RecruiterTopNav,
-            CandidatesTable
+            CandidatesList
         },
         data(){ 
             return {

@@ -60,6 +60,7 @@
                                 rounded
                                 small
                                 color="cyan"
+                                @click="goToApplicants()"
                             >
                             View Candidates
                             </v-btn>
@@ -93,6 +94,11 @@ import JobsInfo from './JobsInfo.vue';
             return {
                 overlay: false,
                 zIndex: 5,
+            }
+        },
+        methods: {
+            goToApplicants() {
+                this.$router.push('/view-candidates')
             }
         }
   }
