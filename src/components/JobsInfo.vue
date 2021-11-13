@@ -51,6 +51,7 @@ import cookies from "vue-cookies";
                         recruiterId: cookies.get("userId")
                     }
                 }).then((response)=>{
+                    cookies.get('loginToken'),
                     console.log(response);
                     this.postings = response.data
                 }).catch((err)=>{

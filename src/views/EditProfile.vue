@@ -16,21 +16,14 @@
                             >
                             <v-toolbar
                             flat
-                            color="yellow lighten-4"
                             >
                             <v-toolbar-title class="font-weight-light">
-                                Edit Resume
+                                Edit Profile
                             </v-toolbar-title>
                             </v-toolbar>
                             <v-card-text>
-                                <EditExperience/>
-                                <v-divider></v-divider>
-
-                                <EditEdu/>
-                                <v-divider></v-divider>
-
-                                <EditSkills/>
-
+                                <EditProfileInfo/>
+                               
                             </v-card-text>
                             <v-btn
                                 class="ma-12 pa-4"
@@ -40,7 +33,7 @@
                                 color="cyan"
                                 @click="cancelEdit()"
                             >
-                            Return to Profile
+                            Cancel
                             </v-btn>
                             </v-card>
                         </v-col>
@@ -51,23 +44,14 @@
 </template>
 
 <script>
-import EditEdu from '../components/EditEdu.vue';
-import EditExperience from '../components/EditExperience.vue';
-import EditSkills from '../components/EditSkills.vue';
 import UserTopNav from '../components/UserTopNav.vue';
+import EditProfileInfo from '../components/EditProfileInfo.vue';
 
     export default {
         components: {
-            EditEdu,
-            EditExperience,
-            EditSkills,
-            UserTopNav
+            UserTopNav,
+            EditProfileInfo
         },
-        methods: {
-            cancelEdit() {
-                this.$router.push('/user-profile')
-            }
-        }
     }
 </script>
 

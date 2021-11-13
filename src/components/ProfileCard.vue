@@ -106,8 +106,11 @@ import axios from 'axios';
                 }).catch((err)=>{
                     console.error(err);
                 })  
+            },
+            editUserInfo() {
+                this.$router.push('/edit-profile')
             }
-        },
+        }
     }
 </script>
 

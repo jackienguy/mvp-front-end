@@ -2,18 +2,6 @@
     <div class="pa-5">
         <v-list-item-title class="text-h6 mb-5 mt-5">
             <b>Education</b>        
-            <v-btn
-            class="ml-4"
-            fab
-            outlined
-            small
-            color="teal lighten-3"
-            @click="editEduBtn()"
-            >
-                <v-icon>
-                mdi-pencil
-                </v-icon>
-            </v-btn>
         </v-list-item-title>
         <v-list-item-title class="text-h7"> {{certificateName}} at {{institutionName}}, {{institutionLocation}} </v-list-item-title>
         <v-list-item-subtitle> {{major}} </v-list-item-subtitle>

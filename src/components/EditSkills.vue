@@ -1,91 +1,84 @@
 <template>
-    <div>
-         <v-card
-            class="mx-auto pa-8 ma-5 overflow-auto"
-            width="50vw"
-            height="60vh"
-            rounded="lg"
-            color="blue-grey lighten-4"
-        >
-            <v-card-text color="black"> 
+   <div class="pa-12">
+    <v-list-item-title class="text-h6 mb-5 mt-5">
+                <b>Skills</b> 
+            </v-list-item-title> 
+            <v-text-field
+                v-model="skillType"
+                color="white"
+                label="Skill"
+            ></v-text-field>
+            <v-text-field
+                v-model="proficiencyLevel"
+                color="white"
+                label="Proficiency Level (Basic, Intermediate, or Advanced)"
+            ></v-text-field>
 
-                     <v-col
-                        cols="12"
-                        md="12"
-                        >
-                            <h2>Skills</h2>
-                        </v-col>
-                        
-                        <v-col
-                        cols="12"
-                        md="6"
-                        >
-                            <p>Skill Type </p>
-                            <v-text-field
-                                v-model="skillType"
-                                solo
-                                clearable
-                            ></v-text-field>
-                            <p>Proficiency Level</p>
-                            <v-text-field
-                                v-model="proficiencyLevel"
-                                solo
-                                label="Basic, Intermediate, or Advanced"
-                                clearable
-                            ></v-text-field>
-                        </v-col>
-                   
+            <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+               class="ma-12 pa-4"
+                outlined
+                rounded
+                small
+                color="cyan"
+                @click="saveSkillsEdit()"
+            >
+                Save
+            </v-btn>
+            </v-card-actions>
+            <v-snackbar
+            v-model="hasSaved"
+            :timeout="2000"
+            absolute
+            bottom
+            left
+            >
+            Your profile has been updated
+            </v-snackbar>
 
-                      <v-card-actions>
-                        <v-btn
-                            class="ml-2 mt-5 pa-4"
-                            outlined
-                            rounded
-                            small
-                            color="cyan"
-                            @click="saveEditSkills()"
-                        >
-                            Save
-                        </v-btn>
-                    </v-card-actions>
-                    <v-snackbar
-                    v-model="hasSaved"
-                    :timeout="2000"
-                    absolute
-                    bottom
-                    left
-                    >
-                    Your profile has been updated
-                    </v-snackbar>
-              
-         
-            </v-card-text>
-            </v-card>
-       
     </div>
 </template>
 
 <script>
 import axios from "axios"
+import cookies from "vue-cookies"
+
     export default {
-        name: "ExperienceSection",
-        props: {
-            hasSaved: Boolean,
-            isEditing: Boolean,
-            model: Boolean,
-            skillType: String,
-            proficiencyLevel: String,
+        name: "EditSkills",
+        data() {
+            return {
+                skillType: "",
+                proficiencyLevel: "",
+                loginToken: "",
+                userId: "",
+                hasSaved: null,
+            }
         }, 
         methods: {
-            saveEditSkills () {
+            saveSkillsEdit() {
                 axios.request({
-                    url: "",
-                    method: "PATCH",
-                    
-                })
-            }
+                url: "http://127.0.0.1:5000/api/user/skills",
+                methods: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: {
+                    loginToken: cookies.get('loginToken'),
+                    userId: cookies.get('userId'),
+                    skillType: this.skillType,
+                    proficiencyLevel: this.proficiencyLevel,
+                }
+            }).then((response)=>{
+                cookies.get('loginToken'),
+                console.log(response);
+            }).catch((err)=>{
+                console.error(err);
+            })
+            
         }
     }
+}
 </script>
 
 <style lang="scss" scoped>

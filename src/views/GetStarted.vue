@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <v-app-bar
         app
-        color="white"
+         color="teal lighten-3"
         flat
         >
     </v-app-bar>
@@ -26,7 +26,7 @@
                                         cols="12"
                                         md="12"
                                         >
-                                            <h2>Welcome to INSERT APP NAME as a recruiter! Let's get you set up</h2>
+                                            <h2>Welcome to OPP as a recruiter! Let's get you set up</h2>
                                         </v-col>
                                         <v-col
                                         cols="12"

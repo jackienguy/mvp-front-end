@@ -20,7 +20,7 @@
         @saveUpdateToExperience="getExperienceInfo"
         />
         
-
+        <v-divider></v-divider>
         <!-- Education Section -->
         <EducationSection
         :userId="education.userId"
@@ -31,6 +31,8 @@
         :completionDate="education.completionDate"
         :other="education.other"
         />
+        
+        <v-divider></v-divider>
         <!-- Skills Section -->
         <SkillsSection
         :userId="skills.userId"
