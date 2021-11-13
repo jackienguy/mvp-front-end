@@ -5,7 +5,7 @@
         </v-list-item-title>
         <v-list-item-title class="text-h7"> {{title}} at {{companyName}}, {{workLocation}} </v-list-item-title>
         <v-list-item-subtitle> {{startDate}} to {{endDate}} </v-list-item-subtitle>
-        <v-list-item-subtitle>{{description}} </v-list-item-subtitle>
+        <v-list-item-subtitle style="white-space: pre-line;">{{description}} </v-list-item-subtitle>
     </div>
 </template>
 

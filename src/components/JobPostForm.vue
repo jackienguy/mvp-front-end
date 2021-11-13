@@ -65,7 +65,7 @@
                             clearable
                             required
                         ></v-text-field>
-                        <p>Closing Date *</p>
+                        <p>Closing Date (YYYY-MM-DD) *</p>
                         <v-text-field
                             v-model="closingDate"
                             solo

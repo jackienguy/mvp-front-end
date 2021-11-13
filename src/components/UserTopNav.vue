@@ -30,8 +30,7 @@
                links: [
                     {title:'Dashboard', to: '/user-dashboard'}, 
                     {title:'Profile', to: '/user-profile'}, 
-                    {title:'Messages', to: '/recruiter-messages'}, 
-                    {title:'Browse Jobs', to: '/jobs-board'}
+                    {title:'Messages', to: ''}, 
                 ],
             }
         }

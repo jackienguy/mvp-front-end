@@ -35,7 +35,7 @@ import cookies from 'vue-cookies';
                     url: "http://127.0.0.1:5000/api/jobs",
                     methods: "GET",
                     params: {
-                        recruiterId: cookies.get("userId")
+                        userId: cookies.get("userId")
                     }
                 }).then((response)=>{
                     console.log(response);

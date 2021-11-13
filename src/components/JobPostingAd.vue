@@ -13,11 +13,11 @@
                 </div>
                 <div class="text--primary">
                     <p class="text-h7"><b>About:</b></p>
-                        <p> {{ about }} </p>
+                        <p style="white-space: pre-line;"> {{ about }} </p>
                     <p class="text-h7"><b>Responsibilities:</b></p>
-                        <p>{{ responsibilities }} </p>
+                        <p style="white-space: pre-line;">{{ responsibilities }} </p>
                     <p class="text-h7"><b>Qualifications:</b></p>
-                        <p> {{ qualifications }} </p>
+                        <p style="white-space: pre-line;"> {{ qualifications }} </p>
                 </div>
                 <div class="text--primary">
                     <p class="text-h7"><b>Contact:</b></p>

@@ -33,8 +33,8 @@
             return {
                 links: [
                     {title:'Dashboard', to: '/recruiter-dashboard'},  
-                    {title:'Messages', to: '/recruiter-messages'}, 
-                    {title:'Interviews', to: '/interviews'}
+                    {title:'Messages', to: ''}, 
+                    {title:'Interviews', to: ''}
                 ],
             } 
         }

@@ -54,16 +54,6 @@ import JobsInfo from '../components/JobsInfo.vue'
             UserTopNav,
             JobsInfo
         },
-        data(){ 
-            return {
-               links: [
-                    {title:'Dashboard', to: '/user-dashboard'}, 
-                    {title:'Profile', to: '/user-profile'}, 
-                    {title:'Messages', to: '/recruiter-messages'}, 
-                    {title:'Borwse Jobs', to: '/jobs-board'}
-                ],
-            }
-        },
         methods: {
             goToPostJob(){
                  this.$router.push("/post-job");
