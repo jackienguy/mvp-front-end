@@ -8,7 +8,7 @@
             <v-tabs
                 centered
                 class="ml-n9"
-                color="grey darken-1"
+                color="yellow"
             >
                 <v-tab
                 v-for="(link, i) in links"

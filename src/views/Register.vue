@@ -1,25 +1,18 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-        v-model="drawer"
-        width="30vw"
-        app
-        color="teal lighten-3"
-    >
-      <p>Discover new opportunities for you</p>
-    </v-navigation-drawer>
-  
+
+      <NavDrawer/>
+
     <v-main class="grey lighten-3">
       <v-container>
-          <v-col>
+          <v-col xs12>
             <v-sheet
               id="registerForm"
               min-height="60vh"
-              width="40vw"
               rounded="lg"
             >
             <v-toolbar color="teal lighten-3">
-              <v-toolbar-title>Register</v-toolbar-title>
+              <v-toolbar-title id="registerTitle">Register</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <v-row>
@@ -62,8 +55,42 @@
                             required
                         ></v-text-field>
 
-                        <v-btn class="mr-4" @click="submitSignup">Create Account</v-btn>
-                        <v-btn id="cancelBtn" class="mr-4" @click="clear">Clear</v-btn>
+                        <v-btn class="mr-4"
+                        @click="submitSignup"
+                        outlined
+                        rounded
+                        small
+                        color="cyan"
+                        >
+                            Create Account
+                        </v-btn>
+                        <v-btn 
+                        id="cancelBtn" 
+                        class="mr-4" 
+                        @click="clear"
+                         outlined
+                        rounded
+                        small
+                        color="cyan"
+                        >
+                            Clear
+                        </v-btn>
+
+                        <v-divider class="mt-10"></v-divider>
+                        <div class="mt-8">
+                            <p>Already have an account? 
+                                <v-btn 
+                                class="ml-3" 
+                                @click="goToSignin()"
+                                outlined
+                                rounded
+                                small
+                                color="cyan"
+                                >
+                                    Go to Signin
+                                </v-btn> 
+                            </p>
+                        </div>
                       </v-card-text>
                   </v-col>
               </v-row> 
@@ -80,9 +107,13 @@
     import { required, maxLength, email } from 'vuelidate/lib/validators';
     import cookies from 'vue-cookies';
     import axios from 'axios';
+    import NavDrawer from '../components/NavDrawer.vue'
   
     export default {
         name: "Register",
+        components: {
+            NavDrawer,
+        },
         mixins: [validationMixin],
         validations: {
             name: { required, maxLength: maxLength(10) },
@@ -91,7 +122,7 @@
         },
         data() { 
             return {
-                drawer: null,
+              
                 userId: '',
                 firstName: '',
                 lastName: '',
@@ -149,6 +180,21 @@
                 this.password = ''
                 this.role = ''
             },
+            goToSignin() {
+                this.$router.push('/signin')
+            }
         }
     }
 </script>
+
+<style lang="scss">
+       * {
+        padding: 0;
+        margin: 0;
+    }
+    #registerTitle {
+        color: yellow;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 1.8em;
+    }
+</style>

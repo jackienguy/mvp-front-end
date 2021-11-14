@@ -1,8 +1,8 @@
 <template>
     <div>
         <CandidatesTable
-        v-for="applicant in candidateList"
-        :key="applicant.jobId"
+        v-for="(applicant,i) in candidateList"
+        :key="i"
         :firstName="applicant.firstName"
         :lastName="applicant.lastName"
         :jobId="applicant.jobId"
@@ -14,6 +14,7 @@
 <script>
 import CandidatesTable from './CandidatesTable.vue';
 import axios from 'axios'
+import cookies from 'vue-cookies'
 
     export default {
         name: "CandidateList",
@@ -22,7 +23,7 @@ import axios from 'axios'
         },
         data() {
             return {
-                candidateList: []
+                candidateList: [],
             }
         },
         mounted() {
@@ -33,14 +34,18 @@ import axios from 'axios'
                 axios.request({
                     url: "http://127.0.0.1:5000/api/applicants",
                     methods: "GET",
+                    headers: {
+                        loginToken: cookies.get('loginToken')
+                    },
                     params: {
-                        jobId: 1
+                        jobId: this.$route.params.jobId
                     }
                 }).then((response)=>{
                         console.log(response);
                         this.candidateList = response.data
                 }).catch((err)=>{
                         console.error(err);
+                        alert('No applicants')
                 })
             }
         }, 

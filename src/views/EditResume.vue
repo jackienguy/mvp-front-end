@@ -1,5 +1,4 @@
 <template>
-  
     <v-app id="inspire">
       <!-- import user top nav component -->
       <UserTopNav/>
@@ -7,10 +6,9 @@
         <v-main class="grey lighten-3">
                 <v-container>
                     <v-row>
-                        <v-col>
+                        <v-col xs12>
                             <v-card
                             class="overflow-auto"
-                            width="50vw"
                             height="100vh"
                             rounded="lg"
                             >

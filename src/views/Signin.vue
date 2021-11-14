@@ -1,13 +1,7 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-        v-model="drawer"
-        width="30vw"
-        app
-        color="teal lighten-3"
-    >
-      <p>Your new career starts here</p>
-    </v-navigation-drawer>
+    
+    <NavDrawer/>
        
     <v-main class="grey lighten-3">
       <v-container>
@@ -19,7 +13,7 @@
               rounded="lg"
             >
             <v-toolbar  color="teal lighten-3">
-              <v-toolbar-title>Sign</v-toolbar-title>
+              <v-toolbar-title id="signinTitle">Sign</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <v-row>
@@ -44,12 +38,30 @@
                             required
                         ></v-text-field>
                     
-                        <v-btn class="mr-4" @click="signin">Sign In</v-btn>
+                        <v-btn 
+                        class="mr-4" 
+                        @click="signin()"
+                        outlined
+                        rounded
+                        small
+                        color="cyan"
+                        >
+                            Sign In
+                        </v-btn>
 
                         <v-divider class="mt-10"></v-divider>
                         <div class="mt-8">
                             <p>Don't have an account? 
-                                <v-btn class="ml-3" @click="goToRegister()">Register Here</v-btn> 
+                                <v-btn 
+                                class="ml-3" 
+                                @click="goToRegister()"
+                                outlined
+                                rounded
+                                small
+                                color="cyan"
+                                >
+                                    Register Here
+                                </v-btn> 
                             </p>
                         </div>
                       </v-card-text>
@@ -68,9 +80,13 @@
     import { required, maxLength, email } from 'vuelidate/lib/validators';
     import cookies from 'vue-cookies';
     import axios from 'axios';
+    import NavDrawer from '../components/NavDrawer.vue';
   
     export default {
         name: "Signin",
+        components: {
+            NavDrawer,
+        },
         mixins: [validationMixin],
         validations: {
             name: { required, maxLength: maxLength(10) },
@@ -132,3 +148,15 @@
         }
     }
 </script>
+
+<style lang="scss">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #signinTitle {
+        color: yellow;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 1.8em;
+    }
+</style>

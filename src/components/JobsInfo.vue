@@ -21,6 +21,7 @@
         :recruiterEmail="post.recruiterEmail"
         :recruiterPhoneNumber="post.recruiterPhoneNumber"
         />
+
     </div>
 </template>
 
@@ -28,6 +29,7 @@
 import JobPostingAd from "./JobPostingAd.vue";
 import axios from "axios";
 import cookies from "vue-cookies";
+
 
     export default {
         name: "JobsInfo",

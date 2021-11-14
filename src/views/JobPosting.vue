@@ -58,7 +58,6 @@ import RecrutierTopNav from '../components/RecrutierTopNav.vue';
                 sideBarLinks: [
                     {title:'Post Job', to: '/post-job'}, 
                     {title:'View Job Requisitions', to: '/job-requisition'}, 
-                    {title:'View Candidates', to: '/view-candidates'}
                 ],
             }
         }

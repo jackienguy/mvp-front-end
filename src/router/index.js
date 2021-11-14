@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
 import Signin from '../views/Signin.vue'
 import RecruiterDashboard from '../views/RecruiterDashboard.vue'
@@ -11,7 +10,7 @@ import JobRequisition from '../views/JobRequisition.vue'
 import UserProfile from '../views/UserProfile.vue'
 import UserGetStarted from '../views/UserGetStarted.vue'
 import Application from '../views/Application.vue'
-import ViewCandidates from '../views/ViewCandidates.vue'
+import Candidates from '../views/Candidates.vue'
 import EditResume from '../views/EditResume.vue'
 import EditProfile from '../views/EditProfile.vue'
 
@@ -27,11 +26,6 @@ const routes = [
     path: '/signin',
     name: 'Signin',
     component: Signin
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: Home
   },
   {
     path: '/get-started',
@@ -54,9 +48,9 @@ const routes = [
     component: JobRequisition
   },
   {
-    path: '/view-candidates',
-    name: 'view-candidates',
-    component: ViewCandidates
+    path: '/candidates/:jobId',
+    name: 'candidates',
+    component: Candidates
   },
   {
     path: '/user-dashboard',

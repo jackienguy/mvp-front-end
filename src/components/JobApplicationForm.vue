@@ -70,10 +70,22 @@
                     rounded
                     small
                     color="cyan"
-                    @click="submitApplication()"
+                    @click="submitApplication(), alert = !alert"
                   >
                     Submit Application
-                  </v-btn>
+                </v-btn>
+
+                <v-alert
+                class="ml-5"
+                :value="alert"
+                outlined
+                type="success"
+                text
+                transition="scale-transition"
+                >
+                    Your application have been submitted
+                </v-alert>
+
             </v-card-actions>
         </v-card>  
     </div>
@@ -100,7 +112,7 @@ import cookies from 'vue-cookies';
         },
         data() {
             return {
-                isEditing: false,
+                alert: true,
                 experience: [],
                 skills: [],
                 education: [],
@@ -184,6 +196,7 @@ import cookies from 'vue-cookies';
                     }
                 }).then((response)=>{
                     console.log(response);
+                    this.numApplicants += 1;
                 }).catch((err)=>{
                     console.error(err);
                 })

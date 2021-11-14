@@ -5,16 +5,10 @@
 
         <v-main class="grey lighten-3">
             <v-container>
-                <v-row>
-                    <v-col cols="3">
-                        <v-sheet 
-                        rounded="lg"
-                        height="70vh"
-                        >
-                            <!-- import user profile info -->
-                            <ProfileInfo/>
-                        </v-sheet>
-                    </v-col>
+                <v-layout>
+                    <!-- import user profile info -->
+                    <ProfileInfo/>
+                      
                     <v-col>
                         <v-sheet
                         min-height="70vh"
@@ -32,11 +26,17 @@
                             ></v-text-field>
                         </v-responsive>
                         <v-divider></v-divider>
-                        <h3>Featured Jobs</h3>
-                            <JobsInfo/>
+
+                        <v-layout justify-center>
+                            <v-flex xs 12>
+                            <div> <h3>Featured Jobs</h3> </div>
+                                <UserJobInfoView/>
+                                </v-flex>
+                        </v-layout>
+                        
                         </v-sheet>   
                     </v-col> 
-                </v-row>
+                </v-layout>
             </v-container>
         </v-main>
     </v-app>
@@ -45,14 +45,14 @@
 <script>
 import ProfileInfo from '../components/ProfileInfo.vue';
 import UserTopNav from '../components/UserTopNav.vue';
-import JobsInfo from '../components/JobsInfo.vue'
+import UserJobInfoView from '../components/UserJobInfoView.vue'
 
 
     export default {
         components: {
             ProfileInfo,
             UserTopNav,
-            JobsInfo
+            UserJobInfoView
         },
         methods: {
             goToPostJob(){
@@ -61,3 +61,7 @@ import JobsInfo from '../components/JobsInfo.vue'
         }
     }
 </script>
+
+<style lang="sass">
+
+</style>

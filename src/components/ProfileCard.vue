@@ -1,66 +1,73 @@
 <template>
     <div>
-        <v-row justify="center">
-            <v-avatar
-                class="mt-10 ml-10 mr-10 mb-5"
-                color="indigo"
-                size="70"
+        <v-flex xs12 md10>
+            <v-sheet 
+            rounded="lg"
+            height="70vh"
             >
-                    <v-icon dark>
-                        mdi-account-circle
-                    </v-icon>
-            </v-avatar>
+            <v-layout justify-center>
+                <v-avatar
+                    class="mt-10 ml-10 mr-10 mb-5"
+                    color="indigo"
+                    size="70"
+                >
+                        <v-icon dark>
+                            mdi-account-circle
+                        </v-icon>
+                </v-avatar>
 
-             <v-btn
-            class="mb-6 pa-4"
-            width="10vw"
-            outlined
-            rounded
-            small
-            color="cyan"
-            @click="editUserInfo()"
-            >
-            Edit Profile
-            </v-btn>
-        </v-row>
+                <v-btn
+                class="mb-6 pa-4"
+                width="10vw"
+                outlined
+                rounded
+                small
+                color="cyan"
+                @click="editUserInfo()"
+                >
+                Edit Profile
+                </v-btn>
+            </v-layout>
 
-        <v-divider></v-divider>
-        
-        <v-list-item link>
-            <v-list-item-content class="text-center">
-                <v-list-item-title class="text-h7">
-                   <b>{{firstName}} {{lastName}} </b> 
-                </v-list-item-title>
-                    <v-list-item-subtitle>{{workingTitle}}</v-list-item-subtitle>
-                    <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
-                    <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
+            <v-divider></v-divider>
+            
+            <v-list-item link>
+                <v-list-item-content class="text-center">
+                    <v-list-item-title class="text-h7">
+                    <b>{{firstName}} {{lastName}} </b> 
+                    </v-list-item-title>
+                        <v-list-item-subtitle>{{workingTitle}}</v-list-item-subtitle>
+                        <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
+                        <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
+
+            <v-divider></v-divider>
+
+            <v-list-item link>
+                <v-list-item-content class="text-center">
+                    <v-list-item-title class="text-h7">
+                        Contact 
+                    </v-list-item-title>
+                        <v-list-item-subtitle>Email: {{email}}</v-list-item-subtitle>
+                        <v-list-item-subtitle>Phone: {{phoneNumber}}</v-list-item-subtitle>
             </v-list-item-content>
-        </v-list-item>
-
-        <v-divider></v-divider>
-
-        <v-list-item link>
-            <v-list-item-content class="text-center">
-                <v-list-item-title class="text-h7">
-                    Contact 
-                </v-list-item-title>
-                    <v-list-item-subtitle>Email: {{email}}</v-list-item-subtitle>
-                    <v-list-item-subtitle>Phone: {{phoneNumber}}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-row class="justify-center">
-            <v-btn
-            class="ma-6 pa-4"
-            width="10vw"
-            outlined
-            rounded
-            small
-            color="cyan"
-            @click="logout()"
-            >
-            Log Out
-            </v-btn>
-        </v-row>
+            </v-list-item>
+            <v-row class="justify-center">
+                <v-btn
+                class="ma-6 pa-4"
+                width="10vw"
+                outlined
+                rounded
+                small
+                color="cyan"
+                @click="logout()"
+                >
+                Log Out
+                </v-btn>
+            </v-row>
+          </v-sheet>
+        </v-flex>
     </div>
 </template>
 

@@ -1,4 +1,5 @@
 <template>
+
   <v-app id="inspire">
       <!-- Import top nav component -->
       <RecruiterTopNav/> 
@@ -49,14 +50,15 @@ import CandidatesList from '../components/CandidatesList.vue';
             RecruiterTopNav,
             CandidatesList
         },
+
         data(){ 
             return {
                 //Side nav
                 sideBarLinks: [
                     {title:'Post Job', to: '/post-job'}, 
                     {title:'View Job Requisitions', to: '/job-requisition'}, 
-                    {title:'View Candidates', to: '/view-candidates'}
                 ],
+            
             }
         }
       }
