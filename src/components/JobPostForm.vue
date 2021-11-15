@@ -145,7 +145,14 @@
                     </v-col>
                 </v-row>
                 
-                <v-btn @click="submitJobPost" class="ma-3"> Submit </v-btn>
+                <v-btn 
+                @click="submitJobPost" 
+                class="ma-3"
+                 outlined
+                rounded
+                small
+                color="cyan"
+                > Submit </v-btn>
                 
             </v-container>
         </v-form>

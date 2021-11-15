@@ -46,7 +46,7 @@ import cookies from "vue-cookies";
             editPost() {
                 axios.request ({
                     url: "http://127.0.0.1:5000/api/jobs",
-                    methods: "PATCH",
+                    method: "PATCH",
                     params: {
                         loginToken: cookies.get("loginToken")
                     }

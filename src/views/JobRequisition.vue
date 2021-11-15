@@ -75,7 +75,6 @@ import JobsInfo from '../components/JobsInfo.vue';
                 sideBarLinks: [
                     {title:'Post Job', to: '/post-job'}, 
                     {title:'View Job Requisitions', to: '/job-requisition'}, 
-                    {title:'View Candidates', to: '/candidates/job/:jobId'}
                 ],
                 // Profile card
                 hasSaved: false,

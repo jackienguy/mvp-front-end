@@ -39,13 +39,14 @@
                                 color="white"
                                 >
                                 <div>
+                                 <!--To edit job post  -->
                                     <v-btn
                                     class="ml-4"
                                     fab
                                     outlined
                                     small
                                     color="teal lighten-3"
-                                    @click="editEduBtn()"
+                                    @click="ToEditJobAdBtn()"
                                     >
                                         <v-icon>
                                         mdi-pencil
@@ -108,7 +109,10 @@ import JobsInfo from './JobsInfo.vue';
         methods: {
             goToApplicants() {
                 this.$router.push('/candidates/'+this.jobId)
-            }
+            },
+             ToEditJobAdBtn() {
+                 this.$router.push()
+             }
         }
   }
 </script>

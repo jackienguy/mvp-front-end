@@ -5,7 +5,8 @@
             </v-list-item-title> 
             <v-text-field
                 v-model="title"
-                color="Title"
+                color="white"
+                label="TItle"
             ></v-text-field>
                 <v-text-field
                 v-model="companyName"
@@ -25,7 +26,7 @@
             <v-text-field
                 v-model="startDate"
                 color="white"
-                label="Start Date *"
+                label="Start Date (YYYY-MM-DD)"
             ></v-text-field>
                 <v-text-field
                 v-model="endDate"
@@ -79,7 +80,7 @@ import cookies from 'vue-cookies';
             saveEditExperience(){
                 axios.request({
                     url: "http://127.0.0.1:5000/api/user/experience",
-                    methods: "PATCH",
+                    method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -94,10 +95,10 @@ import cookies from 'vue-cookies';
                         endDate: this.endDate,
                     }
                 }).then((response)=>{
-                    cookies.get('loginToken'),
                     console.log(response);
+                    this.$router.push('/user-profile')
                 }).catch((err)=>{
-                    console.error(err);
+                     console.error(err);
                 })
         }
     }
