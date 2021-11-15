@@ -6,6 +6,7 @@
         <v-list-item-title class="text-h7"> {{certificateName}} at {{institutionName}}, {{institutionLocation}} </v-list-item-title>
         <v-list-item-subtitle> {{major}} </v-list-item-subtitle>
         <v-list-item-subtitle>Completed: {{completionDate}} </v-list-item-subtitle>
+        <v-list-item-subtitle> {{other}} </v-list-item-subtitle>
     </div>
 </template>
 

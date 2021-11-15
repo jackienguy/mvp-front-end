@@ -63,7 +63,8 @@
                 links: [
                     {title:'Dashboard', to: '/recruiter-dashboard'},  
                     {title:'Messages', to: ''}, 
-                    {title:'Interviews', to: ''}
+                    {title:'Interviews', to: ''},
+                    {title:'Sign Out', to: '/SignUp'}
                 ],
                navDrawer: null,
             } 

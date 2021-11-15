@@ -98,6 +98,7 @@ import cookies from 'vue-cookies';
                 }
             }).then((response)=>{
                 console.log(response);
+                this.$router.push('/user-profile')
             }).catch((err)=>{
                 console.error(err);
             })

@@ -7,6 +7,7 @@
                 <v-row>
                    <!-- input sideNav -->
                     <SideNav/>
+
                     <v-col>
                         <v-sheet
                         min-height="70vh"
@@ -64,8 +65,7 @@ import SideNav from '../components/SideNav.vue';
                     v => !!v || 'E-mail is required',
                     v => /.+@.+/.test(v) || 'E-mail must be valid',
                 ],
-               
-                // returning requisition data
+
             }
         }        
     }

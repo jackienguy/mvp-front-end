@@ -72,6 +72,7 @@ import cookies from "vue-cookies"
             }).then((response)=>{
                 cookies.get('loginToken'),
                 console.log(response);
+                this.$router.push('/user-profile')
             }).catch((err)=>{
                 console.error(err);
             })

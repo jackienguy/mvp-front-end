@@ -60,6 +60,7 @@
                     {title:'Dashboard', to: '/user-dashboard'}, 
                     {title:'Profile', to: '/user-profile'}, 
                     {title:'Messages', to: ''}, 
+                    {title:'Sign Out', to: '/SignUp'}
                 ],
                 navDrawer: null,
             }   
