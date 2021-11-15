@@ -5,24 +5,8 @@
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                    <v-col cols="3">
-                        <v-sheet rounded="lg">
-                            <v-list color="transparent">
-                                <v-list-item
-                                v-for="(sideBarLink, i) in sideBarLinks"
-                                :key="i"
-                                :to="sideBarLink.to"
-                                link
-                                >
-                                <v-list-item-content>
-                                    <v-list-item-title>
-                                        {{ sideBarLink.title }}
-                                    </v-list-item-title>
-                                </v-list-item-content>
-                                </v-list-item>
-                            </v-list>
-                        </v-sheet>
-                    </v-col>
+                    
+                    <SideNav/>
 
                     <v-col>
                         <v-sheet
@@ -45,6 +29,7 @@
 <script>
 import JobsInfo from '../components/JobsInfo.vue';
 import RecrutierTopNav from '../components/RecrutierTopNav.vue';
+import SideNav from '../components/SideNav.vue';
 
 
       export default {

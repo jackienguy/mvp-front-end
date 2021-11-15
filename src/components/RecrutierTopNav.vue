@@ -34,9 +34,10 @@
                 absolute
                 temporary
                 height="100vh"
+                color="teal lighten-3"
                 >
 
-                <v-list dense>
+                <v-list class="pt-8" dense>
                     <v-list-item
                     v-for="(link, i) in links"
                             :key="i"
@@ -65,13 +66,7 @@
                     {title:'Interviews', to: ''}
                 ],
                navDrawer: null,
-               group: null
             } 
-        },
-        watch: {
-            group() {
-                this.navDrawer = false;
-            }
         }
     }
 </script>

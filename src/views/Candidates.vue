@@ -6,36 +6,19 @@
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                    <v-col cols="3">
-                        <v-sheet rounded="lg">
-                            <v-list color="transparent">
-                                <v-list-item
-                                v-for="(sideBarLink, i) in sideBarLinks"
-                                :key="i"
-                                :to="sideBarLink.to"
-                                link
-                                >
-                                <v-list-item-content>
-                                    <v-list-item-title>
-                                        {{ sideBarLink.title }}
-                                    </v-list-item-title>
-                                </v-list-item-content>
-                                </v-list-item>
-                            </v-list>
-                        </v-sheet>
-                    </v-col>
-
-                    <v-col>
-                        <v-sheet
-                        min-height="70vh"
-                        rounded="lg"
-                        >
-                    
-                            <CandidatesList/>
-                           
-                        </v-sheet>
-                    </v-col>      
-                </v-row>
+                   
+                    <!-- input sideNav -->
+                    <SideNav/>
+                
+                    <v-layout id="sideNav">
+                        <v-col xs="12"  md="8" class="text-center">
+                            <v-sheet rounded="lg">
+                                <CandidatesList/>
+                            </v-sheet>
+                        </v-col>
+                    </v-layout>
+        
+                   </v-row>
             </v-container>
         </v-main>
     </v-app>
@@ -44,11 +27,13 @@
 <script>
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
 import CandidatesList from '../components/CandidatesList.vue';
+import SideNav from '../components/SideNav.vue';
 
       export default {
         components: {
             RecruiterTopNav,
-            CandidatesList
+            CandidatesList,
+            SideNav
         },
 
         data(){ 
