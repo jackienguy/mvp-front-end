@@ -11,6 +11,7 @@
             <v-sheet
             min-height="70vh"
             rounded="lg"
+            color="teal lighten-3"
             >                       
                 <!-- input form -->
                 <UserGetStartedForm/>

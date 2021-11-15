@@ -1,76 +1,85 @@
 <template>
-  <v-container>
+  <v-container grid-list-sm>
         <v-row>
-            <v-col
-                cols="5"
-            >
-                <v-card 
-                class="mx-auto"
-                width="380"
-                >
-                    <v-card-text
+            
+                    <v-card 
+                    class="jobReqCard mx-auto"
+                    width="380"
                     >
-                        <p class="text-h6 text--primary">
-                            {{ jobTitle }}
-                        </p>
-                        <p>Job ID:{{ jobId }}</p>
-                        <p>Number of Applicants:{{ numApplicants }}</p>
-                        <p>Closing Date: {{ closingDate }}</p>
-                    </v-card-text>
-                    <v-card-actions>
-                          <div>
-                            <v-btn
-                            class="mb-6 mr-4 pa-4"
-                            outlined
-                            rounded
-                            small
-                            color="cyan"
-                            @click="overlay = !overlay"
-                            >
-                                View Job Post
-                            </v-btn>
-                            
-                            <v-overlay
-                            :z-index="zIndex"
-                            :value="overlay"
-                            >   
-                             <v-card
-                            class="mx-auto pa-8 mb-5 overflow-auto"
-                            max-width="40vw"
-                            height="60vh"
-                            color="white"
-                            >
-                                <JobsInfo/>
-                            </v-card>
-                    
+                        <v-card-text
+                        >
+                            <p class="text-h6 text--primary">
+                                {{ jobTitle }}
+                            </p>
+                            <p>Job ID:{{ jobId }}</p>
+                            <p>Number of Applicants:{{ numApplicants }}</p>
+                            <p>Closing Date: {{ closingDate }}</p>
+                        </v-card-text>
+                        <v-card-actions>
+                            <div>
                                 <v-btn
-                                    class="white--text"
-                                    color="teal"
-                                    @click="overlay = false"
-                                >
-                                    Close
-                                </v-btn>
-                            </v-overlay>
-                        </div>
-
-                        <div>
-                             <v-btn
                                 class="mb-6 mr-4 pa-4"
                                 outlined
                                 rounded
                                 small
                                 color="cyan"
-                                @click="goToApplicants()"
-                            >
-                            View Candidates
-                            </v-btn>
-                        </div>
-                    
-                      
+                                @click="overlay = !overlay"
+                                >
+                                    View Job Post
+                                </v-btn>
+                                
+                                <v-overlay
+                                :z-index="zIndex"
+                                :value="overlay"
+                                >   
+                                <v-card
+                                class="mx-auto pa-8 mb-5 overflow-auto"
+                                max-width="40vw"
+                                height="60vh"
+                                color="white"
+                                >
+                                <div>
+                                    <v-btn
+                                    class="ml-4"
+                                    fab
+                                    outlined
+                                    small
+                                    color="teal lighten-3"
+                                    @click="editEduBtn()"
+                                    >
+                                        <v-icon>
+                                        mdi-pencil
+                                        </v-icon>
+                                    </v-btn>
+                                </div>
+                                    <JobsInfo/>
+                                </v-card>
+                        
+                                    <v-btn
+                                        class="white--text"
+                                        color="teal"
+                                        @click="overlay = false"
+                                    >
+                                        Close
+                                    </v-btn>
+                                </v-overlay>
+                            </div>
 
-                    </v-card-actions>
-                </v-card>
-          </v-col>
+                            <div>
+                                <v-btn
+                                    class="mb-6 mr-4 pa-4"
+                                    outlined
+                                    rounded
+                                    small
+                                    color="cyan"
+                                    @click="goToApplicants()"
+                                >
+                                View Candidates
+                                </v-btn>
+                            </div>
+                        </v-card-actions>
+                    </v-card>
+             
         </v-row>
       </v-container>
 </template>
@@ -105,8 +114,13 @@ import JobsInfo from './JobsInfo.vue';
 </script>
 
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+    .jobReqCard {
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        margin: 30px 0;
+    }
 </style>
 
 

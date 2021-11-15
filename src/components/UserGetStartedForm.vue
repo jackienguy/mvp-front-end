@@ -5,7 +5,7 @@
         cols="12"
         md="12"
         >
-            <h2>Welcome to OPP as a job seeker! Let's get you set up</h2>
+            <h2>Welcome to <strong id="logo">OPP</strong> as a job seeker! Let's get you set up</h2>
         </v-col>
 
         <v-stepper class="mx-auto" v-model="e1" width="60vw" height="90vh">
@@ -37,7 +37,7 @@
             <v-stepper-content step="1">
                 <v-card
                 class="mb-12 pa-12 overflow-auto"
-                color="grey lighten-1"
+                color="grey lighten-2"
                 height="60vh"
                 >
                     <!-- Experience section -->
@@ -109,13 +109,22 @@
                 </v-card>
 
                 <v-btn
-                color="primary"
+                class="mb-6 mr-4 pa-4"
+                rounded
+                small
+                color="cyan"
                 @click="e1 = 2; submitExperience()"
                 >
                 Continue
                 </v-btn>
 
-                <v-btn text>
+                <v-btn 
+                class="mb-6 mr-4 pa-4"
+                outlined
+                rounded
+                small
+                color="cyan"
+                >
                 Cancel
                 </v-btn>
             </v-stepper-content>
@@ -178,7 +187,7 @@
                                 clearable
                                 required
                             ></v-text-field>
-                            <p>other *</p>
+                            <p>other</p>
                             <v-text-field
                                 v-model="other"
                                 solo
@@ -189,7 +198,10 @@
                 </v-card>
 
                 <v-btn
-                color="primary"
+                class="mb-6 mr-4 pa-4"
+                rounded
+                small
+                color="cyan"
                 @click="e1 = 3; submitEducation()"
                 >
                 Continue
@@ -197,7 +209,11 @@
 
                 <v-btn 
                 @click="e1 = 1" 
-                text
+                class="mb-6 mr-4 pa-4"
+                outlined
+                rounded
+                small
+                color="cyan"
                 >
                 Go Back
                 </v-btn>
@@ -240,7 +256,9 @@
                 </v-card>
 
                 <v-btn
-                color="primary"
+                rounded
+                small
+                color="cyan"
                 @click="submitSkills()"
                 >
                 Continue
@@ -248,7 +266,10 @@
 
                  <v-btn 
                 @click="e1 = 2" 
-                text
+                outlined
+                rounded
+                small
+                color="cyan"
                 >
                 Go Back
                 </v-btn>
@@ -358,4 +379,10 @@ import cookies from 'vue-cookies';
     }
   }
 </script>
+
+<style lang="scss">
+    #logo {
+        color: yellow;
+    }
+</style>
 

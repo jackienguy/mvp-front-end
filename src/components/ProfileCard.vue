@@ -5,28 +5,30 @@
             rounded="lg"
             height="70vh"
             >
-            <v-layout justify-center>
-                <v-avatar
-                    class="mt-10 ml-10 mr-10 mb-5"
-                    color="indigo"
-                    size="70"
-                >
-                        <v-icon dark>
-                            mdi-account-circle
-                        </v-icon>
-                </v-avatar>
+            <v-layout row wrap>
+                <v-flex class="text-center">
+                    <v-avatar
+                        class="mt-10 mb-8"
+                        color="yellow"
+                        size="80"
+                    >
+                            <v-icon dark>
+                                mdi-account-circle
+                            </v-icon>
+                    </v-avatar>
 
-                <v-btn
-                class="mb-6 pa-4"
-                width="10vw"
-                outlined
-                rounded
-                small
-                color="cyan"
-                @click="editUserInfo()"
-                >
-                Edit Profile
-                </v-btn>
+                    <v-btn
+                    class="mb-6 pa-4"
+                    width="10vw"
+                    outlined
+                    rounded
+                    small
+                    color="cyan"
+                    @click="editUserInfo()"
+                    >
+                    Edit Profile
+                    </v-btn>
+                </v-flex>
             </v-layout>
 
             <v-divider></v-divider>
@@ -95,10 +97,6 @@ import axios from 'axios';
             }
         },
         methods: {
-            save () {
-                this.isEditing = !this.isEditing
-                this.hasSaved = true
-            },
             logout() {
                 axios.request ({
                     url: "http://127.0.0.1:5000/api/signin",
@@ -129,63 +127,3 @@ import axios from 'axios';
 
 
 
-
-
-  <!-- <v-card>
-            <v-toolbar
-            rounded="lg"
-            >
-                <v-icon>mdi-account</v-icon>
-                <v-toolbar-title class="font-weight-light">
-                    Recruiter Profile
-                </v-toolbar-title>
-                <v-spacer   v-spacer></v-spacer>
-                <v-btn
-                    fab
-                    small
-                    @click="isEditing = !isEditing"
-                >
-                    <v-icon v-if="isEditing">
-                    mdi-close
-                    </v-icon>
-                    <v-icon v-else>
-                    mdi-pencil
-                    </v-icon>
-                </v-btn>
-            </v-toolbar>
-            <v-card-text>
-                <v-text-field
-                    :disabled="!isEditing"
-                    color="white"
-                    label="Name"
-                ></v-text-field>
-                <v-autocomplete
-                    :disabled="!isEditing"
-                    :items="states"
-                    :filter="customFilter"
-                    color="white"
-                    item-text="name"
-                    label="State"
-                ></v-autocomplete>
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                    :disabled="!isEditing"
-                    color="success"
-                    @click="save"
-                >
-                    Save
-                </v-btn>
-            </v-card-actions>
-            <v-snackbar
-            v-model="hasSaved"
-            :timeout="2000"
-            absolute
-            bottom
-            left
-            >
-            Your profile has been updated
-            </v-snackbar>
-        </v-card> -->

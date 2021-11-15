@@ -8,9 +8,9 @@
         <v-toolbar
         flat
         >
-        <v-icon>mdi-account</v-icon>
-        <v-toolbar-title class="font-weight-light">
-            User Profile
+        <v-icon color="yellow">mdi-account</v-icon>
+        <v-toolbar-title class="font-weight-thick">
+            User Resume
         </v-toolbar-title>
          <v-btn
             class="ml-4"
@@ -18,7 +18,7 @@
             outlined
             small
             color="teal lighten-3"
-            @click="editEduBtn()"
+            @click="editResumeBtn()"
             >
                 <v-icon>
                 mdi-pencil
@@ -48,7 +48,7 @@ import ResumeInfo from '../components/ResumeInfo.vue';
       }
     },
     methods: {
-      editEduBtn() {
+      editResumeBtn() {
          this.$router.push('/edit-resume')
       }
     }
