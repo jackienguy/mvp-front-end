@@ -17,9 +17,9 @@
                                 <b-tab title="Job Requisition Data" active>
                                         <ReqCard/>
                                 </b-tab>
-                                <b-tab title="View Job Posts">
+                                <!-- <b-tab title="Job Posts" class="pa-12">
                                     <JobsInfo/>
-                                </b-tab>
+                                </b-tab> -->
             
                                 <b-tab></b-tab>
                             </b-tabs>
@@ -34,14 +34,14 @@
 <script>
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
 import ReqCard from '../components/ReqCard.vue';
-import JobsInfo from '../components/JobsInfo.vue';
+// import JobsInfo from '../components/JobsInfo.vue';
 import SideNav from '../components/SideNav.vue';
 
     export default {
         components: {
             RecruiterTopNav,
             ReqCard,
-            JobsInfo,
+            // JobsInfo,
             SideNav
         },
         data(){ 
@@ -65,7 +65,7 @@ import SideNav from '../components/SideNav.vue';
                     v => !!v || 'E-mail is required',
                     v => /.+@.+/.test(v) || 'E-mail must be valid',
                 ],
-
+               
             }
         }        
     }

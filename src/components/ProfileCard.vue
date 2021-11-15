@@ -28,6 +28,7 @@
                     >
                     Edit Profile
                     </v-btn>
+
                 </v-flex>
             </v-layout>
 
@@ -105,7 +106,7 @@ import axios from 'axios';
                         loginToken: cookies.get('loginToken')
                     }
                 }).then((response)=>{
-                    cookies.remove('loginToken')
+                    cookies.remove('loginToken');
                     console.log(response);
                     this.$router.push('/Signin')
                 }).catch((err)=>{

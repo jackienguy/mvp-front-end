@@ -13,6 +13,7 @@ import Application from '../views/Application.vue'
 import Candidates from '../views/Candidates.vue'
 import EditResume from '../views/EditResume.vue'
 import EditProfile from '../views/EditProfile.vue'
+import EditJobPosting from '../views/EditJobPosting.vue'
 
 Vue.use(VueRouter)
 
@@ -81,6 +82,11 @@ const routes = [
     path: '/edit-profile',
     name: 'edit-profile',
     component: EditProfile
+  },
+  {
+    path: '/edit-job-posting',
+    name: 'edit-job-posting',
+    component: EditJobPosting
   },
 ]
 

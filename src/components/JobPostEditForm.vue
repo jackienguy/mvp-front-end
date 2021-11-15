@@ -1,3 +1,4 @@
+
 <template>
     <div>
         <v-form 
@@ -10,44 +11,40 @@
                     cols="12"
                     md="6"
                     >
-                        <h2>Job Information</h2>
-                        <p>Working Title *</p>
+                        <h2>Edit Job Post</h2>
+                        <p>Working Title</p>
+                        
                         <v-text-field
                             v-model="jobTitle"
                             solo
                             clearable
-                            required
                         ></v-text-field>
-                        <p>Company Name *</p>
+                        <p>Company Name</p>
                         <v-text-field
                             v-model="orgName"
                             solo
                             clearable
-                            required
                         ></v-text-field>
-                        <p>Location *</p>
+                        <p>Location </p>
                         <v-text-field
                             v-model="jobLocation"
                             solo
                             label="city, province/state"
                             clearable
-                            required
                         ></v-text-field>
-                        <p>Full Time or Part Time *</p>
+                        <p>Full Time or Part Time</p>
                         <v-text-field
                             v-model="ftStatus"
                             solo
                             label="full time or part time"
                             clearable
-                            required
                         ></v-text-field>
-                        <p>Permanent or Temporary *</p>
+                        <p>Permanent or Temporary</p>
                        <v-text-field
                             v-model="permStatus"
                             solo
                             label="permanent or temporary"
                             clearable
-                            required
                         ></v-text-field>
                         <p>Duration for Temporary Positions (i.e. up to 6 months)</p>
                         <v-text-field
@@ -55,7 +52,6 @@
                             solo
                             label="duration"
                             clearable
-                            required
                         ></v-text-field>
                         <p>Salary Range</p>
                         <v-text-field
@@ -63,7 +59,6 @@
                             solo
                             label="i.e $40,000 - $50,000 annually"
                             clearable
-                            required
                         ></v-text-field>
                         <p>Closing Date (YYYY-MM-DD) *</p>
                         <v-text-field
@@ -71,7 +66,6 @@
                             solo
                             label="date"
                             clearable
-                            required
                         ></v-text-field>
                     </v-col>
 
@@ -79,14 +73,13 @@
                         cols="12"
                         md="10"
                     >
-                        <p>About the Role *</p>
+                        <p>About the Role</p>
                         <v-textarea
                         v-model="about"
                         solo
                         name="input-7-4"
                         label="Brief description of the role"
                         clearable
-                        required
                         ></v-textarea>
                         <p>Responsibilities (5-8 bullet points) *</p>
                         <v-textarea
@@ -95,16 +88,14 @@
                         name="input-7-4"
                         label="Brief summary"
                         clearable
-                        required
                         ></v-textarea>
-                        <p>Qualifications (i.e education, experience, skills, knowledge) *</p>
+                        <p>Qualifications (i.e education, experience, skills, knowledge)</p>
                         <v-textarea
                         v-model="qualifications"
                         solo
                         name="input-7-4"
                         label="List qualifications"
                         clearable
-                        required
                         ></v-textarea>
                     </v-col>
                     
@@ -118,14 +109,12 @@
                             solo
                             label="name"
                             clearable
-                            required
                         ></v-text-field>
                         <v-text-field
                             v-model="recruiterTitle"
                             solo
                             label="title"
                             clearable
-                            required
                         ></v-text-field>
                         <v-text-field
                             v-model="recruiterEmail"
@@ -133,26 +122,24 @@
                             :rules="emailRules"
                             label="E-mail"
                             clearable
-                            required
                         ></v-text-field>
                         <v-text-field
                             v-model="recruiterPhoneNumber"
                             solo
                             label="phone number"
                             clearable
-                            required
                         ></v-text-field>
                     </v-col>
                 </v-row>
                 
                 <v-btn 
-                @click="submitJobPost" 
+                @click="saveEdits()" 
                 class="ma-3"
                  outlined
                 rounded
                 small
                 color="cyan"
-                > Submit </v-btn>
+                > Save </v-btn>
                 
             </v-container>
         </v-form>
@@ -164,7 +151,7 @@ import axios from "axios";
 import cookies from "vue-cookies"
 
     export default {
-        name: "JobPostForm",
+        name: "JobPostEditForm",
         data(){ 
             return {
                 jobId: '',
@@ -185,9 +172,6 @@ import cookies from "vue-cookies"
                 recruiterPhoneNumber: '',
                 recruiterTitle: '',
                 valid: false,
-                requiredRules: [
-                    v => !!v || 'This field is required',
-                ],
                 emailRules: [
                     v => !!v || 'E-mail is required',
                     v => /.+@.+/.test(v) || 'E-mail must be valid',
@@ -197,10 +181,10 @@ import cookies from "vue-cookies"
             }
         },
         methods: {
-            submitJobPost() {
+            saveEdits() {
                 axios.request ({
                     url: "http://127.0.0.1:5000/api/jobs",
-                    method: "POST",
+                    method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
                     },

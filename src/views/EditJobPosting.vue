@@ -12,11 +12,11 @@
                         <v-sheet
                         height="100vh"
                         rounded="lg"
-                        class="pt-10"
+                        class="pt-10 ma-5" 
                         >
                            
-                        <!-- Job post input form -->
-                            <JobsInfo/>
+                        <!-- Input job post edit form -->
+                           <JobPostEditForm/>
                            
                         </v-sheet>
                     </v-col>      
@@ -27,15 +27,15 @@
 </template>
 
 <script>
-import JobsInfo from '../components/JobsInfo.vue';
 import RecrutierTopNav from '../components/RecrutierTopNav.vue';
 import SideNav from '../components/SideNav.vue';
-
+import JobPostEditForm from '../components/JobPostEditForm.vue';
 
       export default {
         components: {
-            JobsInfo,
-            RecrutierTopNav
+            RecrutierTopNav,
+            SideNav,
+           JobPostEditForm
         },
         data(){ 
             return {

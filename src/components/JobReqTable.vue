@@ -25,7 +25,7 @@
                                 color="cyan"
                                 @click="overlay = !overlay"
                                 >
-                                    View Job Post
+                                    Preview Job Post
                                 </v-btn>
                                 
                                 <v-overlay
@@ -111,7 +111,7 @@ import JobsInfo from './JobsInfo.vue';
                 this.$router.push('/candidates/'+this.jobId)
             },
              ToEditJobAdBtn() {
-                 this.$router.push()
+                 this.$router.push('/edit-job-posting')
              }
         }
   }
