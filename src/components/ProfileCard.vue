@@ -1,15 +1,15 @@
 <template>
     <div>
-        <v-col xs="12">
+        <v-col class="mx-auto"  xs="12" lg="10">
             <v-sheet 
             rounded="lg"
-            height="30vh"
+            height="35vh"
             >
                 <v-layout row wrap>
                     <v-flex>
-                        <v-list-item class="px-2">
+                        <div align="center" >
                             <v-list-item-avatar
-                                class="mt-10 mb-8 ml-10"
+                                class="ml-4 mt-6"
                                 color="yellow"
                                 size="80"
                             >
@@ -24,7 +24,7 @@
                                 <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
                                 <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
                             </v-list-item-content>
-                    </v-list-item>
+                    </div>
 
                     <v-list-item>
                         <v-list-item-content class="text-center">
@@ -102,7 +102,13 @@ import axios from 'axios';
                 })  
             },
             editUserInfo() {
-                this.$router.push('/edit-profile')
+                if (this.role == "recruiter"){
+                    this.$router.push('/edit-profile')
+                }
+                else{
+                    this.$router.push('/edit-profile-user')
+                }
+                
             }
         }
     }

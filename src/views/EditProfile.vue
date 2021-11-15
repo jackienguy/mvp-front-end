@@ -7,10 +7,9 @@
         <v-main class="grey lighten-3">
                 <v-container>
                     <v-row>
-                        <v-col>
+                        <v-col class="mx-auto"  xs="12" lg="8">
                             <v-card
                             class="overflow-auto"
-                            width="50vw"
                             height="100vh"
                             rounded="lg"
                             >

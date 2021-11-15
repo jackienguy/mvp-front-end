@@ -1,21 +1,23 @@
 <template>
-  <v-app id="inspire">
-    <v-app-bar
-        app
-         color="teal lighten-3"
-        flat
-        >
-    </v-app-bar>
+   <v-app id="inspire">
+        <v-app-bar
+            app
+            color="white"
+            flat
+            >
+        </v-app-bar>
 
-        <v-main class="grey lighten-3">
+        <v-main class="teal lighten-3">
             <v-container>
                 <v-row>
-                    <v-col>
+                    <v-col lg="8" class="mx-auto">
+                         <h2 id="message">Welcome to <strong id="logo">OPP</strong> as a recruiter! Let's get you set up</h2>
+
                         <v-sheet
                         min-height="70vh"
                         rounded="lg"
+                        class="mt-6"
                         >
-                        <!-- Job post input form -->
                             <v-form 
                             class="pl-16 pt-8"
                             v-model="valid"
@@ -26,7 +28,6 @@
                                         cols="12"
                                         md="12"
                                         >
-                                            <h2>Welcome to OPP as a recruiter! Let's get you set up</h2>
                                         </v-col>
                                         <v-col
                                         cols="12"
@@ -79,8 +80,16 @@
                                         </v-col>
                                     </v-row>
                                    
-                                    <v-btn class="ma-3" @click="updateRecruiterProfile"> Submit </v-btn>
-                                  
+                                    <v-btn
+                                    class="mb-6 mr-4 pa-4"
+                                    outlined
+                                    rounded
+                                    small
+                                    color="cyan"
+                                    @click="updateRecruiterProfile"
+                                    > 
+                                        Submit 
+                                    </v-btn>
                                 </v-container>
                             </v-form>
                         </v-sheet>
@@ -137,3 +146,13 @@ import cookies from 'vue-cookies';
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    #message {
+        text-align: center;
+        padding: 20px
+    }
+    #logo {
+        color: yellow;
+    }
+</style>

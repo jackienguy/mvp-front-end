@@ -5,7 +5,7 @@
         cols="12"
         md="12"
         >
-            <h2>Welcome to <strong id="logo">OPP</strong> as a job seeker! Let's get you set up</h2>
+            <h2 id="message">Welcome to <strong id="logo">OPP</strong> as a job seeker! Let's get you set up</h2>
         </v-col>
 
         <v-stepper class="mx-auto" v-model="e1" width="60vw" height="90vh">
@@ -380,9 +380,12 @@ import cookies from 'vue-cookies';
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     #logo {
         color: yellow;
+    }
+    #message {
+        text-align: center;
     }
 </style>
 

@@ -80,7 +80,7 @@ const routes = [
   },
   {
     path: '/edit-profile',
-    name: 'edit-profile',
+    name: 'edit-profile-user',
     component: EditProfile
   },
   {

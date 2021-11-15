@@ -9,6 +9,8 @@
         :location="user.location"
         :workingTitle="user.workingTitle"
         :phoneNumber="user.phoneNumber"
+        :role="user.role"
+
         />
     </div>
 </template>

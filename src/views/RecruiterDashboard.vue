@@ -4,19 +4,15 @@
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                   
-                            <ProfileInfo/>
-                
+                     <ProfileInfo/>
                 </v-row>
                 <v-row>
-                    <v-col>
-                            <v-sheet
-                            min-height="80vh"
-                            max-width="60vw"
-                            rounded="lg"
-                            >
-                    
-                        
+                    <v-col class="mx-auto" xs="12" lg="10">
+                        <v-sheet
+                        min-height="80vh"
+                        max-width="60vw"
+                        rounded="lg"
+                        >
                         <v-container class="grey lighten-5">
                             <v-row no-gutters>
                                 <v-col

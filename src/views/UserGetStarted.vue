@@ -7,15 +7,9 @@
             >
         </v-app-bar>
 
-        <v-main class="grey lighten-3">  
-            <v-sheet
-            min-height="70vh"
-            rounded="lg"
-            color="teal lighten-3"
-            >                       
-                <!-- input form -->
-                <UserGetStartedForm/>
-            </v-sheet>
+        <v-main class="teal lighten-3">                
+            <!-- input form -->
+            <UserGetStartedForm/>
         </v-main>
     </v-app>
 </template>
