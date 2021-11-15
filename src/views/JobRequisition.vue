@@ -5,9 +5,6 @@
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                   <!-- input sideNav -->
-                    <SideNav/>
-
                     <v-col>
                         <v-sheet
                         min-height="70vh"
@@ -35,14 +32,13 @@
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
 import ReqCard from '../components/ReqCard.vue';
 // import JobsInfo from '../components/JobsInfo.vue';
-import SideNav from '../components/SideNav.vue';
 
     export default {
         components: {
             RecruiterTopNav,
             ReqCard,
             // JobsInfo,
-            SideNav
+    
         },
         data(){ 
             return {

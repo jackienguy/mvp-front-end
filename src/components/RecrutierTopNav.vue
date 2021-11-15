@@ -38,7 +38,7 @@
                 >
 
                 <v-list class="pt-8" dense>
-                    <v-list-item
+                    <v-list-item color="yellow"
                     v-for="(link, i) in links"
                             :key="i"
                             :to="link.to"
@@ -62,6 +62,8 @@
             return {
                 links: [
                     {title:'Dashboard', to: '/recruiter-dashboard'},  
+                    {title:'Post Job', to: '/post-job'},  
+                    {title:'Job Requisitions', to: '/job-requisition'},  
                     {title:'Messages', to: ''}, 
                     {title:'Interviews', to: ''},
                 ],

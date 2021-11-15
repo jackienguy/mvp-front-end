@@ -4,15 +4,11 @@
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                    <v-col cols="3">
-                        <v-sheet 
-                        rounded="lg"
-                        height="80vh"
-                        >
+                   
                             <ProfileInfo/>
-                        </v-sheet>
-                    </v-col>
-
+                
+                </v-row>
+                <v-row>
                     <v-col>
                             <v-sheet
                             min-height="80vh"
@@ -74,7 +70,6 @@
                     </v-sheet>
                     </v-col>      
                 </v-row>
-               
             </v-container>
         </v-main>
     </v-app>

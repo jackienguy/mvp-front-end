@@ -1,76 +1,64 @@
 <template>
     <div>
-        <v-flex xs12 md10>
+        <v-col xs="12">
             <v-sheet 
             rounded="lg"
-            height="70vh"
+            height="30vh"
             >
-            <v-layout row wrap>
-                <v-flex class="text-center">
-                    <v-avatar
-                        class="mt-10 mb-8"
-                        color="yellow"
-                        size="80"
-                    >
-                            <v-icon dark>
-                                mdi-account-circle
-                            </v-icon>
-                    </v-avatar>
+                <v-layout row wrap>
+                    <v-flex>
+                        <v-list-item class="px-2">
+                            <v-list-item-avatar
+                                class="mt-10 mb-8 ml-10"
+                                color="yellow"
+                                size="80"
+                            >
+                                    <v-icon dark>
+                                        mdi-account-circle
+                                    </v-icon>
+                            </v-list-item-avatar>
 
-                    <v-btn
-                    class="mb-6 pa-4"
-                    width="10vw"
-                    outlined
-                    rounded
-                    small
-                    color="cyan"
-                    @click="editUserInfo()"
-                    >
-                    Edit Profile
-                    </v-btn>
+                            <v-list-item-content> 
+                                <v-list-item-title ><b>{{firstName}} {{lastName}} </b></v-list-item-title>
+                                <v-list-item-subtitle>{{ workingTitle }}</v-list-item-subtitle>
+                                <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
+                                <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
+                            </v-list-item-content>
+                    </v-list-item>
 
-                </v-flex>
-            </v-layout>
+                    <v-list-item>
+                        <v-list-item-content class="text-center">
+                            <v-list-item-subtitle><b>Email:</b> {{email}}  <b>|</b>  <b>Phone:</b> {{phoneNumber}}</v-list-item-subtitle>
+                            </v-list-item-content>
+                    </v-list-item>
+                
+                    <div class="mt-2" align="center">
+                        <v-btn
+                        class="mr-5"
+                        outlined
+                        rounded
+                        small
+                        color="cyan"
+                        @click="editUserInfo()"
+                        >
+                            Edit Profile
+                        </v-btn>
 
-            <v-divider></v-divider>
-            
-            <v-list-item link>
-                <v-list-item-content class="text-center">
-                    <v-list-item-title class="text-h7">
-                    <b>{{firstName}} {{lastName}} </b> 
-                    </v-list-item-title>
-                        <v-list-item-subtitle>{{workingTitle}}</v-list-item-subtitle>
-                        <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
-                        <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
-                </v-list-item-content>
-            </v-list-item>
+                        <v-btn
+                        outlined
+                        rounded
+                        small
+                        color="cyan"
+                        @click="logout()"
+                        >
+                        Log Out
+                        </v-btn>
+                    </div>
 
-            <v-divider></v-divider>
-
-            <v-list-item link>
-                <v-list-item-content class="text-center">
-                    <v-list-item-title class="text-h7">
-                        Contact 
-                    </v-list-item-title>
-                        <v-list-item-subtitle>Email: {{email}}</v-list-item-subtitle>
-                        <v-list-item-subtitle>Phone: {{phoneNumber}}</v-list-item-subtitle>
-            </v-list-item-content>
-            </v-list-item>
-            <v-row class="justify-center">
-                <v-btn
-                class="ma-6 pa-4"
-                width="10vw"
-                outlined
-                rounded
-                small
-                color="cyan"
-                @click="logout()"
-                >
-                Log Out
-                </v-btn>
-            </v-row>
-          </v-sheet>
-        </v-flex>
+                    </v-flex>
+                </v-layout> 
+            </v-sheet>
+        </v-col>
     </div>
 </template>
 

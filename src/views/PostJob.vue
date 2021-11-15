@@ -5,10 +5,6 @@
         <v-main class="grey lighten-3">
             <v-container>
                 <v-row>
-                    
-                     <!-- input sideNav -->
-                    <SideNav/>
-
                     <v-col>
                         <v-sheet
                         min-height="70vh"
@@ -28,13 +24,12 @@
 <script>
 import JobPostForm from '../components/JobPostForm.vue';
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
-import SideNav from '../components/SideNav.vue';
+
 
       export default {
         components: {
             JobPostForm,
             RecruiterTopNav,
-            SideNav
         },
         data(){ 
             return {
