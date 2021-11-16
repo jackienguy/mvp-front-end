@@ -5,21 +5,19 @@
         <v-main class="teal lighten-3">
             <v-container>
                 <v-row>
-                    <v-col>
+                    <v-col class="mx-auto" xs="12" lg="10">
                         <v-sheet
                         min-height="70vh"
                         rounded="lg"
                         >
-                            <b-tabs content-class="mt-3" fill>
-                                <b-tab title="Job Requisition Data" active>
-                                        <ReqCard/>
-                                </b-tab>
-                                <!-- <b-tab title="Job Posts" class="pa-12">
-                                    <JobsInfo/>
-                                </b-tab> -->
-            
-                                <b-tab></b-tab>
-                            </b-tabs>
+                            <div class="text-center pt-10 pb-6">
+                                <h2>Job Requisitions</h2>
+                            </div>
+
+                            <v-divider></v-divider>
+
+                            <ReqCard/>
+    
                         </v-sheet>
                     </v-col>      
                 </v-row>
@@ -31,13 +29,13 @@
 <script>
 import RecruiterTopNav from '../components/RecrutierTopNav.vue';
 import ReqCard from '../components/ReqCard.vue';
-// import JobsInfo from '../components/JobsInfo.vue';
+
 
     export default {
         components: {
             RecruiterTopNav,
             ReqCard,
-            // JobsInfo,
+           
     
         },
         data(){ 
