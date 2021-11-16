@@ -1,6 +1,6 @@
 <template>
     <v-row>
-          <v-col class="mx-auto" xs="10" >
+          <v-col class="mx-auto" xs="10" lg="8">
             <v-card
                 class="mx-auto pa-8 ma-5 overflow-auto"
                 height="70vh"

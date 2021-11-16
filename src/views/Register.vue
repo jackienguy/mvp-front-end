@@ -10,7 +10,7 @@
               id="registerForm"
               min-height="60vh"
               rounded="lg"
-              class="ml-16 mt-16"
+              class="ml-13 mt-16"
             >
             <v-toolbar id="toolBar" color="teal lighten-3">
               <v-toolbar-title id="registerTitle">Register</v-toolbar-title>

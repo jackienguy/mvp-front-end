@@ -32,7 +32,7 @@
                         :z-index="zIndex"
                         :value="overlay"
                         >   
-                        <v-col class="mx-auto" xs="12" lg="10">
+                        <v-col class="mx-auto" xs="12" lg="9">
                         <v-card
                         class="mx-auto pa-8 mb-5 overflow-auto"
                         height="60vh"

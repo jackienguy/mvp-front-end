@@ -7,7 +7,7 @@
       <v-container>
         <v-col xs="12" lg="8">
             <v-sheet
-              class="registerForm ml-16 mt-16"
+              class="registerForm ml-13 mt-16"
               min-height="60vh"
               width="40vw"
               rounded="lg"
