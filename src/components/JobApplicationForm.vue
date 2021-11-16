@@ -1,6 +1,6 @@
 <template>
     <v-row>
-          <v-col class="mx-auto" xs="12" lg="6">
+          <v-col class="mx-auto" xs="10" >
             <v-card
                 class="mx-auto pa-8 ma-5 overflow-auto"
                 height="70vh"
@@ -111,7 +111,7 @@ import cookies from 'vue-cookies';
         },
         data() {
             return {
-                alert: true,
+                alert: null,
                 experience: [],
                 skills: [],
                 education: [],
@@ -196,6 +196,7 @@ import cookies from 'vue-cookies';
                 }).then((response)=>{
                     console.log(response);
                     this.numApplicants += 1;
+                
                 }).catch((err)=>{
                     console.error(err);
                 })

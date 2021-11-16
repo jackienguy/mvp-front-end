@@ -3,8 +3,8 @@
         <v-row>
             
             <v-card 
-            class="jobReqCard mx-auto"
-            width="380"
+            class="overflow-auto mx-auto mb-5"
+            width="780"
             >
                 <v-card-text
                 >
@@ -32,7 +32,7 @@
                         :z-index="zIndex"
                         :value="overlay"
                         >   
-                        <v-col class="mx-auto" xs="12" lg="5">
+                        <v-col class="mx-auto" xs="12" lg="10">
                         <v-card
                         class="mx-auto pa-8 mb-5 overflow-auto"
                         height="60vh"

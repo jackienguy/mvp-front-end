@@ -42,7 +42,7 @@
                 color="teal"
                 @click="overlay = false"
             >
-                Cancel
+                Close
             </v-btn>
             </v-overlay>
     </div>

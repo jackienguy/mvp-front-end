@@ -1,6 +1,6 @@
 <template>
     <div>
-         <v-container fluid>
+         <v-container fluid id="jobDisplay">
             <v-row justify="space-around">
                 <v-col cols="12">
                     <UserJobAdCard 
@@ -56,5 +56,5 @@ import UserJobAdCard from "./UserJobAdCard.vue";
 </script>
 
 <style lang="scss" scoped>
-
+  
 </style>

@@ -1,14 +1,14 @@
 <template>
   <v-container>
         <div id="previewAd">
-            <v-col xs="12" md="6">
+            <v-col xs="12">
                   <v-hover
                     v-slot="{ hover }"
                     open-delay="200"
                     >
                 <v-card d-flex align-center mb-6
-                class="mx-auto"
-                width="380"
+                class="mx-auto pl-8"
+                width="780"
                 :elevation="hover ? 16 : 2"
                 :class="{ 'on-hover': hover }"
                 >

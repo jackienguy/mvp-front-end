@@ -80,7 +80,7 @@
                                 clearable
                                 required
                             ></v-text-field>
-                            <p>Start Date *</p>
+                            <p>Start Date (YYYY-MM-DD) *</p>
                             <v-text-field
                                 v-model="startDate"
                                 :rules="requiredRule"

@@ -1,6 +1,7 @@
 <template>
     <v-app id="inspire">
        <RecruiterTopNav/>
+       
         <v-main class="teal lighten-3">
             <v-container class="mt-">
                 <v-row>

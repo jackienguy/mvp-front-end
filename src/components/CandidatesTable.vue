@@ -4,10 +4,10 @@ b<template>
             <v-col class="mx-auto" xs="12" lg="10"> 
                 <v-card 
                 class="pt-5 pb-5"
-                >
+                > 
                   <v-list-content>
                       <v-list-item-title id="name" class="pa-6"><b>{{firstName}} {{lastName}} </b> </v-list-item-title>   
-                   
+                      <v-list-item-subtitle><b>Job ID: {{jobId}} - {{jobTitle}} </b> </v-list-item-subtitle>   
                           <v-btn
                           outlined
                           rounded
@@ -51,15 +51,14 @@ b<template>
                           Invite to Interview
                           </v-btn>
                  
-                  </v-list-content>
-                </v-card>
+                    </v-list-content>
+                  </v-card>
 
-                <v-divider></v-divider>
+                  <v-divider></v-divider>
 
-            <div v-if="isExpanded">
-              <ResumeInfo/>
-            </div>
-      
+                <div v-if="isExpanded">
+                  <ResumeInfo/>
+                </div>
             </v-col>
         </v-row>
   </div>

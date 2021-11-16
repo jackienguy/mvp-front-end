@@ -5,9 +5,6 @@
         <v-main class="teal lighten-3">
             <v-container>
                 <v-row>
-                    
-        
-
                     <v-col>
                         <v-sheet
                         height="100vh"

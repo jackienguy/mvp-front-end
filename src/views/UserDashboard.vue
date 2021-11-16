@@ -15,65 +15,48 @@
                         min-height="70vh"
                         rounded="lg"
                         >
-                        <div id="searchBar">
-                            <v-responsive max-width="400" class="pa-10">
+                        <v-toolbar class="pt-1" color="teal lighten-4">
+                            <v-responsive max-width="400" >
                                 <v-text-field
                                     dense
                                     flat
                                     hide-details
                                     rounded
                                     solo-inverted
-                                    label="Enter search"
-                                ></v-text-field>
-                            </v-responsive>  
-                        </div>
+                                    label=" Enter search"
+                                     
+                                > </v-text-field>
+                               
+                            </v-responsive> 
+                          
 
-                        <div class="ml-16">
+                        <div class="pb-1 pl-5 text-center">
                             <v-chip
-                            class="ma-2 pa-4"
-                            color="primary"
-                            >
-                            Popular
-                            </v-chip>
-
-                            <v-chip
-                            class="ma-2 pa-4"
-                            color="primary"
-                            >
-                            Trending
-                            </v-chip>
-
-                            <v-chip
-                            class="ma-2 pa-4"
-                            color="primary"
-                            >
-                            Remote
-                            </v-chip>
-
-                             <v-chip
                             class="ma-2"
                             color="primary"
                             >
                             <v-icon>mdi-heart</v-icon>
                             Favorites
                             </v-chip>
+
+                            <v-chip
+                            class="ma-2 pa-4"
+                            color="primary"
+                            >
+                            Popular
+                            </v-chip>
                         </div>
-
-                        <v-divider></v-divider>
-
-                        <div class="text-center pt-16 pb-6"> 
+                    </v-toolbar> 
+                       
+                        <div id="heading1" class="text-center pt-16 pb-6"> 
                             <h2>Featured Jobs</h2> 
                         </div>
 
                         <v-divider></v-divider>
 
-                        <v-layout justify-center>
-                            <v-flex xs 12>
-                            
+                            <!-- Input job card display -->
                                 <UserJobInfoView/>
-                                </v-flex>
-                        </v-layout>
-                        
+                                    
                         </v-sheet>   
                     </v-col> 
                 </v-row>
@@ -102,6 +85,6 @@ import UserJobInfoView from '../components/UserJobInfoView.vue'
     }
 </script>
 
-<style lang="sass">
-
+<style lang="scss">
+   
 </style>
