@@ -3,7 +3,7 @@
         <v-col class="mx-auto"  xs="12" lg="9">
             <v-sheet 
             rounded="lg"
-            height="45vh"
+            height="40vh"
             >
                 <v-layout row wrap>
                     <v-flex>

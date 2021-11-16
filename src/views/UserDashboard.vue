@@ -15,6 +15,52 @@
                         min-height="70vh"
                         rounded="lg"
                         >
+                        <div id="searchBar">
+                            <v-responsive max-width="400" class="pa-10">
+                                <v-text-field
+                                    dense
+                                    flat
+                                    hide-details
+                                    rounded
+                                    solo-inverted
+                                    label="Enter search"
+                                ></v-text-field>
+                            </v-responsive>  
+                        </div>
+
+                        <div class="ml-16">
+                            <v-chip
+                            class="ma-2 pa-4"
+                            color="primary"
+                            >
+                            Popular
+                            </v-chip>
+
+                            <v-chip
+                            class="ma-2 pa-4"
+                            color="primary"
+                            >
+                            Trending
+                            </v-chip>
+
+                            <v-chip
+                            class="ma-2 pa-4"
+                            color="primary"
+                            >
+                            Remote
+                            </v-chip>
+
+                             <v-chip
+                            class="ma-2"
+                            color="primary"
+                            >
+                            <v-icon>mdi-heart</v-icon>
+                            Favorites
+                            </v-chip>
+                        </div>
+
+                        <v-divider></v-divider>
+
                         <div class="text-center pt-16 pb-6"> 
                             <h2>Featured Jobs</h2> 
                         </div>
