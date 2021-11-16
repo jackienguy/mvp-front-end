@@ -21,7 +21,6 @@
         :recruiterEmail="post.recruiterEmail"
         :recruiterPhoneNumber="post.recruiterPhoneNumber"
         />
-
     </div>
 </template>
 

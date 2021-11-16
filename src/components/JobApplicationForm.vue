@@ -1,93 +1,93 @@
 <template>
-    <div>
-        <v-card
-            class="mx-auto pa-8 ma-5 overflow-auto"
-            height="70vh"
-            rounded="lg"
-            color="blue-grey lighten-4"
-        >
-            <v-card-text> 
-        
-                <!-- Personal details section -->
-                <div class="text--primary">
-                    <PersonalDetails
-                    :userId="user.userId"
-                    :email="user.email"
-                    :firstName="user.firstName"
-                    :lastName="user.lastName"
-                    :phoneNumber="user.phoneNumber"
-                    />
-                </div>
+    <v-row>
+          <v-col class="mx-auto" xs="12" lg="6">
+            <v-card
+                class="mx-auto pa-8 ma-5 overflow-auto"
+                height="70vh"
+                rounded="lg"
+                color="blue-grey lighten-4"
+            >
+                <v-card-text> 
+            
+                    <!-- Personal details section -->
+                    <div class="text--primary">
+                        <PersonalDetails
+                        :userId="user.userId"
+                        :email="user.email"
+                        :firstName="user.firstName"
+                        :lastName="user.lastName"
+                        :phoneNumber="user.phoneNumber"
+                        />
+                    </div>
 
-                <v-divider></v-divider>
+                    <v-divider></v-divider>
 
-                <!-- Experience section -->
-                <div class="text--primary">
-                    <ExperienceSection
-                    :userId="experience.userId"
-                    :title="experience.title"
-                    :companyName="experience.companyName"
-                    :workLocation="experience.workLocation"
-                    :startDate="experience.startDate"
-                    :endDate="experience.endDate"
-                    :description="experience.description"
-                    @saveUpdateToExperience="getExperienceInfo"
-                    />
-                </div>
+                    <!-- Experience section -->
+                    <div class="text--primary">
+                        <ExperienceSection
+                        :userId="experience.userId"
+                        :title="experience.title"
+                        :companyName="experience.companyName"
+                        :workLocation="experience.workLocation"
+                        :startDate="experience.startDate"
+                        :endDate="experience.endDate"
+                        :description="experience.description"
+                        @saveUpdateToExperience="getExperienceInfo"
+                        />
+                    </div>
 
-                <v-divider></v-divider>
+                    <v-divider></v-divider>
 
-                <!-- Education Section -->
-                <div class="text--primary">
-                    <EducationSection
-                    :userId="education.userId"
-                    :certificateName="education.certificateName"
-                    :major="education.major"
-                    :institutionLocation="education.institutionLocation"
-                    :institutionName="education.institutionName"
-                    :completionDate="education.completionDate"
-                    :other="education.other"
-                    />
-                </div>
+                    <!-- Education Section -->
+                    <div class="text--primary">
+                        <EducationSection
+                        :userId="education.userId"
+                        :certificateName="education.certificateName"
+                        :major="education.major"
+                        :institutionLocation="education.institutionLocation"
+                        :institutionName="education.institutionName"
+                        :completionDate="education.completionDate"
+                        :other="education.other"
+                        />
+                    </div>
 
-                <v-divider></v-divider>
-                <!-- SKills section -->
-                <div class="text--primary">
-                    <SkillsSection
-                    :userId="skills.userId"
-                    :skillType="skills.skillType"
-                    :proficiencyLevel="skills.proficiencyLevel"
-                    /> 
-                </div>
+                    <v-divider></v-divider>
+                    <!-- SKills section -->
+                    <div class="text--primary">
+                        <SkillsSection
+                        :userId="skills.userId"
+                        :skillType="skills.skillType"
+                        :proficiencyLevel="skills.proficiencyLevel"
+                        /> 
+                    </div>
 
-            </v-card-text>
+                </v-card-text>
 
-            <v-card-actions>
-                <v-btn
-                    class="ml-2 mt-5 pa-4"
+                <v-card-actions>
+                    <v-btn
+                        outlined
+                        rounded
+                        small
+                        color="cyan"
+                        @click="submitApplication(), alert = !alert"
+                    >
+                        Submit Application
+                    </v-btn>
+
+                    <v-alert
+                    class="ml-5"
+                    :value="alert"
                     outlined
-                    rounded
-                    small
-                    color="cyan"
-                    @click="submitApplication(), alert = !alert"
-                  >
-                    Submit Application
-                </v-btn>
-
-                <v-alert
-                class="ml-5"
-                :value="alert"
-                outlined
-                type="success"
-                text
-                transition="scale-transition"
-                >
-                    Your application have been submitted
-                </v-alert>
-
-            </v-card-actions>
-        </v-card>  
-    </div>
+                    type="success"
+                    text
+                    transition="scale-transition"
+                    >
+                        Your application have been submitted
+                    </v-alert>
+                </v-card-actions>
+            </v-card>  
+        </v-col>
+    </v-row>
 </template>
 
 <script>

@@ -6,7 +6,7 @@
             <v-container>
                 <v-row>
                     
-                    <SideNav/>
+        
 
                     <v-col>
                         <v-sheet
@@ -28,13 +28,11 @@
 
 <script>
 import RecrutierTopNav from '../components/RecrutierTopNav.vue';
-import SideNav from '../components/SideNav.vue';
 import JobPostEditForm from '../components/JobPostEditForm.vue';
 
       export default {
         components: {
             RecrutierTopNav,
-            SideNav,
            JobPostEditForm
         },
         data(){ 

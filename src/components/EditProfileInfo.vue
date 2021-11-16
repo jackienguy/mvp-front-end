@@ -47,7 +47,7 @@
         <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn
-            class="ma-12 pa-4"
+            class="ma-2 pa-5"
             outlined
             rounded
             small
@@ -56,16 +56,19 @@
         >
             Save
         </v-btn>
-        </v-card-actions>
-        <v-snackbar
-        v-model="hasSaved"
-        :timeout="2000"
-        absolute
-        bottom
-        left
+
+        <v-btn
+            class="ma-2 pa-5"
+            outlined
+            rounded
+            small
+            color="cyan"
+            @click="cancelEdit()"
         >
-        Your profile has been updated
-        </v-snackbar>
+            Cancel
+        </v-btn>
+       
+        </v-card-actions>
     </div>
 </template>
 
@@ -121,7 +124,13 @@ import cookies from 'vue-cookies';
                 }).catch((err)=>{
                     console.error(err);
                 })
-        },
+        },cancelEdit() {
+            if (this.role == 'recruiter') {
+                this.$router.push("/recruiter-dashboard");
+            } else {
+                this.$router.push("/user-dashboard");
+            }
+        }
     }
   }
 

@@ -3,10 +3,10 @@
       <!-- import user top nav component -->
       <UserTopNav/>
 
-        <v-main class="grey lighten-3">
+        <v-main class="teal lighten-3">
                 <v-container>
                     <v-row>
-                        <v-col xs12>
+                        <v-col class="mx-auto" xs="12" lg="8">
                             <v-card
                             class="overflow-auto"
                             height="100vh"
@@ -63,10 +63,14 @@ import UserTopNav from '../components/UserTopNav.vue';
         },
         methods: {
             cancelEdit() {
-                this.$router.push('/user-profile')
+               if (this.role == 'recruiter') {
+                this.$router.push("/recruiter-dashboard");
+            } else {
+                this.$router.push("/user-dashboard");
             }
         }
     }
+}
 </script>
 
 <style lang="scss" scoped>

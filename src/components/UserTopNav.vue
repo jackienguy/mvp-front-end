@@ -57,7 +57,7 @@
             return {
                links: [
                     {title:'Dashboard', to: '/user-dashboard'}, 
-                    {title:'Profile', to: '/user-profile'}, 
+                    {title:'Resume', to: '/user-profile'}, 
                     {title:'Messages', to: ''}, 
                 ],
                 navDrawer: null,

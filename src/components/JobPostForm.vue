@@ -147,7 +147,7 @@
                 
                 <v-btn 
                 @click="submitJobPost" 
-                class="ma-3"
+                class="ma-3 pa-5"
                  outlined
                 rounded
                 small

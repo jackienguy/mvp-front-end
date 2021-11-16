@@ -15,22 +15,15 @@
                         min-height="70vh"
                         rounded="lg"
                         >
-                        <v-responsive max-width="400">
-                            <v-text-field
-                            class="ma-8"
-                            dense
-                            flat
-                            hide-details
-                            rounded
-                            solo-inverted
-                            label="Search Job"
-                            ></v-text-field>
-                        </v-responsive>
+                        <div class="text-center pt-16 pb-6"> 
+                            <h2>Featured Jobs</h2> 
+                        </div>
+
                         <v-divider></v-divider>
 
                         <v-layout justify-center>
                             <v-flex xs 12>
-                            <div> <h3>Featured Jobs</h3> </div>
+                            
                                 <UserJobInfoView/>
                                 </v-flex>
                         </v-layout>

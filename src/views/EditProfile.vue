@@ -27,16 +27,6 @@
                                 <EditProfileInfo/>
                                
                             </v-card-text>
-                            <v-btn
-                                class="ma-12 pa-4"
-                                outlined
-                                rounded
-                                small
-                                color="cyan"
-                                @click="cancelEdit()"
-                            >
-                            Cancel
-                            </v-btn>
                             </v-card>
                         </v-col>
                     </v-row>

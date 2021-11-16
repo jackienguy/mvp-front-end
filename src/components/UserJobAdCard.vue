@@ -1,12 +1,16 @@
 <template>
   <v-container>
-        <v-row>
-            <v-col
-                cols="5"
-            >
-                <v-card 
+        <div id="previewAd">
+            <v-col xs="12" md="6">
+                  <v-hover
+                    v-slot="{ hover }"
+                    open-delay="200"
+                    >
+                <v-card d-flex align-center mb-6
                 class="mx-auto"
                 width="380"
+                :elevation="hover ? 16 : 2"
+                :class="{ 'on-hover': hover }"
                 >
                     <v-card-text
                     >
@@ -31,30 +35,34 @@
                             <v-overlay
                             :z-index="zIndex"
                             :value="overlay"
-                            >   
-                            <v-card
-                            class="mx-auto pa-8 mb-5 overflow-auto"
-                            max-width="40vw"
-                            height="60vh"
-                            color="white"
-                            >
-                                <JobsInfo/>
-                            </v-card>
-                    
+                            >  
+                            <v-row> 
+                            <v-col class="mx-auto" xs="12" lg="6">
+                                <v-card 
+                                class="mx-auto pa-16 overflow-auto"
+                                height="60vh"
+                                color="white"
+                                >
+                                    <JobsInfo/>
+                                </v-card>
+                        
                                 <v-btn
-                                    class="white--text"
+                                    class="white--text mt-8"
                                     color="teal"
                                     @click="overlay = false"
                                 >
                                     Close
                                 </v-btn>
+                            </v-col>
+                            </v-row>
                             </v-overlay>
                         </div>
                     </v-card-actions>
                 </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
+                </v-hover>
+            </v-col>
+        </div>
+    </v-container>
 </template>
 
 <script>
@@ -83,7 +91,7 @@ import JobsInfo from './JobsInfo.vue';
 
 
 <style lang="scss" scoped>
-
+ 
 </style>
 
 

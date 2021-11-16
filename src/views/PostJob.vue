@@ -2,10 +2,10 @@
   <v-app id="inspire">
       <!-- Import top nav component -->
       <RecruiterTopNav/> 
-        <v-main class="grey lighten-3">
+        <v-main class="teal lighten-3">
             <v-container>
                 <v-row>
-                    <v-col>
+                    <v-col class="mx-auto" xs="12" lg="8">
                         <v-sheet
                         min-height="70vh"
                         rounded="lg"
@@ -30,16 +30,7 @@ import RecruiterTopNav from '../components/RecrutierTopNav.vue';
         components: {
             JobPostForm,
             RecruiterTopNav,
-        },
-        data(){ 
-            return {
-                //Side nav
-                sideBarLinks: [
-                    {title:'Post Job', to: '/post-job'}, 
-                    {title:'View Job Requisitions', to: '/job-requisition'}, 
-                ],
-            }
-        }
+        },        
       }
     
 </script>

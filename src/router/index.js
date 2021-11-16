@@ -9,7 +9,6 @@ import UserDashboard from '../views/UserDashboard.vue'
 import JobRequisition from '../views/JobRequisition.vue'
 import UserProfile from '../views/UserProfile.vue'
 import UserGetStarted from '../views/UserGetStarted.vue'
-import Application from '../views/Application.vue'
 import Candidates from '../views/Candidates.vue'
 import EditResume from '../views/EditResume.vue'
 import EditProfile from '../views/EditProfile.vue'
@@ -67,11 +66,6 @@ const routes = [
     path: '/user-get-started',
     name: 'user-get-started',
     component: UserGetStarted
-  },
-  {
-    path: '/application',
-    name: 'application',
-    component: Application
   },
   {
     path: '/edit-resume',
