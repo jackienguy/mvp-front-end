@@ -2,7 +2,6 @@
     <div>
         <v-card
             class="mx-auto pa-8 ma-5 overflow-auto"
-            max-width="60vw"
             height="70vh"
             rounded="lg"
             color="blue-grey lighten-4"

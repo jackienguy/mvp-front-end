@@ -1,10 +1,13 @@
 <template>
-  
-    <v-app id="inspire">
-      <!-- import user top nav component -->
-      <UserTopNav/>
+   <v-app id="inspire">
+        <v-app-bar
+            app
+            color="white"
+            flat
+            >
+        </v-app-bar>
 
-        <v-main class="grey lighten-3">
+        <v-main class="teal lighten-3">
                 <v-container>
                     <v-row>
                         <v-col class="mx-auto"  xs="12" lg="8">
@@ -43,12 +46,10 @@
 </template>
 
 <script>
-import UserTopNav from '../components/UserTopNav.vue';
 import EditProfileInfo from '../components/EditProfileInfo.vue';
 
     export default {
         components: {
-            UserTopNav,
             EditProfileInfo
         },
     }

@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <!-- Import top nav component -->
       <RecruiterTopNav/> 
-        <v-main class="grey lighten-3">
+        <v-main class="teal lighten-3">
             <v-container>
                 <v-row>
                     <v-col>

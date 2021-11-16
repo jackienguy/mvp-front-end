@@ -1,9 +1,9 @@
 <template>
     <div>
-        <v-col class="mx-auto"  xs="12" lg="10">
+        <v-col class="mx-auto"  xs="12" lg="9">
             <v-sheet 
             rounded="lg"
-            height="35vh"
+            height="45vh"
             >
                 <v-layout row wrap>
                     <v-flex>
@@ -19,7 +19,7 @@
                             </v-list-item-avatar>
 
                             <v-list-item-content> 
-                                <v-list-item-title ><b>{{firstName}} {{lastName}} </b></v-list-item-title>
+                                <v-list-item-title id="name" ><b>{{firstName}} {{lastName}} </b></v-list-item-title>
                                 <v-list-item-subtitle>{{ workingTitle }}</v-list-item-subtitle>
                                 <v-list-item-subtitle>{{organizationName}}</v-list-item-subtitle>
                                 <v-list-item-subtitle>{{location}}</v-list-item-subtitle>
@@ -102,20 +102,23 @@ import axios from 'axios';
                 })  
             },
             editUserInfo() {
-                if (this.role == "recruiter"){
-                    this.$router.push('/edit-profile')
-                }
-                else{
-                    this.$router.push('/edit-profile-user')
-                }
-                
+                this.$router.push('/edit-profile')
+             
             }
         }
     }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="scss" scoped>
+    #name {
+        font-size: 1.3em;
+    }
 
+@media screen and (min-width: 760px) {
+    #name {
+        font-size: 1.4em;
+    }
+}
 </style>
 
 

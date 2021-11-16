@@ -3,19 +3,13 @@
       <!-- import user top nav component -->
       <UserTopNav/>
 
-        <v-main class="grey lighten-3">
+        <v-main class="teal lighten-3">
             <v-container>
                 <v-row>
-                    <v-col cols="3">
-                        <v-sheet 
-                        rounded="lg"
-                        height="70vh"
-                        >
-                            <!-- import user profile info -->
-                            <ProfileInfo/>
-                        </v-sheet>
-                    </v-col>
-                    
+                    <!-- import user profile info -->
+                    <ProfileInfo/>      
+                </v-row>
+                    <v-row>
                     <v-col>
                     
                          <ResumeCard/>

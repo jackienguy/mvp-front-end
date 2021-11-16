@@ -2,23 +2,22 @@
     <div>
         <v-app-bar id="nav"
             app
-            color="teal lighten-3"
             flat
             >
             <v-btn id="toggleBtn" @click="navDrawer = !navDrawer"
-            class="mx-2"
+            class="mx-2 pa-9"
             fab
             color="teal"
             >
-                <v-icon dark dense color="yellow" >
+                <v-icon class= dark dense color="yellow" >
                     mdi-format-list-bulleted-square
                 </v-icon>
             </v-btn>
 
-            <v-tabs
+            <v-tabs 
                 centered
                 class="ml-n9"
-                color="yellow"
+                color="yellow accent-4"
             >
                 <v-tab class="navLinks"
                 v-for="(link, i) in links"
@@ -79,7 +78,7 @@
         margin: 0;
     }
     #toggleBtn {
-        margin: 25px 10px 20px;
+        margin: 60px 10px 20px;
         cursor: pointer;
     }
 

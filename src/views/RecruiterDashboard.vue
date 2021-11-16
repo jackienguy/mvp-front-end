@@ -1,8 +1,8 @@
 <template>
     <v-app id="inspire">
        <RecruiterTopNav/>
-        <v-main class="grey lighten-3">
-            <v-container>
+        <v-main class="teal lighten-3">
+            <v-container class="mt-">
                 <v-row>
                      <ProfileInfo/>
                 </v-row>
@@ -10,7 +10,6 @@
                     <v-col class="mx-auto" xs="12" lg="10">
                         <v-sheet
                         min-height="80vh"
-                        max-width="60vw"
                         rounded="lg"
                         >
                         <v-container class="grey lighten-5">

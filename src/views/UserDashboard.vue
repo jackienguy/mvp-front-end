@@ -3,13 +3,14 @@
       <!-- import user top nav component -->
       <UserTopNav/>
 
-        <v-main class="grey lighten-3">
-            <v-container>
-                <v-layout>
+        <v-main class="teal lighten-3">
+            <v-container class="pt-10">
+                <v-row>
                     <!-- import user profile info -->
                     <ProfileInfo/>
-                      
-                    <v-col>
+                </v-row>  
+                <v-row>
+                     <v-col class="mx-auto" xs="12" lg="10">
                         <v-sheet
                         min-height="70vh"
                         rounded="lg"
@@ -36,7 +37,7 @@
                         
                         </v-sheet>   
                     </v-col> 
-                </v-layout>
+                </v-row>
             </v-container>
         </v-main>
     </v-app>

@@ -3,10 +3,10 @@
       <!-- import user top nav component -->
       <UserTopNav/>
 
-        <v-main class="grey lighten-3">
+        <v-main class="teal lighten-3">
             <v-container>
                 <v-row>
-                    <v-col cols="3">
+                    <v-col xs="12">
                         <v-sheet 
                         rounded="lg"
                         height="70vh"

@@ -1,7 +1,12 @@
 <template>
+  <v-col class="mx-auto" xs="12" lg="10">
+      <v-sheet
+      min-height="80vh"
+      rounded="lg"
+      >
     <v-card
-        class="overflow-auto"
-        width="50vw"
+        class="mx-auto overflow-auto pa-16"
+        
         height="100vh"
         rounded="lg"
     >
@@ -32,6 +37,8 @@
 
         </v-card-text>
     </v-card>
+      </v-sheet>
+   </v-col>
 </template>
 
 <script>

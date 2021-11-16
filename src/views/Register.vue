@@ -5,13 +5,14 @@
 
     <v-main class="grey lighten-3">
       <v-container>
-          <v-col xs12>
+          <v-col xs="12" md="10" lg="8">
             <v-sheet
               id="registerForm"
               min-height="60vh"
               rounded="lg"
+              class="ml-16 mt-16"
             >
-            <v-toolbar color="teal lighten-3">
+            <v-toolbar id="toolBar" color="teal lighten-3">
               <v-toolbar-title id="registerTitle">Register</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
@@ -24,26 +25,26 @@
                         <v-text-field
                             v-model="firstName"
                             :counter="20"
-                            label="First Name"
+                            label="First Name *"
                             required
                         ></v-text-field>
                         <v-text-field
                             v-model="lastName"
                             :counter="20"
-                            label="Last Name"
+                            label="Last Name *"
                             required
                         ></v-text-field>
                         <v-text-field
                             v-model="email"
                             :error-messages="emailErrors"
-                            label="E-mail"
+                            label="E-mail *"
                             required
                             @input="$v.email.$touch()"
                             @blur="$v.email.$touch()"
                         ></v-text-field>
                         <v-text-field
                             v-model="password"
-                            label="Password"
+                            label="Password *"
                             type="password"
                             :counter="30"
                             required
@@ -197,4 +198,5 @@
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         font-size: 1.8em;
     }
+  
 </style>

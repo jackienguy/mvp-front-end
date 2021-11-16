@@ -380,7 +380,7 @@ import cookies from 'vue-cookies';
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
     #logo {
         color: yellow;
     }

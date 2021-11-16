@@ -5,9 +5,9 @@
        
     <v-main class="grey lighten-3">
       <v-container>
-          <v-col>
+        <v-col xs="12" lg="8">
             <v-sheet
-              class="registerForm"
+              class="registerForm ml-16 mt-16"
               min-height="60vh"
               width="40vw"
               rounded="lg"
@@ -141,6 +141,7 @@
                     }
                 }).catch((err)=>{
                     console.error(err);
+        
                 })
             },goToRegister() {
                 this.$router.push('/')

@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <RecrutierTopNav/>
 
-        <v-main class="grey lighten-3">
+        <v-main class="teal lighten-3">
             <v-container>
                 <v-row>
                     
