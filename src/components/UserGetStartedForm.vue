@@ -312,7 +312,7 @@ import cookies from 'vue-cookies';
     methods: {
         submitExperience() {
             axios.request ({
-                url: "http://127.0.0.1:5000/api/user/experience",
+                url: "http://youropp.ml/api/user/experience",
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -335,7 +335,7 @@ import cookies from 'vue-cookies';
         },
         submitEducation() {
             axios.request ({
-                url: "http://127.0.0.1:5000/api/user/education",
+                url: "http://youropp.ml/api/user/education",
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -358,7 +358,7 @@ import cookies from 'vue-cookies';
         },
          submitSkills() {
             axios.request ({
-                url: "http://127.0.0.1:5000/api/user/skills",
+                url: "http://youropp.ml/api/user/skills",
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

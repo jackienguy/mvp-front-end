@@ -32,7 +32,7 @@ import cookies from 'vue-cookies'
         methods: {
             getApplicantsList() {
                 axios.request({
-                    url: "http://127.0.0.1:5000/api/applicants",
+                    url: "http://youropp.ml/api/applicants",
                     methods: "GET",
                     headers: {
                         loginToken: cookies.get('loginToken')

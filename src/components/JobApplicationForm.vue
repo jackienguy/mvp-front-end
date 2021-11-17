@@ -127,7 +127,7 @@ import cookies from 'vue-cookies';
         methods: {
             getProfileData() {
                 axios.request ({
-                    url: "http://127.0.0.1:5000/api/user",
+                    url: "http://youropp.ml/api/user",
                     methods: "GET",
                     params: {
                         userId: cookies.get('userId')
@@ -141,7 +141,7 @@ import cookies from 'vue-cookies';
             },
             getExperienceInfo() {
                 axios.request ({
-                    url: "http://127.0.0.1:5000/api/user/experience",
+                    url: "http://youropp.ml/api/user/experience",
                     methods: "GET",
                     params: {
                         userId: cookies.get('userId')
@@ -155,7 +155,7 @@ import cookies from 'vue-cookies';
             },
             getEduInfo() {
                 axios.request ({
-                    url: "http://127.0.0.1:5000/api/user/education",
+                    url: "http://youropp.ml/api/user/education",
                     methods: "GET",
                     params: {
                         userId: cookies.get('userId')
@@ -169,7 +169,7 @@ import cookies from 'vue-cookies';
             },
             getSkillsInfo() {
                 axios.request ({
-                    url: "http://127.0.0.1:5000/api/user/skills",
+                    url: "http://youropp.ml/api/user/skills",
                     methods: "GET",
                     params: {
                         userId: cookies.get('userId')
@@ -184,7 +184,7 @@ import cookies from 'vue-cookies';
         // Submitting application 
             submitApplication() {
                 axios.request ({
-                    url: "http://127.0.0.1:5000/api/application",
+                    url: "http://youropp.ml/api/application",
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

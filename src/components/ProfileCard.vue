@@ -88,7 +88,7 @@ import axios from 'axios';
         methods: {
             logout() {
                 axios.request ({
-                    url: "http://127.0.0.1:5000/api/signin",
+                    url: "http://youropp.ml/api/signin",
                     method: "DELETE",
                     data: {
                         loginToken: cookies.get('loginToken')

@@ -58,7 +58,7 @@ import cookies from "vue-cookies"
         methods: {
             saveSkillsEdit() {
                 axios.request({
-                url: "http://127.0.0.1:5000/api/user/skills",
+                url: "http://youropp.ml/api/user/skills",
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

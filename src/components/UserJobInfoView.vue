@@ -39,7 +39,7 @@ import UserJobAdCard from "./UserJobAdCard.vue";
         methods: {
             getJobAdData() {
                 axios.request ({
-                    url: "http://127.0.0.1:5000/api/jobs",
+                    url: "http://youropp.ml/api/jobs",
                     methods: "GET",
                     params: {
                         userId: cookies.get('userId')

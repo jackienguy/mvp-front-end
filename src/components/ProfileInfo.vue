@@ -36,7 +36,7 @@ import cookies from 'vue-cookies'
         methods: {
             getProfileData() {
                 axios.request ({
-                    url: "http://127.0.0.1:5000/api/user",
+                    url: "http://youropp.ml/api/user",
                     methods: "GET",
                     params: {
                         userId: cookies.get('userId')
